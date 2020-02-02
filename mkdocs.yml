@@ -1,0 +1,16 @@
+site_name: cookiecutter-napari-plugin
+site_description: Minimal Cookiecutter template for authoring napari plugins.
+site_author: Talley Lambert
+
+theme: readthedocs
+
+repo_url: https://github.com/napari/cookiecutter-napari-plugin
+
+pages:
+- Home: index.md
+- User Guide:
+    - Quickstart: user-guide/quickstart.md
+    - Publish: user-guide/publish-plugin.md
+- Contributor Guide:
+    - Quickstart: contributor-guide/quickstart.md
+    - Documentation: contributor-guide/documentation.md
