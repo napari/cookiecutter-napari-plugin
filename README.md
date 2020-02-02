@@ -21,7 +21,7 @@ Cookiecutter prompts you for information regarding your plugin:
 full_name [Napari Developer]: Ramon y Cajal
 email [yourname@example.com]: ramon@cajal.es
 github_username [githubuser]: neuronz52
-plugin_name [foobar]: Growth Cone Finder
+plugin_name [foobar]: growth-cone-finder
 module_name [growth_cone_finder]: growth_cone_finder
 short_description [A simple plugin to use with napari]:
 version [0.1.0]:
@@ -42,7 +42,7 @@ INFO:post_gen_project:Moving files for mkdocs.
 There you go - you just created a minimal napari plugin:
 
 ```no-highlight
-napari-growth_cone_finder/
+napari-growth-cone-finder/
 ├── LICENSE
 ├── README.rst
 ├── docs
