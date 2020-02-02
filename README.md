@@ -51,7 +51,6 @@ napari-growth_cone_finder/
 ├── napari_growth_cone_finder.py
 ├── setup.py
 ├── tests
-│   ├── conftest.py
 │   └── test_growth_cone_finder.py
 └── tox.ini
 ```
