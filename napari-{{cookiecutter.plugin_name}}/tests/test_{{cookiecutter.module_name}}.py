@@ -7,7 +7,8 @@ from napari_{{cookiecutter.module_name}} import napari_get_reader
 # def test_reader():
 #     from tempfile import NamedTemporaryFile
 #     import numpy as np
-
+#
+#     # use your own `.ext` here
 #     with NamedTemporaryFile(suffix='.ext', delete=False) as tmp:
 #         out_data = np.random.rand(20, 20)
 #         # write_data_to_file(tmp.name, out_data)
