@@ -7,7 +7,7 @@ test_task:
       - IMAGE: python:3.7-slim
       - IMAGE: python:3.8-slim
 
-  name: ${$IMAGE}
+  name: $IMAGE
 
   container:
     image: $IMAGE
