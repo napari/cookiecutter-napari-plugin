@@ -13,10 +13,11 @@
         "none"
     ],
     "license": [
-        "MIT",
         "BSD-3",
-        "GNU GPL v3.0",
+        "MIT",
+        "Mozilla Public License 2.0",
         "Apache Software License 2.0",
-        "Mozilla Public License 2.0"
+        "GNU LGPL v3.0",
+        "GNU GPL v3.0"
     ]
 }
