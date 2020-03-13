@@ -25,7 +25,7 @@ plugin_name [foobar]: growth-cone-finder
 module_name [growth_cone_finder]: growth_cone_finder
 short_description [A simple plugin to use with napari]:
 version [0.1.0]:
-napari_version [0.2.12]:
+minimum_napari_version [None]:
 Select docs_tool:
 1 - mkdocs
 2 - sphinx

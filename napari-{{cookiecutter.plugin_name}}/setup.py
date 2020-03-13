@@ -11,6 +11,14 @@ def read(fname):
     return codecs.open(file_path, encoding='utf-8').read()
 
 
+# Add your dependencies here
+install_requires = []
+
+{% if cookiecutter.minimum_napari_version != "None" -%}
+install_requires += ['napari>={{cookiecutter.minimum_napari_version}}'],
+{%- endif %}
+
+
 setup(
     name='napari-{{cookiecutter.plugin_name}}',
     version='{{cookiecutter.version}}',
@@ -24,7 +32,7 @@ setup(
     long_description=read('README.rst'),
     py_modules=['napari_{{cookiecutter.module_name}}'],
     python_requires='>=3.6',
-    install_requires=['napari>={{cookiecutter.napari_version}}'],
+    install_requires=install_requires,
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
