@@ -1,0 +1,20 @@
+test_task:
+  auto_cancellation: true
+
+  env:
+    matrix:
+      - IMAGE: python:3.6-slim
+      - IMAGE: python:3.7-slim
+      - IMAGE: python:3.8-slim
+
+  name: ${$IMAGE}
+
+  container:
+    image: $IMAGE
+  
+  install_script:
+    - pip install pytest pytest-cookies tox
+
+  test_script:
+    - ${PY-python3} --version
+    - pytest -s
