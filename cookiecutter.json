@@ -6,7 +6,7 @@
     "module_name": "{{ cookiecutter.plugin_name|lower|replace('-', '_') }}",
     "short_description": "A simple plugin to use with napari",
     "version": "0.1.0",
-    "napari_version": "0.2.12",
+    "minimum_napari_version": "None",
     "docs_tool": [
         "mkdocs",
         "sphinx",

@@ -41,7 +41,7 @@ plugin_name [foobar]: growth-cone-finder
 module_name [growth_cone_finder]: growth_cone_finder
 short_description [A simple plugin to use with napari]:
 version [0.1.0]:
-napari_version [0.2.12]: 0.2.13
+minimum_napari_version [None]: 0.3.0
 ```
 
 The values in the square brackets (f.i. ``[foobar]``) are defaults for the according variables.
