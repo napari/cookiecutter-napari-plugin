@@ -58,7 +58,8 @@ the coverage at least stays the same before you submit a pull request.
 License
 -------
 
-Distributed under the terms of the `{{cookiecutter.license}}`_ license, "napari-{{cookiecutter.plugin_name}}" is free and open source software
+Distributed under the terms of the `{{cookiecutter.license}}`_ license,
+"napari-{{cookiecutter.plugin_name}}" is free and open source software
 
 
 Issues
@@ -71,7 +72,9 @@ If you encounter any problems, please `file an issue`_ along with a detailed des
 .. _`MIT`: http://opensource.org/licenses/MIT
 .. _`BSD-3`: http://opensource.org/licenses/BSD-3-Clause
 .. _`GNU GPL v3.0`: http://www.gnu.org/licenses/gpl-3.0.txt
+.. _`GNU LGPL v3.0`: http://www.gnu.org/licenses/lgpl-3.0.txt
 .. _`Apache Software License 2.0`: http://www.apache.org/licenses/LICENSE-2.0
+.. _`Mozilla Public License 2.0`: https://www.mozilla.org/media/MPL/2.0/index.txt
 .. _`cookiecutter-napari-plugin`: https://github.com/napari/cookiecutter-napari-plugin
 .. _`file an issue`: https://github.com/{{cookiecutter.github_username}}/napari-{{cookiecutter.plugin_name}}/issues
 .. _`napari`: https://github.com/napari/napari

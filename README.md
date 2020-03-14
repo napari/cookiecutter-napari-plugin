@@ -32,10 +32,13 @@ Select docs_tool:
 3 - none
 Choose from 1, 2, 3 [1]: 1
 Select license:
-1 - MIT
-2 - BSD-3
-3 - GNU GPL v3.0
-Choose from 1, 2, 3 [1]: 2
+1 - BSD-3
+2 - MIT
+3 - Mozilla Public License 2.0
+4 - Apache Software License 2.0
+5 - GNU LGPL v3.0
+6 - GNU GPL v3.0
+Choose from 1, 2, 3, 4, 5, 6 (1, 2, 3, 4, 5, 6) [1]:
 INFO:post_gen_project:Moving files for mkdocs.
 ```
 
@@ -66,8 +69,8 @@ napari-growth-cone-finder/
   plugin
 - Continuous integration configuration for [Travis CI] and [AppVeyor]
 - Optional documentation with either [Sphinx] or [MkDocs]
-- Choose from several licenses, such as [MIT], [BSD-3], [Apache v2.0], [GNU GPL
-  v3.0], or [MPL v2.0]
+- Choose from several licenses, including [BSD-3], [MIT], [MPL v2.0], [Apache v2.0], [GNU GPL
+  v3.0], or [GNU LGPL v3.0]
 
 ## Requirements to Submit a Plugin
 
@@ -103,7 +106,7 @@ detailed description.
 
 ## License
 
-Distributed under the terms of the [MIT license], cookiecutter napari
+Distributed under the terms of the [BSD-3] license, cookiecutter napari
 plugin is free and open source software.
 
   [napari organization]: https://github.com/napari/
@@ -119,7 +122,6 @@ plugin is free and open source software.
   [tox]: https://tox.readthedocs.io/en/latest/
   [Submit a Plugin]: https://docs.napari.org/en/latest/contributing.html#submitting-plugins-to-napari
   [napari hook reference]: https://docs.napari.org/en/latest/writing_plugins.html#napari-hook-reference
-  [MIT license]: http://opensource.org/licenses/MIT
   [file an issue]: https://github.com/napari/cookiecutter-napari-plugin/issues
   [Sphinx]: http://sphinx-doc.org/
   [MkDocs]: http://www.mkdocs.org/
@@ -127,6 +129,7 @@ plugin is free and open source software.
   [MPL v2.0]: https://www.mozilla.org/media/MPL/2.0/index.txt
   [BSD-3]: http://opensource.org/licenses/BSD-3-Clause
   [GNU GPL v3.0]: http://www.gnu.org/licenses/gpl-3.0.txt
+  [GNU LGPL v3.0]: http://www.gnu.org/licenses/lgpl-3.0.txt
   [Apache v2.0]: http://www.apache.org/licenses/LICENSE-2.0
   [Travis CI]: https://travis-ci.com/
   [AppVeyor]: http://www.appveyor.com/
