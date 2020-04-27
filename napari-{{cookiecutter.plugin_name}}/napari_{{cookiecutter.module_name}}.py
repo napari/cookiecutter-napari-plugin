@@ -3,28 +3,29 @@ This module is an example of a barebones plugin, using imageio.imread.
 
 It implements the ``napari_get_reader`` hook specification, (to create
 a reader plugin) but your plugin may choose to implement any of the hook
-specifications offered by napari.
+specifications offered by napari.  Replace code below depending on the
+hook specification you want to implement.
 
-Type annotations here are OPTIONAL!
-If you don't care to annotate the return types of your functions
-your plugin doesn't need to import, or even depend on napari at all!
-
-Replace code below accordingly.
+See https://napari.org/docs/plugins/for_plugin_developers.html for more.
 """
 import imageio
 import numpy as np
 
-from pluggy import HookimplMarker
+from napari_plugin_engine import napari_hook_implementation
 
-# for optional type hints only, otherwise you can delete/ignore this stuff
+# ## for optional type hints only, otherwise you can delete/ignore this stuff ####
+
 from typing import List, Optional, Union, Any, Tuple, Dict, Callable
 
-LayerData = Union[Tuple[Any], Tuple[Any, Dict], Tuple[Any, Dict, str]]
+FullLayerData = Tuple[Any, Dict, str]
+LayerData = Union[Tuple[Any], Tuple[Any, Dict], FullLayerData]
 PathLike = Union[str, List[str]]
 ReaderFunction = Callable[[PathLike], List[LayerData]]
-# END type hint stuff.
+WriterFunction = Callable[[str, List[FullLayerData]], List[str]]
 
-napari_hook_implementation = HookimplMarker("napari")
+# ## End type hint stuff. ########################################################
+
+
 IMAGEIO_EXTENSIONS = tuple(set(x for f in imageio.formats for x in f.extensions))
 
 
