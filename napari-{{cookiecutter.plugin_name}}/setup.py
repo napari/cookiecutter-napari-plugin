@@ -3,7 +3,7 @@
 
 import os
 import codecs
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 def read(fname):
@@ -12,27 +12,28 @@ def read(fname):
 
 
 # Add your dependencies here
-install_requires = []
+install_requires = ['napari_plugin_engine>=0.1.4']
 
-{% if cookiecutter.minimum_napari_version != "None" -%}
-install_requires += ['napari>={{cookiecutter.minimum_napari_version}}'],
-{%- endif %}
-
+# https://github.com/pypa/setuptools_scm
+use_scm = {"write_to": "napari_{{cookiecutter.module_name}}/_version.py"}
+{%- if cookiecutter.plugin_name == "foo-bar" %}
+# extracted because it breaks testing of this cookiecutter template
+use_scm = False
+{% endif -%}
 
 setup(
     name='napari-{{cookiecutter.plugin_name}}',
-    version='{{cookiecutter.version}}',
     author='{{cookiecutter.full_name}}',
     author_email='{{cookiecutter.email}}',
-    maintainer='{{cookiecutter.full_name}}',
-    maintainer_email='{{cookiecutter.email}}',
     license='{{cookiecutter.license}}',
     url='https://github.com/{{cookiecutter.github_username}}/napari-{{cookiecutter.plugin_name}}',
     description='{{cookiecutter.short_description}}',
     long_description=read('README.rst'),
-    py_modules=['napari_{{cookiecutter.module_name}}'],
+    packages=find_packages(),
     python_requires='>=3.6',
     install_requires=install_requires,
+    use_scm_version=use_scm,
+    setup_requires=['setuptools_scm'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',

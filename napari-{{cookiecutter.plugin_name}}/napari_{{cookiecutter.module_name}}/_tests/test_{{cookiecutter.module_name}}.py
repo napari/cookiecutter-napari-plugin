@@ -3,18 +3,22 @@
 from napari_{{cookiecutter.module_name}} import napari_get_reader
 
 
-# # the best test here would to use tempfile.NamedTemporaryFile
-# def test_reader():
-#     from tempfile import NamedTemporaryFile
+# # tmp_path is a pytest fixture
+# def test_reader(tmp_path):
+#     """An example of how you might test your plugin..."""
 #     import numpy as np
-#
 #     # use your own `.ext` here
-#     with NamedTemporaryFile(suffix='.ext', delete=False) as tmp:
-#         out_data = np.random.rand(20, 20)
-#         # write_data_to_file(tmp.name, out_data)
-#         reader = napari_get_reader(tmp)
-#         in_data = reader(tmp.name)
-#         assert np.allclose(out_data, in_data)
+#     my_test_file = tmp_path / "myfile.ext"
+
+#     # write some data
+#     out_data = np.random.rand(20, 20)
+#     write_data_to_file(my_test_file, out_data)
+
+#     # try to read it back in
+#     reader = napari_get_reader(my_test_file)
+#     in_data = reader(my_test_file)
+
+#     assert np.allclose(out_data, in_data)
 
 
 def test_get_reader_hit():

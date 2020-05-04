@@ -13,37 +13,27 @@ Replace code below accordingly.
 """
 import imageio
 import numpy as np
-
-from pluggy import HookimplMarker
-
-# for optional type hints only, otherwise you can delete/ignore this stuff
-from typing import List, Optional, Union, Any, Tuple, Dict, Callable
-
-LayerData = Union[Tuple[Any], Tuple[Any, Dict], Tuple[Any, Dict, str]]
-PathLike = Union[str, List[str]]
-ReaderFunction = Callable[[PathLike], List[LayerData]]
-# END type hint stuff.
-
-napari_hook_implementation = HookimplMarker("napari")
-IMAGEIO_EXTENSIONS = tuple(set(x for f in imageio.formats for x in f.extensions))
+from napari_plugin_engine import napari_hook_implementation
 
 
 @napari_hook_implementation
-def napari_get_reader(path: PathLike) -> Optional[ReaderFunction]:
+def napari_get_reader(path):
     """A basic implementation of the napari_get_reader hook specification."""
     if isinstance(path, list):
         # reader plugins may be handed single path, or a list of paths.
         # if it is a list, it is assumed to be an image stack...
         # so we are only going to look at the first file.
         path = path[0]
-    if not path.endswith(IMAGEIO_EXTENSIONS):
+
+    imageio_extensions = tuple(set(x for f in imageio.formats for x in f.extensions))
+    if not path.endswith(imageio_extensions):
         # if we know we cannot read the file, we immediately return None.
         return None
     # otherwise we return the *function* that can read ``path``.
     return reader_function
 
 
-def reader_function(path: PathLike) -> List[LayerData]:
+def reader_function(path):
     """Take a path or list of paths and return a list of LayerData tuples."""
     paths = [path] if isinstance(path, str) else path
     # stack a list of strings, but also works for a single path string
