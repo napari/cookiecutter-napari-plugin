@@ -13,14 +13,13 @@ def read(fname):
 
 # Add your dependencies here
 install_requires = ['napari_plugin_engine>=0.1.4']
-
-# https://github.com/pypa/setuptools_scm
-use_scm = {"write_to": "napari_{{cookiecutter.module_name}}/_version.py"}
-{%- if cookiecutter.plugin_name == "foo-bar" %}
+{% if cookiecutter.plugin_name == "foo-bar" %}
 # extracted because it breaks testing of this cookiecutter template
 use_scm = False
-{% endif -%}
-
+{% else %}
+# https://github.com/pypa/setuptools_scm
+use_scm = {"write_to": "napari_{{cookiecutter.module_name}}/_version.py"}
+{% endif %}
 setup(
     name='napari-{{cookiecutter.plugin_name}}',
     author='{{cookiecutter.full_name}}',
