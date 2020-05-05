@@ -31,10 +31,12 @@ cookiecutter https://github.com/napari/cookiecutter-napari-plugin
 Cookiecutter prompts you for information regarding your plugin
 (A new folder will be created in your current working directory):
 
-```no-highlight
+```bash
 full_name [Napari Developer]: Ramon y Cajal
 email [yourname@example.com]: ramon@cajal.es
 github_username [githubuser]: neuronz52
+# NOTE: don't preface your plugin name with "napari"!
+# It will be prepended automatically
 plugin_name [foobar]: growth-cone-finder
 module_name [growth_cone_finder]: growth_cone_finder
 short_description [A simple plugin to use with napari]:
@@ -102,9 +104,18 @@ napari-growth-cone-finder/
     git push -u origin master
     ```
 
-The repository should already be setup to run your tests each time you
-push an update (configuration is in `.github/workflows/test_and_deploy.yml`).
-You can monitor them in the "Actions" tab of your github repository.
+### Monitor testing and coverage
+
+The repository should already be setup to run your tests each time you push an
+update (configuration is in `.github/workflows/test_and_deploy.yml`). You can
+monitor them in the "Actions" tab of your github repository.  If you're
+following along, go have a look... they should be running right now!
+
+When the tests are done, test coverage will be viewable at
+[codecov.io](https://codecov.io/) (assuming your repository is public). For the
+example above, the coverage would be visible at:
+https://codecov.io/gh/neuronz52/napari-growth-cone-finder ... but replace with
+your username and repo name accordingly
 
 ### Set up automatic deployments
 
@@ -125,14 +136,15 @@ repository:
    in your github repository with the name "TWINE_API_KEY", and paste in your
    API token.
 
-### Deployment and version management
+You are now setup for automatic deployment!
 
-You are now setup for deployment!  Each time you want to deploy a new version,
-you just need to create a tagged commit, and push it to your master branch on
-github.  Your package is set up to use
-[setuptools_scm](https://github.com/pypa/setuptools_scm) for version management,
-meaning you don't need to hard-code your version anywhere in your package.  It
-will be inferred from the tag each time you release.
+### Automatic deployment and version management
+
+Each time you want to deploy a new version, you just need to create a tagged
+commit, and push it to your master branch on github.  Your package is set up to
+use [setuptools_scm](https://github.com/pypa/setuptools_scm) for version
+management, meaning you don't need to hard-code your version anywhere in your
+package.  It will be inferred from the tag each time you release.
 
 ```bash
 # the tag will be used as the version string for your package
@@ -144,7 +156,7 @@ git push --follow-tags
 ```
 
 > Note: as of git 2.4.1, you can set `follow-tags` as default with
-> `config --global push.followTags true`
+> `git config --global push.followTags true`
 
 ### Testing locally
 
@@ -152,7 +164,10 @@ You can run your tests locally using [tox], just by entering `tox` on the
 command line. If you are using `conda` for environment management, you may wish
 to `pip install tox-conda` to make tox play nice with conda.
 
+### Create your documentation
 
+If you chose to create docs with your plugin read the corresponding docs
+for [Sphinx] or [MkDocs]
 
 ## Resources
 
