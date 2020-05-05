@@ -11,8 +11,15 @@ def read(fname):
     return codecs.open(file_path, encoding='utf-8').read()
 
 
-# Add your dependencies here
-install_requires = ['napari_plugin_engine>=0.1.4']
+# Add your dependencies in requirements.txt
+# Note: you can add test-specific requirements in tox.ini
+requirements = []
+with open('requirements.txt') as f:
+    for line in f:
+        stripped = line.split("#")[0].strip()
+        if len(stripped) > 0:
+            requirements.append(stripped)
+
 {% if cookiecutter.plugin_name == "foo-bar" %}
 # extracted because it breaks testing of this cookiecutter template
 use_scm = False
