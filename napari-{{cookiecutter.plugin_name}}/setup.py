@@ -3,7 +3,7 @@
 
 import os
 import codecs
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 def read(fname):
@@ -11,28 +11,36 @@ def read(fname):
     return codecs.open(file_path, encoding='utf-8').read()
 
 
-# Add your dependencies here
-install_requires = []
+# Add your dependencies in requirements.txt
+# Note: you can add test-specific requirements in tox.ini
+requirements = []
+with open('requirements.txt') as f:
+    for line in f:
+        stripped = line.split("#")[0].strip()
+        if len(stripped) > 0:
+            requirements.append(stripped)
 
-{% if cookiecutter.minimum_napari_version != "None" -%}
-install_requires += ['napari>={{cookiecutter.minimum_napari_version}}'],
-{%- endif %}
-
-
+{% if cookiecutter.plugin_name == "foo-bar" %}
+# extracted because it breaks testing of this cookiecutter template
+use_scm = False
+{% else %}
+# https://github.com/pypa/setuptools_scm
+use_scm = {"write_to": "napari_{{cookiecutter.module_name}}/_version.py"}
+{% endif %}
 setup(
     name='napari-{{cookiecutter.plugin_name}}',
-    version='{{cookiecutter.version}}',
     author='{{cookiecutter.full_name}}',
     author_email='{{cookiecutter.email}}',
-    maintainer='{{cookiecutter.full_name}}',
-    maintainer_email='{{cookiecutter.email}}',
     license='{{cookiecutter.license}}',
     url='https://github.com/{{cookiecutter.github_username}}/napari-{{cookiecutter.plugin_name}}',
     description='{{cookiecutter.short_description}}',
-    long_description=read('README.rst'),
-    py_modules=['napari_{{cookiecutter.module_name}}'],
+    long_description=read('README.md'),
+    long_description_content_type='text/markdown',
+    packages=find_packages(),
     python_requires='>=3.6',
-    install_requires=install_requires,
+    install_requires=requirements,
+    use_scm_version=use_scm,
+    setup_requires=['setuptools_scm'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',

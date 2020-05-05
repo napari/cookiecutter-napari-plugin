@@ -53,7 +53,7 @@ Once you answered to the questions, Cookiecutter renders the the project:
 ```no-highlight
 napari-growth-cone-finder/
 ├── LICENSE
-├── README.rst
+├── README.md
 ├── napari_growth_cone_finder.py
 ├── setup.py
 ├── tests
@@ -62,7 +62,23 @@ napari-growth-cone-finder/
 └── tox.ini
 ```
 
-There you go - you just created a minimal napari plugin:
+create repo on github (don't worry about git ignore or readme)
 
-  [Cookiecutter]: https://github.com/audreyr/cookiecutter
-  [PyPI]: https://pypi.org/project/cookiecutter
+pip install cookiecutter
+cookiecutter https://github.com/napari/cookiecutter-napari-plugin
+
+cd into your directory
+git init
+git add .
+git commit -m 'initial commit'
+
+git remote add origin https://github.com/tlambert03/napari-ndtiffs.git
+git push -u origin master
+
+testing locally:
+...
+
+There you go - you just created a minimal napari plugin!
+
+[Cookiecutter]: https://github.com/audreyr/cookiecutter
+[PyPI]: https://pypi.org/project/cookiecutter
