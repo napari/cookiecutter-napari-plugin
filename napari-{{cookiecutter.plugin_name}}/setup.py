@@ -34,10 +34,11 @@ setup(
     license='{{cookiecutter.license}}',
     url='https://github.com/{{cookiecutter.github_username}}/napari-{{cookiecutter.plugin_name}}',
     description='{{cookiecutter.short_description}}',
-    long_description=read('README.rst'),
+    long_description=read('README.md'),
+    long_description_content_type='text/markdown',
     packages=find_packages(),
     python_requires='>=3.6',
-    install_requires=install_requires,
+    install_requires=requirements,
     use_scm_version=use_scm,
     setup_requires=['setuptools_scm'],
     classifiers=[

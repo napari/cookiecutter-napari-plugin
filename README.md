@@ -47,7 +47,7 @@ There you go - you just created a minimal napari plugin:
 ```no-highlight
 napari-growth-cone-finder/
 ├── LICENSE
-├── README.rst
+├── README.md
 ├── docs
 │   └── index.md
 ├── mkdocs.yml
@@ -65,7 +65,7 @@ napari-growth-cone-finder/
   as expected
 - Working example code for a fixture, a cli option, as well as a napari.ini
   option
-- Comprehensive `README.rst` file that contains useful information about your
+- Comprehensive `README.md` file that contains useful information about your
   plugin
 - Continuous integration configuration for [Travis CI] and [AppVeyor]
 - Optional documentation with either [Sphinx] or [MkDocs]

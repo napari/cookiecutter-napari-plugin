@@ -9,7 +9,7 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger("post_gen_project")
 
 DOCS_SOURCES = "docs_sources"
-ALL_TEMP_FOLDERS = [DOCS_SOURCES, "licenses", "macros"]
+ALL_TEMP_FOLDERS = [DOCS_SOURCES, "licenses"]
 DOCS_FILES_BY_TOOL = {
     "mkdocs": ["index.md", "/mkdocs.yml"],
     "sphinx": ["conf.py", "index.rst", "make.bat", "Makefile"],
@@ -42,7 +42,7 @@ def move_docs_files(docs_tool, docs_files, docs_sources):
 def remove_temp_folders(temp_folders):
     for folder in temp_folders:
         logger.info("Remove temporary folder: %s", folder)
-        shutil.rmtree(folder)
+        shutil.rmtree(folder, ignore_errors=True)
 
 
 if __name__ == "__main__":
