@@ -112,10 +112,8 @@ monitor them in the "Actions" tab of your github repository.  If you're
 following along, go have a look... they should be running right now!
 
 When the tests are done, test coverage will be viewable at
-[codecov.io](https://codecov.io/) (assuming your repository is public). For the
-example above, the coverage would be visible at:
-https://codecov.io/gh/neuronz52/napari-growth-cone-finder ... but replace with
-your username and repo name accordingly
+[codecov.io](https://codecov.io/) (assuming your repository is public):
+`https://codecov.io/gh/<your-github-username>/<your-package-name>`
 
 ### Set up automatic deployments
 
@@ -158,11 +156,41 @@ git push --follow-tags
 > Note: as of git 2.4.1, you can set `follow-tags` as default with
 > `git config --global push.followTags true`
 
+Monitor the "actions" tab on your github repo for progress... and when the
+"deploy" step is finished, your new version should be visible on pypi:
+
+`https://pypi.org/project/<your-package-name>/`
+
+and available for pip install with:
+
+```bash
+# for example
+pip install napari-growth-cone-finder
+```
+
 ### Testing locally
 
-You can run your tests locally using [tox], just by entering `tox` on the
-command line. If you are using `conda` for environment management, you may wish
-to `pip install tox-conda` to make tox play nice with conda.
+You can run your tests locally in multiple different python environments using
+[tox], just by entering `tox` on the command line. If you are using `conda` for
+environment management, you may wish to install `tox-conda` to make tox play
+nice with conda.
+
+```bash
+pip install tox tox-conda
+tox -e py36,py37,py38 # run tests on multiple python versions
+```
+
+If you don't wish to test locally on all supported python versions, you can test
+quicker by just using pytest directly, (but you'll need to make sure that
+`pytest` and your package is installed in your environment):
+
+```bash
+pip install -e .
+pip install pytest
+
+pytest  # run test in current environment
+```
+
 
 ### Create your documentation
 
