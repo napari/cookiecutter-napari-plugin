@@ -1,12 +1,12 @@
 # This workflows will upload a Python Package using Twine when a release is created
 # For more information see: https://help.github.com/en/actions/language-and-framework-guides/using-python-with-github-actions#publishing-to-package-registries
-
+{% raw %}
 name: Python Tests & Release
 
 on: push
 
 jobs:
-  test-ubuntu:
+  ubuntu-latest:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -28,7 +28,8 @@ jobs:
         uses: codecov/codecov-action@v1
 
   # minimizing matrix by only testing 3.6 on mac & windows
-  test:
+  mac-win:
+    name: ${{ matrix.platform }} (3.6)
     runs-on: ${{ matrix.platform }}
     strategy:
       matrix:
@@ -49,7 +50,7 @@ jobs:
           PLATFORM: ${{ matrix.platform }}
 
   deploy:
-    needs: [test, test-ubuntu]
+    needs: [ubuntu-latest, mac-win]
     runs-on: ubuntu-latest
     if: contains(github.ref, 'tags')
     steps:
@@ -70,3 +71,4 @@ jobs:
           git tag
           python setup.py sdist bdist_wheel
           twine upload dist/*
+{% endraw %}
