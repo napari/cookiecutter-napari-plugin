@@ -12,6 +12,14 @@
 
 This [napari] plugin was generated with [Cookiecutter] using with [@napari]'s [cookiecutter-napari-plugin] template.
 
+<!--
+Don't miss the full getting started guide to set up your new package:
+https://github.com/napari/cookiecutter-napari-plugin#getting-started
+
+and review the napari docs for plugin developers:
+https://napari.org/docs/plugins/index.html
+-->
+
 ## Installation
 
 You can install `napari-{{cookiecutter.plugin_name}}` via [pip]:
@@ -46,4 +54,4 @@ If you encounter any problems, please [file an issue] along with a detailed desc
 [napari]: https://github.com/napari/napari
 [tox]: https://tox.readthedocs.io/en/latest/
 [pip]: https://pypi.org/project/pip/
-[PyPI]: https://pypi.org/project
+[PyPI]: https://pypi.org/

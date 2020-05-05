@@ -2,7 +2,7 @@
     "full_name": "Napari Developer",
     "email": "yourname@example.com",
     "github_username": "githubuser",
-    "plugin_name": "foobar (will be prepended with 'napari-')",
+    "plugin_name": "foobar",
     "module_name": "{{ cookiecutter.plugin_name|lower|replace('-', '_') }}",
     "short_description": "A simple plugin to use with napari",
     "docs_tool": [
