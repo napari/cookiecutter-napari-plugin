@@ -82,19 +82,25 @@ napari-growth-cone-finder/
 └── tox.ini
 ```
 
+### Initialize a git repository in your package
+
+NOTE: This is important not only for version management, but also if you want to
+pip install your package locally for testing with `pip install -e .`. (because
+the version of your package is managed using git tags,
+[see below](#automatic-deployment-and-version-management))
+
+```bash
+cd napari-growth-cone-finder
+git init
+git add .
+git commit -m 'initial commit'
+```
+    
 ### Upload it to github
 
 1. Create a [new github repository]
-2. Initialize git in your new package:
 
-    ```bash
-    cd napari-growth-cone-finder
-    git init
-    git add .
-    git commit -m 'initial commit'
-    ```
-
-3. Add your newly created github repo as a remote and push:
+2. Add your newly created github repo as a remote and push:
 
     ```bash
     # here, continuing with the example above...
