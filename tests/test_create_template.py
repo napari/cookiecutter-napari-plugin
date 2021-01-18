@@ -30,10 +30,10 @@ def test_run_cookiecutter_and_plugin_tests(cookies):
 
     assert result.exit_code == 0
     assert result.exception is None
-    assert result.project.basename == 'napari-foo-bar'
+    assert result.project.basename == 'foo-bar'
     assert result.project.isdir()
-    assert result.project.join('napari_foo_bar', 'foo_bar.py').isfile()
-    assert result.project.join('napari_foo_bar', '_tests', 'test_foo_bar.py').isfile()
+    assert result.project.join('foo_bar', 'foo_bar.py').isfile()
+    assert result.project.join('foo_bar', '_tests', 'test_foo_bar.py').isfile()
 
     print(result.project)
     run_tox(str(result.project))
