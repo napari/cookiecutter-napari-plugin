@@ -1,0 +1,3 @@
+from {{cookiecutter.module_name}} import napari_experimental_provide_function_widget
+
+# add your tests here...

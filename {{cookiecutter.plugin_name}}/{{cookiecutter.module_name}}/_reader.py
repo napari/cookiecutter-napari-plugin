@@ -4,10 +4,10 @@ This module is an example of a barebones numpy reader plugin for napari.
 It implements the ``napari_get_reader`` hook specification, (to create
 a reader plugin) but your plugin may choose to implement any of the hook
 specifications offered by napari.
-see: https://napari.org/docs/plugins/hook_specifications.html
+see: https://napari.org/docs/dev/plugins/hook_specifications.html
 
 Replace code below accordingly.  For complete documentation see:
-https://napari.org/docs/plugins/for_plugin_developers.html
+https://napari.org/docs/dev/plugins/for_plugin_developers.html
 """
 import numpy as np
 from napari_plugin_engine import napari_hook_implementation
@@ -72,7 +72,6 @@ def reader_function(path):
     data = np.squeeze(np.stack(arrays))
 
     # optional kwargs for the corresponding viewer.add_* method
-    # https://napari.org/docs/api/napari.components.html#module-napari.components.add_layers_mixin
     add_kwargs = {}
 
     layer_type = "image"  # optional, default is "image"

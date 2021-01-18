@@ -8,12 +8,17 @@ import shutil
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger("post_gen_project")
 
+PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 DOCS_SOURCES = "docs_sources"
 ALL_TEMP_FOLDERS = [DOCS_SOURCES, "licenses"]
 DOCS_FILES_BY_TOOL = {
     "mkdocs": ["index.md", "/mkdocs.yml"],
     "sphinx": ["conf.py", "index.rst", "make.bat", "Makefile"],
 }
+
+
+def remove_file(filepath):
+    os.remove(os.path.join(PROJECT_DIRECTORY, filepath))
 
 
 def move_docs_files(docs_tool, docs_files, docs_sources):
@@ -45,6 +50,18 @@ def remove_temp_folders(temp_folders):
         shutil.rmtree(folder, ignore_errors=True)
 
 
+def remove_unrequested_plugin_examples():
+    module = "{{ cookiecutter.module_name }}"
+    {% for key, value in cookiecutter.items() %}
+    {% if key.startswith('include_') and key.endswith("_plugin") and value != 'y' %}
+    name = "{{ key }}".replace("include_", "").replace("_plugin", "")
+    remove_file(f"{module}/_{name}.py")
+    remove_file(f"{module}/_tests/test_{name}.py")
+    {% endif %}
+    {% endfor %}
+
+
 if __name__ == "__main__":
     move_docs_files("{{cookiecutter.docs_tool}}", DOCS_FILES_BY_TOOL, DOCS_SOURCES)
     remove_temp_folders(ALL_TEMP_FOLDERS)
+    remove_unrequested_plugin_examples()
