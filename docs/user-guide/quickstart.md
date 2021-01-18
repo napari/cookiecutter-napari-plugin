@@ -37,14 +37,14 @@ Cookiecutter prompts you for information regarding your plugin based on aforemen
 full_name [Napari Developer]: Ramon y Cajal
 email [yourname@example.com]: ramon@cajal.es
 github_username [githubuser]: neuronz52
-plugin_name [foobar]: growth-cone-finder
+plugin_name [napari-foobar]: growth-cone-finder
 module_name [growth_cone_finder]: growth_cone_finder
 short_description [A simple plugin to use with napari]:
 version [0.1.0]:
 minimum_napari_version [None]: 0.3.0
 ```
 
-The values in the square brackets (f.i. ``[foobar]``) are defaults for the according variables.
+The values in the square brackets (f.i. ``[napari-foobar]``) are defaults for the according variables.
 
 ## Project Generation
 

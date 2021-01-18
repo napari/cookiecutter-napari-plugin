@@ -39,7 +39,7 @@ github_username [githubuser]: neuronz52
 # recommend using the 'napari-' prefix in the package name.
 # If your package provides functionality outside of napari, you may
 # choose to leave napari out of the name.
-plugin_name [foobar]: napari-growth-cone-finder
+plugin_name [napari-foobar]: napari-growth-cone-finder
 module_name [growth_cone_finder]: napari_growth_cone_finder
 short_description [A simple plugin to use with napari]:
 Select docs_tool:
