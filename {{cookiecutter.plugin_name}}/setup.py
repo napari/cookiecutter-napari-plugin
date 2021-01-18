@@ -25,7 +25,7 @@ with open('requirements.txt') as f:
 use_scm = False
 {% else %}
 # https://github.com/pypa/setuptools_scm
-use_scm = {"write_to": "napari_{{cookiecutter.module_name}}/_version.py"}
+use_scm = {"write_to": "{{cookiecutter.module_name}}/_version.py"}
 {% endif %}
 setup(
     name='{{cookiecutter.plugin_name}}',
@@ -66,7 +66,7 @@ setup(
     ],
     entry_points={
         'napari.plugin': [
-            '{{cookiecutter.plugin_name}} = napari_{{cookiecutter.module_name}}',
+            '{{cookiecutter.plugin_name}} = {{cookiecutter.module_name}}',
         ],
     },
 )
