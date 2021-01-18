@@ -35,10 +35,12 @@ Cookiecutter prompts you for information regarding your plugin
 full_name [Napari Developer]: Ramon y Cajal
 email [yourname@example.com]: ramon@cajal.es
 github_username [githubuser]: neuronz52
-# NOTE: don't preface your plugin name with "napari"!
-# It will be prepended automatically
-plugin_name [foobar]: growth-cone-finder
-module_name [growth_cone_finder]: growth_cone_finder
+# NOTE: for packages whose primary purpose is to be a napari plugin, we
+# recommend using the 'napari-' prefix in the package name.
+# If your package provides functionality outside of napari, you may
+# choose to leave napari out of the name.
+plugin_name [napari-foobar]: napari-growth-cone-finder
+module_name [growth_cone_finder]: napari_growth_cone_finder
 short_description [A simple plugin to use with napari]:
 Select docs_tool:
 1 - mkdocs
