@@ -1,10 +1,10 @@
-# napari-{{cookiecutter.plugin_name}}
+# {{cookiecutter.plugin_name}}
 
-[![License](https://img.shields.io/pypi/l/napari-{{cookiecutter.plugin_name}}.svg?color=green)](https://github.com/napari/napari-{{cookiecutter.plugin_name}}/raw/master/LICENSE)
-[![PyPI](https://img.shields.io/pypi/v/napari-{{cookiecutter.plugin_name}}.svg?color=green)](https://pypi.org/project/napari-{{cookiecutter.plugin_name}})
-[![Python Version](https://img.shields.io/pypi/pyversions/napari-{{cookiecutter.plugin_name}}.svg?color=green)](https://python.org)
-[![tests](https://github.com/{{cookiecutter.github_username}}/napari-{{cookiecutter.plugin_name}}/workflows/tests/badge.svg)](https://github.com/{{cookiecutter.github_username}}/napari-{{cookiecutter.plugin_name}}/actions)
-[![codecov](https://codecov.io/gh/{{cookiecutter.github_username}}/napari-{{cookiecutter.plugin_name}}/branch/master/graph/badge.svg)](https://codecov.io/gh/{{cookiecutter.github_username}}/napari-{{cookiecutter.plugin_name}})
+[![License](https://img.shields.io/pypi/l/{{cookiecutter.plugin_name}}.svg?color=green)](https://github.com/napari/{{cookiecutter.plugin_name}}/raw/master/LICENSE)
+[![PyPI](https://img.shields.io/pypi/v/{{cookiecutter.plugin_name}}.svg?color=green)](https://pypi.org/project/{{cookiecutter.plugin_name}})
+[![Python Version](https://img.shields.io/pypi/pyversions/{{cookiecutter.plugin_name}}.svg?color=green)](https://python.org)
+[![tests](https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.plugin_name}}/workflows/tests/badge.svg)](https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.plugin_name}}/actions)
+[![codecov](https://codecov.io/gh/{{cookiecutter.github_username}}/{{cookiecutter.plugin_name}}/branch/master/graph/badge.svg)](https://codecov.io/gh/{{cookiecutter.github_username}}/{{cookiecutter.plugin_name}})
 
 {{cookiecutter.short_description}}
 
@@ -22,9 +22,9 @@ https://napari.org/docs/plugins/index.html
 
 ## Installation
 
-You can install `napari-{{cookiecutter.plugin_name}}` via [pip]:
+You can install `{{cookiecutter.plugin_name}}` via [pip]:
 
-    pip install napari-{{cookiecutter.plugin_name}}
+    pip install {{cookiecutter.plugin_name}}
 
 ## Contributing
 
@@ -34,7 +34,7 @@ the coverage at least stays the same before you submit a pull request.
 ## License
 
 Distributed under the terms of the [{{cookiecutter.license}}] license,
-"napari-{{cookiecutter.plugin_name}}" is free and open source software
+"{{cookiecutter.plugin_name}}" is free and open source software
 
 ## Issues
 
@@ -50,7 +50,7 @@ If you encounter any problems, please [file an issue] along with a detailed desc
 [Apache Software License 2.0]: http://www.apache.org/licenses/LICENSE-2.0
 [Mozilla Public License 2.0]: https://www.mozilla.org/media/MPL/2.0/index.txt
 [cookiecutter-napari-plugin]: https://github.com/napari/cookiecutter-napari-plugin
-[file an issue]: https://github.com/{{cookiecutter.github_username}}/napari-{{cookiecutter.plugin_name}}/issues
+[file an issue]: https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.plugin_name}}/issues
 [napari]: https://github.com/napari/napari
 [tox]: https://tox.readthedocs.io/en/latest/
 [pip]: https://pypi.org/project/pip/
