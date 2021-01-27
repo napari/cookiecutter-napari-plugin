@@ -1,6 +1,6 @@
 # {{cookiecutter.plugin_name}}
 
-[![License](https://img.shields.io/pypi/l/{{cookiecutter.plugin_name}}.svg?color=green)](https://github.com/napari/{{cookiecutter.plugin_name}}/raw/master/LICENSE)
+[![License](https://img.shields.io/pypi/l/{{cookiecutter.plugin_name}}.svg?color=green)](https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.plugin_name}}/raw/master/LICENSE)
 [![PyPI](https://img.shields.io/pypi/v/{{cookiecutter.plugin_name}}.svg?color=green)](https://pypi.org/project/{{cookiecutter.plugin_name}})
 [![Python Version](https://img.shields.io/pypi/pyversions/{{cookiecutter.plugin_name}}.svg?color=green)](https://python.org)
 [![tests](https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.plugin_name}}/workflows/tests/badge.svg)](https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.plugin_name}}/actions)
