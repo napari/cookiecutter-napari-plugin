@@ -5,7 +5,7 @@ import logging
 import os
 import shutil
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("post_gen_project")
 
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
@@ -28,7 +28,7 @@ def move_docs_files(docs_tool, docs_files, docs_sources):
     root = os.getcwd()
     docs = "docs"
 
-    logger.info("Initializing docs for %s", docs_tool)
+    logger.debug("Initializing docs for %s", docs_tool)
     if not os.path.exists(docs):
         os.mkdir(docs)
 
@@ -37,7 +37,7 @@ def move_docs_files(docs_tool, docs_files, docs_sources):
         src_path = os.path.join(docs_sources, docs_tool, name)
         dst_path = os.path.join(dst, name)
 
-        logger.info("Moving %s to %s.", src_path, dst_path)
+        logger.debug("Moving %s to %s.", src_path, dst_path)
         if os.path.exists(dst_path):
             os.unlink(dst_path)
 
@@ -46,7 +46,7 @@ def move_docs_files(docs_tool, docs_files, docs_sources):
 
 def remove_temp_folders(temp_folders):
     for folder in temp_folders:
-        logger.info("Remove temporary folder: %s", folder)
+        logger.debug("Remove temporary folder: %s", folder)
         shutil.rmtree(folder, ignore_errors=True)
 
 
@@ -57,6 +57,7 @@ def remove_unrequested_plugin_examples():
     name = "{{ key }}".replace("include_", "").replace("_plugin", "")
     remove_file(f"{module}/_{name}.py")
     remove_file(f"{module}/_tests/test_{name}.py")
+    logger.debug(f"removing {module}/_{name}.py")
     {% endif %}
     {% endfor %}
 
@@ -65,3 +66,26 @@ if __name__ == "__main__":
     move_docs_files("{{cookiecutter.docs_tool}}", DOCS_FILES_BY_TOOL, DOCS_SOURCES)
     remove_temp_folders(ALL_TEMP_FOLDERS)
     remove_unrequested_plugin_examples()
+
+    print("""
+Your plugin template is ready!  Next steps:
+
+1. `cd` into your new directory and initialize a git repo
+   (this is also important for version control!)
+
+     cd {{ cookiecutter.plugin_name }}
+     git init -b main
+     git add .
+     git commit -m 'initial commit'
+
+2. Create a github repository with the name '{{ cookiecutter.plugin_name }}':
+   https://github.com/new
+
+3. Add your newly created github repo as a remote and push:
+
+     git remote add origin https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.plugin_name }}.git
+     git push -u origin main
+
+4. Read the README for more info: https://github.com/napari/cookiecutter-napari-plugin
+"""
+    )

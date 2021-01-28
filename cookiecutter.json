@@ -8,7 +8,7 @@
     "include_reader_plugin": "y",
     "include_writer_plugin": "y",
     "include_dock_widget_plugin": "y",
-    "include_function_widget_plugin": "y",
+    "include_function_plugin": "y",
     "docs_tool": [
         "mkdocs",
         "sphinx",
