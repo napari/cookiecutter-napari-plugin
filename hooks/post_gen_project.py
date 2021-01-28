@@ -78,6 +78,9 @@ Your plugin template is ready!  Next steps:
      git add .
      git commit -m 'initial commit'
 
+     # you probably want to install your new package into your env
+     pip install -e .
+
 2. Create a github repository with the name '{{ cookiecutter.plugin_name }}':
    https://github.com/new
 
