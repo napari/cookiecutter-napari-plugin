@@ -5,6 +5,10 @@
     "plugin_name": "napari-foobar",
     "module_name": "{{ cookiecutter.plugin_name|lower|replace('-', '_') }}",
     "short_description": "A simple plugin to use with napari",
+    "include_reader_plugin": "y",
+    "include_writer_plugin": "y",
+    "include_dock_widget_plugin": "y",
+    "include_function_plugin": "y",
     "docs_tool": [
         "mkdocs",
         "sphinx",
