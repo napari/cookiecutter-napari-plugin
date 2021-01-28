@@ -2,20 +2,8 @@
 
 Minimal [Cookiecutter] template for authoring [napari] plugins.
 
-> This template requires [Cookiecutter 1.4.0 "Shortbread"][Shortbread] or
-> higher
 
-## Features
-
-- Installable [PyPI] package featuring a `setup.py`
-- [tox] test suite, testing various python versions and platforms.
-- `README.md` file that contains useful information about your plugin
-- Continuous integration configuration for [github actions] that handles testing
-  and deployment of tagged releases
-- git-tag-based version management with [setuptools_scm]
-- Optional documentation with either [Sphinx] or [MkDocs]
-- Choose from several licenses, including [BSD-3], [MIT], [MPL v2.0], [Apache
-  v2.0], [GNU GPL v3.0], or [GNU LGPL v3.0]
+**NOTE: This repo is not meant to be cloned/forked directly!  Please read "Getting Started" below**
 
 ## Getting Started
 
@@ -42,6 +30,12 @@ github_username [githubuser]: neuronz52
 plugin_name [napari-foobar]: napari-growth-cone-finder
 module_name [growth_cone_finder]: napari_growth_cone_finder
 short_description [A simple plugin to use with napari]:
+# you can select from various plugin template examples
+include_reader_plugin [y]:
+include_writer_plugin [y]:
+include_dock_widget_plugin [y]:
+include_function_plugin [y]:
+
 Select docs_tool:
 1 - mkdocs
 2 - sphinx
@@ -74,10 +68,12 @@ napari-growth-cone-finder/
 ├── mkdocs.yml
 ├── napari_growth_cone_finder
 │   ├── __init__.py
-│   ├── _tests
-│   │   ├── __init__.py
-│   │   └── test_grown_cone_finder.py
-│   └── growth_cone_finder.py
+│   ├── _dock_widget.py
+│   ├── _reader.py
+│   └── _tests
+│       ├── __init__.py
+│       ├── test_dock_widget.py
+│       └── test_reader.py
 ├── README.md
 ├── requirements.txt
 ├── setup.py
@@ -199,11 +195,23 @@ pip install pytest
 pytest  # run test in current environment
 ```
 
-
 ### Create your documentation
 
 If you chose to create docs with your plugin read the corresponding docs
 for [Sphinx] or [MkDocs]
+
+## Features
+
+- Installable [PyPI] package featuring a `setup.py`
+- [tox] test suite, testing various python versions and platforms.
+- `README.md` file that contains useful information about your plugin
+- Continuous integration configuration for [github actions] that handles testing
+  and deployment of tagged releases
+- git-tag-based version management with [setuptools_scm]
+- Optional documentation with either [Sphinx] or [MkDocs]
+- Choose from several licenses, including [BSD-3], [MIT], [MPL v2.0], [Apache
+  v2.0], [GNU GPL v3.0], or [GNU LGPL v3.0]
+
 
 ## Resources
 
