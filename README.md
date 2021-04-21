@@ -12,6 +12,7 @@ Minimal [Cookiecutter] template for authoring [napari] plugins.
 Install [Cookiecutter] and generate a new napari plugin project:
 
 ```bash
+conda install git
 pip install cookiecutter
 cookiecutter https://github.com/napari/cookiecutter-napari-plugin
 ```
