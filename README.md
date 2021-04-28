@@ -216,7 +216,7 @@ for [Sphinx] or [MkDocs]
 ## Resources
 
 Please consult the [napari plugin
-docs](https://napari.org/docs/plugins/index.html) for more information on
+docs](https://napari.org/plugins/stable/index.html) for more information on
 how to create a plugin.
 
 ## Issues
