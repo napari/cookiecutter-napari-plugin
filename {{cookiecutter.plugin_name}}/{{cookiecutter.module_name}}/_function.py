@@ -13,7 +13,7 @@ import numpy as np
 from napari_plugin_engine import napari_hook_implementation
 
 if TYPE_CHECKING:
-    from napari.types import ImageData, LabelsData, LayerDataTuple
+    import napari
 
 
 # This is the actual plugin function, where we export our function
@@ -27,7 +27,7 @@ def napari_experimental_provide_function():
 
 
 # 1.  First example, a simple function that thresholds an image and creates a labels layer
-def threshold(data: "ImageData", threshold: int) -> "LabelsData":
+def threshold(data: "napari.types.ImageData", threshold: int) -> "napari.types.LabelsData":
     """Threshold an image and return a mask."""
     return (data > threshold).astype(int)
 
@@ -43,7 +43,7 @@ class Operation(Enum):
 
 
 def image_arithmetic(
-    layerA: "ImageData", operation: Operation, layerB: "ImageData"
-) -> "LayerDataTuple":
+    layerA: "napari.types.ImageData", operation: Operation, layerB: "napari.types.ImageData"
+) -> "napari.types.LayerDataTuple":
     """Adds, subtracts, multiplies, or divides two same-shaped image layers."""
     return (operation.value(layerA, layerB), {"colormap": "turbo"})
