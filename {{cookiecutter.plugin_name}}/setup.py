@@ -6,9 +6,8 @@ import codecs
 from setuptools import setup, find_packages
 
 
-def read(fname):
-    file_path = os.path.join(os.path.dirname(__file__), fname)
-    return codecs.open(file_path, encoding='utf-8').read()
+with open("README.md", "r") as fh:
+    long_description = fh.read()
 
 
 # Add your dependencies in requirements.txt
@@ -34,7 +33,7 @@ setup(
     license='{{cookiecutter.license}}',
     url='https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.plugin_name}}',
     description='{{cookiecutter.short_description}}',
-    long_description=read('README.md'),
+    long_description=long_description,
     long_description_content_type='text/markdown',
     packages=find_packages(),
     python_requires='>=3.6',
