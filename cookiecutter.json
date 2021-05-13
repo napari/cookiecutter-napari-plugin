@@ -21,5 +21,6 @@
         "Apache Software License 2.0",
         "GNU LGPL v3.0",
         "GNU GPL v3.0"
-    ]
+    ],
+    "include_project_url_defaults": "n"
 }
