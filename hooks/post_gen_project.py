@@ -97,7 +97,7 @@ Your plugin template is ready!  Next steps:
 5. The following default URLs have been added to `setup.cfg`:
 
     Bug Tracker = https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.plugin_name}}/issues
-    Documentation = https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.plugin_name}}/blob/master/README.md
+    Documentation = https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.plugin_name}}#README.md
     Source Code = https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.plugin_name}}
     User Support = https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.plugin_name}}/issues
 
