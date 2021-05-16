@@ -92,3 +92,16 @@ Your plugin template is ready!  Next steps:
 4. Read the README for more info: https://github.com/napari/cookiecutter-napari-plugin
 """
     )
+
+    print("""
+5. The following default URLs have been added to `setup.cfg`:
+
+    Bug Tracker = https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.plugin_name}}/issues
+    Documentation = https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.plugin_name}}#README.md
+    Source Code = https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.plugin_name}}
+    User Support = https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.plugin_name}}/issues
+
+    These URLs will be displayed on your plugin's napari hub page. 
+    You may wish to change these before publishing your plugin!
+"""
+    )
