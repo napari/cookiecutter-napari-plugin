@@ -9,6 +9,9 @@ use_scm = False
 # https://github.com/pypa/setuptools_scm
 use_scm = {"write_to": "{{cookiecutter.module_name}}/_version.py"}
 {% endif %}
-setup(
-    use_scm_version=use_scm,
-)
+
+{% if cookiecutter.use_git_tags_for_versioning == 'y' %}
+setup(use_scm_version=use_scm)
+{% else %}
+setup()
+{% endif %}
