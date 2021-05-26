@@ -1,10 +1,13 @@
 import numpy as np
+import {{cookiecutter.module_name}}
 from {{cookiecutter.module_name}} import napari_get_reader
 
 
 # tmp_path is a pytest fixture
-def test_reader(tmp_path):
+def test_reader(tmp_path, napari_plugin_manager):
     """An example of how you might test your plugin."""
+    # make_napari_viewer block plugin discovery, so we must register it manually
+    napari_plugin_manager.register({{cookiecutter.module_name}}, name="{{cookiecutter.plugin_name}}")
 
     # write some fake data using your supported file format
     my_test_file = str(tmp_path / "myfile.npy")
@@ -26,5 +29,7 @@ def test_reader(tmp_path):
 
 
 def test_get_reader_pass():
+    # make_napari_viewer block plugin discovery, so we must register it manually
+    napari_plugin_manager.register({{cookiecutter.module_name}}, name="{{cookiecutter.plugin_name}}")
     reader = napari_get_reader("fake.file")
     assert reader is None
