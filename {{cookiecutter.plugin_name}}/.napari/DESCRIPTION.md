@@ -1,12 +1,32 @@
 # Description
 
-This should be a detailed description of the background and context of your plugin,
+This should be a detailed description of the context of your plugin,
 how it's meant to be used, and perhaps some brief examples.
 
 If you have videos or screenshots of your plugin in action, you should include them
-here as well, to make them front and center for new users. Wherever possible, you
-should use absolute links to these assets, so that we can easily display them 
-on the hub.
+here as well, to make them front and center for new users. 
+
+You should use absolute links to these assets, so that we can easily display them 
+on the hub. You can include videos using the Share-Embed
+option on a YouTube video e.g.
+
+```html
+<iframe width="560" height="315" 
+  src="https://www.youtube.com/embed/VXdFOcBCto4" 
+  title="YouTube video player" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+  allowfullscreen>
+</iframe>
+```
+<iframe width="560" height="315" 
+  src="https://www.youtube.com/embed/VXdFOcBCto4" 
+  title="YouTube video player" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+  allowfullscreen>
+</iframe>
+
 
 # Who is This For?
 
