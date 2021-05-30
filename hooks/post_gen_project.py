@@ -103,5 +103,9 @@ Your plugin template is ready!  Next steps:
 
     These URLs will be displayed on your plugin's napari hub page. 
     You may wish to change these before publishing your plugin!
+
+6. Your plugin will be displayed on the napari hub once published. We've provided a template description
+   for your plugin page at `.napari/DESCRIPTION.md`. You'll likely want to edit this before you publish 
+   your plugin.
 """
     )
