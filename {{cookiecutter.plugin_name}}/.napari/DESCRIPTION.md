@@ -1,3 +1,5 @@
+
+
 <!-- This file is designed to provide you with a starting template for documenting
 the functionality of your plugin. Its content will be rendered on your plugin's
 napari hub page.
@@ -32,6 +34,7 @@ hosted on GitHub for you, but will not be placed in your repository.
 
 Here is an example of an mp4 video embedded this way.
 
+https://user-images.githubusercontent.com/17995243/120088305-6c093380-c132-11eb-822d-620e81eb5f0e.mp4
 
 # Intended Audience & Supported Data
 
