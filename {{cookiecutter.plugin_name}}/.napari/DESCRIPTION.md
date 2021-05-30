@@ -15,21 +15,23 @@ If you have videos or screenshots of your plugin in action, you should include t
 here as well, to make them front and center for new users. 
 
 You should use absolute links to these assets, so that we can easily display them 
-on the hub. You can include videos using the Share-Embed
-option on a YouTube video e.g.
+on the hub. The easiest way to include a video is to use a GIF, for example hosted
+on imgur. You can then reference this GIF as an image.
 
-```html
-<iframe width="560" height="315" 
-  src="https://www.youtube.com/embed/VXdFOcBCto4" 
-  title="YouTube video player" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-  allowfullscreen>
-</iframe>
-```
+![Example GIF hosted on Imgur](https://i.imgur.com/QD4fAWt.gif)
 
-Note that you won't be able to see the video rendered in markdown - it will be
-rendered when we pull this content for the hub.
+The other alternative, if you prefer to keep a video, is to use GitHub's video
+embedding feature.
+
+1. Push your `DESCRIPTION.md` to GitHub on your repository (this can also be done
+as part of a Pull Request)
+2. Edit `.napari/DESCRIPTION.md` **on GitHub**.
+3. Drag and drop your video into its desired location. It will be uploaded and
+hosted on GitHub for you, but will not be placed in your repository.
+4. We will take the resolved link to the video and render it on the hub.
+
+Here is an example of an mp4 video embedded this way.
+
 
 # Intended Audience & Supported Data
 
