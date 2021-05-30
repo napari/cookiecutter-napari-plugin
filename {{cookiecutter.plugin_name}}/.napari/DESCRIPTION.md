@@ -20,7 +20,10 @@ You should use absolute links to these assets, so that we can easily display the
 on the hub. The easiest way to include a video is to use a GIF, for example hosted
 on imgur. You can then reference this GIF as an image.
 
-![Example GIF hosted on Imgur](https://i.imgur.com/QD4fAWt.gif)
+![Example GIF hosted on Imgur](https://i.imgur.com/A5phCX4.gif)
+
+Note that GIFs larger than 5MB won't be rendered by GitHub - we will however,
+render them on the napari hub.
 
 The other alternative, if you prefer to keep a video, is to use GitHub's video
 embedding feature.
