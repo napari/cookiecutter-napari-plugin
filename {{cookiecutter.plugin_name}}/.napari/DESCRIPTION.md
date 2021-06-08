@@ -6,7 +6,7 @@ napari hub page.
 
 The sections below are given as a guide for the flow of information only, and
 are in no way prescriptive. You should feel free to merge, remove, add and 
-rename sections at will to make this document work best for your plugin. -->
+rename sections at will to make this document work best for your plugin. 
 
 # Description
 
@@ -66,7 +66,7 @@ quick overview of the plugin's functionality, but you should definitely link out
 more complex and in-depth tutorials highlighting any intricacies of your plugin, and
 more detailed documentation if you have it.
 
-<!-- # Additional Install Steps (uncommon)
+# Additional Install Steps (uncommon)
 We will be providing installation instructions on the hub, which will be sufficient
 for the majority of plugins. They will include instructions to pip install, and
 to install via napari itself.
@@ -74,7 +74,7 @@ to install via napari itself.
 Most plugins can be installed out-of-the-box by just specifying the package requirements
 over in `setup.cfg`. However, if your plugin has any more complex dependencies, or 
 requires any additional preparation before (or after) installation, you should add 
-this information here. -->
+this information here.
 
 # Getting Help
 
@@ -87,4 +87,6 @@ here.
 
 Many plugins may be used in the course of published (or publishable) research, as well as
 during conference talks and other public facing events. If you'd like to be cited in
-a particular format, or have a DOI you'd like used, you should provide that information here.
+a particular format, or have a DOI you'd like used, you should provide that information here. -->
+
+The developer has not yet provided a napari-hub specific description.
