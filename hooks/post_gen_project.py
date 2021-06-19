@@ -79,29 +79,57 @@ Your plugin template is ready!  Next steps:
      git commit -m 'initial commit'
 
      # you probably want to install your new package into your env
-     pip install -e .
-
+     pip install -e ."""
+     )
+{% if cookiecutter.github_repository_url != 'provide later' %}
+    print("""
 2. Create a github repository with the name '{{ cookiecutter.plugin_name }}':
    https://github.com/new
 
 3. Add your newly created github repo as a remote and push:
 
-     git remote add origin https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.plugin_name }}.git
+     git remote add origin https://github.com/{{ cookiecutter.github_username_or_organization }}/{{ cookiecutter.plugin_name }}.git
      git push -u origin main
 
-4. Read the README for more info: https://github.com/napari/cookiecutter-napari-plugin
-"""
-    )
+4. The following default URLs have been added to `setup.cfg`:
 
-    print("""
-5. The following default URLs have been added to `setup.cfg`:
-
-    Bug Tracker = https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.plugin_name}}/issues
-    Documentation = https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.plugin_name}}#README.md
-    Source Code = https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.plugin_name}}
-    User Support = https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.plugin_name}}/issues
+    Bug Tracker = https://github.com/{{cookiecutter.github_username_or_organization}}/{{cookiecutter.plugin_name}}/issues
+    Documentation = https://github.com/{{cookiecutter.github_username_or_organization}}/{{cookiecutter.plugin_name}}#README.md
+    Source Code = https://github.com/{{cookiecutter.github_username_or_organization}}/{{cookiecutter.plugin_name}}
+    User Support = https://github.com/{{cookiecutter.github_username_or_organization}}/{{cookiecutter.plugin_name}}/issues
 
     These URLs will be displayed on your plugin's napari hub page. 
-    You may wish to change these before publishing your plugin!
+    You may wish to change these before publishing your plugin!"""
+    )
+{% else %}
+    print("""
+2. Create a github repository for your plugin:
+   https://github.com/new
+
+3. Add your newly created github repo as a remote and push:
+
+     git remote add origin https://github.com/your-repo-username/your-repo-name.git
+     git push -u origin main
+
+   Don't forget to add this url to setup.cfg!
+
+     [metadata]
+     url = https://github.com/your-repo-username/your-repo-name.git
+
+4. Consider adding additional links for documentation and user support to setup.cfg using the project_urls key e.g.
+    
+    [metadata]
+    project_urls =
+        Bug Tracker = https://github.com/your-repo-username/your-repo-name/issues
+        Documentation = https://github.com/your-repo-username/your-repo-name#README.md
+        Source Code = https://github.com/your-repo-username/your-repo-name
+        User Support = https://github.com/your-repo-username/your-repo-name/issues"""
+    )
+{% endif %}
+    print("""
+5. Read the README for more info: https://github.com/napari/cookiecutter-napari-plugin
+
+6. Consider customizing your plugin metadata for display on the napari hub: 
+   https://github.com/chanzuckerberg/napari-hub/blob/main/docs/customizing-plugin-listing.md
 """
     )

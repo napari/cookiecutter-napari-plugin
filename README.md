@@ -22,7 +22,7 @@ Cookiecutter prompts you for information regarding your plugin
 ```bash
 full_name [Napari Developer]: Ramon y Cajal
 email [yourname@example.com]: ramon@cajal.es
-github_username [githubuser]: neuronz52
+github_username_or_organization [githubuser]: neuronz52
 # NOTE: for packages whose primary purpose is to be a napari plugin, we
 # recommend using the 'napari-' prefix in the package name.
 # If your package provides functionality outside of napari, you may
