@@ -116,7 +116,8 @@ Your plugin template is ready!  Next steps:
      [metadata]
      url = https://github.com/your-repo-username/your-repo-name.git
 
-4. Consider adding additional links for documentation and user support to setup.cfg using the project_urls key e.g.
+4. Consider adding additional links for documentation and user support to setup.cfg 
+   using the project_urls key e.g.
     
     [metadata]
     project_urls =
