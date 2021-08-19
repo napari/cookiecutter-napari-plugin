@@ -4,7 +4,8 @@ site_author: {{cookiecutter.full_name}}
 
 theme: readthedocs
 
-repo_url: https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.plugin_name}}
-
+{% if cookiecutter.github_repository_url != 'provide later' %}
+repo_url: https://github.com/{{cookiecutter.github_username_or_organization}}/{{cookiecutter.plugin_name}}
+{% endif %}
 pages:
 - Home: index.md

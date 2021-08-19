@@ -36,7 +36,7 @@ Cookiecutter prompts you for information regarding your plugin based on aforemen
 ```no-highlight
 full_name [Napari Developer]: Ramon y Cajal
 email [yourname@example.com]: ramon@cajal.es
-github_username [githubuser]: neuronz52
+github_username_or_organization [githubuser]: neuronz52
 plugin_name [napari-foobar]: growth-cone-finder
 module_name [growth_cone_finder]: growth_cone_finder
 short_description [A simple plugin to use with napari]:
