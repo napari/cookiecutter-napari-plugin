@@ -6,7 +6,7 @@ some aspects of your plugin package including its name, versioning behaviour,
 license, etc. None of these configuration options are set in stone - you 
 can always change these later, but it may require some effort.
 
-This document details what each of the prompts are asking, what the effect
+This document details what each of the prompts is asking, what the effect
 of your choice will be on your package directory/plugin, and any potential 
 pitfalls of selecting one option over another.
 
@@ -24,12 +24,12 @@ listed next to the author's name.
 
 ## github_username_or_organization
 
-This is the GitHub username under whose account the GitHub repository the
+This is the GitHub username under whose account the GitHub repository for the
 plugin will be hosted. This username will be used to create the GitHub url 
 for this plugin and will appear as part of the `url` field in `setup.cfg`.
 
 This username could be your personal username or the organization under which
-you plan to store the plugin on GitHub. If you do not wish to provide a username
+you plan to host the plugin on GitHub. If you do not wish to provide a username,
 simply press `Enter` at this prompt, and choose `provide later` at the
 `github_repository_url` prompt - this will omit the `url` field in `setup.cfg`
 entirely, and you may add it later if you wish.
@@ -39,7 +39,7 @@ entirely, and you may add it later if you wish.
 This is the desired name for your napari plugin, and will also be the name
 of the Python package directory we create for you. The plugin name you choose
 will be listed in `setup.cfg` under the `name` field, as well as under 
-[options.entry_points]. If you publish your package to PyPI, users will be able 
+`[options.entry_points]`. If you publish your package to PyPI, users will be able 
 to install your package using 
 
 ```
@@ -71,7 +71,7 @@ This is how napari discovers plugins on launch.
 
 This should be a short description of what your plugin does. It will be listed
 in `setup.cfg` under the `description` field. If you publish your plugin to PyPI,
-this description will also be listed alonside your package name in search results.
+this description will also be listed alongside your package name in search results.
 
 ## include_reader_plugin
 
@@ -96,13 +96,13 @@ to achieve the dock widget functionality you want. For more information on dock 
 
 Choosing `"y"` for this prompt will create an example function hook implementation
  inside your plugin's module in the file `_function.py`. You can then edit the code in this file
-to achieve the dock widget functionality you want. For more information on dock widgets see the [hook specification reference](https://napari.org/plugins/stable/hook_specifications.html#hook-specifications-reference).
+to achieve the functionality you want. For more information on function implementations see the [hook specification reference](https://napari.org/plugins/stable/hook_specifications.html#hook-specifications-reference).
 
 ## use_git_tags_for_versioning
 
 The default for this prompt is `"n"`. If you choose `"n"` for this prompt, you will have to manually manage your version numbers
 when you create new releases of your plugin package. You can do
-this in `setup.cfg` under the `version` field. By default, choosing
+this in `setup.cfg` under the `version` field. Choosing
 `"n"` at this prompt will add `version = 0.0.1` to your `setup.cfg`.
 
 If you choose `"y"` for this prompt, versions will be automatically
@@ -123,7 +123,7 @@ plugin documentation, check out the [mkdocs documentation](https://www.mkdocs.or
 
 If you choose `sphinx`, the relevant config files will be placed in a `sphinx` folder
 at the root of your plugin directory. For more information on using `sphinx` for
-your plugin documentation, checkout the [sphinx documentation](https://www.sphinx-doc.org/en/master/).
+your plugin documentation, check out the [sphinx documentation](https://www.sphinx-doc.org/en/master/).
 
 ## license
 
