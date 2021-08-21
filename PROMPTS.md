@@ -108,7 +108,9 @@ to achieve the functionality you want. For more information on function implemen
 The default for this prompt is `"n"`. If you choose `"n"` for this prompt, you will have to manually manage your version numbers
 when you create new releases of your plugin package. You can do
 this in `setup.cfg` under the `version` field. Choosing
-`"n"` at this prompt will add `version = 0.0.1` to your `setup.cfg`. If you plan for users to `pip install` your plugin directly from 
+`"n"` at this prompt will add `version = 0.0.1` to your `setup.cfg`. 
+
+If you plan for users to `pip install` your plugin directly from 
 your GitHub repository by pointing to a release asset e.g. a source code archive,
 your users, you may want to choose this option.
 
