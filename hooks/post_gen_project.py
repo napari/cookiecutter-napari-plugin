@@ -67,13 +67,7 @@ if __name__ == "__main__":
     remove_temp_folders(ALL_TEMP_FOLDERS)
     remove_unrequested_plugin_examples()
 
-    import subprocess
-    try:
-        subprocess.run(["git", "init", "-q", "-b", "main"])
-        subprocess.run(["git", "add", "."])
-        subprocess.run(["git", "commit", "-q", "-m", "initial commit"])
-    except Exception:
-        print("""
+    print("""
 Your plugin template is ready!  Next steps:
 
 1. `cd` into your new directory and initialize a git repo
@@ -85,17 +79,8 @@ Your plugin template is ready!  Next steps:
      git commit -m 'initial commit'
 
      # you probably want to install your new package into your env
-     pip install -e .""")
-    else:
-        print("""
-Your plugin template is ready!  Next steps:
-
-1. `cd` into your new directory
-
-     cd {{ cookiecutter.plugin_name }}
-     # you probably want to install your new package into your env
-     pip install -e .""")
-
+     pip install -e ."""
+     )
 {% if cookiecutter.github_repository_url != 'provide later' %}
     print("""
 2. Create a github repository with the name '{{ cookiecutter.plugin_name }}':
