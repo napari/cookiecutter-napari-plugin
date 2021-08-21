@@ -4,6 +4,8 @@
 import logging
 import os
 import shutil
+import contextlib
+import subprocess
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("post_gen_project")
@@ -67,7 +69,13 @@ if __name__ == "__main__":
     remove_temp_folders(ALL_TEMP_FOLDERS)
     remove_unrequested_plugin_examples()
 
-    print("""
+
+    try:
+        subprocess.run(["git", "init", "-q", "-b", "main"])
+        subprocess.run(["git", "add", "."])
+        subprocess.run(["git", "commit", "-q", "-m", "initial commit"])
+    except Exception:
+        print("""
 Your plugin template is ready!  Next steps:
 
 1. `cd` into your new directory and initialize a git repo
@@ -79,8 +87,18 @@ Your plugin template is ready!  Next steps:
      git commit -m 'initial commit'
 
      # you probably want to install your new package into your env
-     pip install -e .
+     pip install -e .""")
+    else:
+        print("""
+Your plugin template is ready!  Next steps:
 
+1. `cd` into your new directory
+
+     cd {{ cookiecutter.plugin_name }}
+     # you probably want to install your new package into your env
+     pip install -e .""")
+
+    print("""
 2. Create a github repository with the name '{{ cookiecutter.plugin_name }}':
    https://github.com/new
 
