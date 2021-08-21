@@ -108,14 +108,15 @@ to achieve the functionality you want. For more information on function implemen
 The default for this prompt is `"n"`. If you choose `"n"` for this prompt, you will have to manually manage your version numbers
 when you create new releases of your plugin package. You can do
 this in `setup.cfg` under the `version` field. Choosing
-`"n"` at this prompt will add `version = 0.0.1` to your `setup.cfg`.
+`"n"` at this prompt will add `version = 0.0.1` to your `setup.cfg`. If you plan for users to `pip install` your plugin directly from 
+your GitHub repository by pointing to a release asset e.g. a source code archive,
+your users, you may want to choose this option.
 
 If you choose `"y"` for this prompt, versions will be automatically
 managed by `setuptools_scm` when you make commits to your `git` repository.
-Note that in order to use this option, you must at the 
-very least run `git init` in your package's root directory. If you are not familiar
-with `git`, or cannot guarantee it will be installed on your users' machines,
-you should choose `"n"` for this prompt, and manually manage your package versions.
+This option typically requires the least effort to manage versioning for your
+package. Note that in order to use this option, you must at the 
+very least run `git init` in your package's root directory.
 
 ## docs_tool
 
