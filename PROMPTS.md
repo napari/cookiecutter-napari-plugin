@@ -105,20 +105,32 @@ to achieve the functionality you want. For more information on function implemen
 
 ## use_git_tags_for_versioning
 
-The default for this prompt is `"n"`. If you choose `"n"` for this prompt, you will have to manually manage your version numbers
-when you create new releases of your plugin package. You can do
-this in `setup.cfg` under the `version` field. Choosing
-`"n"` at this prompt will add `version = 0.0.1` to your `setup.cfg`. 
+The default for this prompt is `"n"`. If you choose `"n"` for this prompt, you
+will have to manually manage your version numbers when you create new releases
+of your package. You can do this in `setup.cfg` under the `version` field (you
+will also need to update the version string wherever else you may have used it
+in your package, such as in `__init__.py`). Choosing `"n"` at this prompt will
+add `version = 0.0.1` to your `setup.cfg`. 
 
-If you plan for users to `pip install` your plugin directly from 
-your GitHub repository by pointing to a release asset e.g. a source code archive,
-your users, you may want to choose this option.
+If you choose `"y"` for this prompt, your package will be set up to have
+[`setuptools_scm`](https://github.com/pypa/setuptools_scm) manage versions for
+you based on your git tags.  See the
+[readme](https://github.com/napari/cookiecutter-napari-plugin#automatic-deployment-and-version-management)
+for details.
 
-If you choose `"y"` for this prompt, versions will be automatically
-managed by `setuptools_scm` when you make commits to your `git` repository.
 This option typically requires the least effort to manage versioning for your
-package. Note that in order to use this option, you must at the 
-very least run `git init` in your package's root directory.
+package, and will prevent errors with manually managed version strings going out
+of sync with your package metadata.  The main downside is that your users will
+not be able to install directly from a github release asset, and will need to
+have git installed if they want to directly install from a git repository.
+(This does *not*, however, affect the standard method of installing with `pip`, or
+installing from a pre-packaged wheel file.)
+
+```{note}
+In order to use this option, you must run `git init` once in
+your package's root directory.
+```
+
 
 ## docs_tool
 
