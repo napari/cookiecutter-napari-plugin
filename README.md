@@ -55,6 +55,8 @@ INFO:post_gen_project:Moving files for mkdocs.
 You just created a minimal napari plugin, complete with tests
 and ready for automatic deployment!
 
+For more detailed information on each prompt see the [prompts reference](./PROMPTS.md).
+
 ```no-highlight
 napari-growth-cone-finder/
 │
