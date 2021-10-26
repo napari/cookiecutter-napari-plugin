@@ -45,7 +45,7 @@ Plugin is free and open source software
 [napari]: https://github.com/napari/napari
 [gitter_badge]: https://badges.gitter.im/Join%20Chat.svg
 [gitter]: https://gitter.im/napari/cookiecutter-napari-plugin?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge (Join Chat on Gitter.im)
-[travis_badge]: https://travis-ci.org/napari/cookiecutter-napari-plugin.svg?branch=master
+[travis_badge]: https://travis-ci.org/napari/cookiecutter-napari-plugin.svg?branch=main
 [travis]: https://travis-ci.org/napari/cookiecutter-napari-plugin (See Build Status on Travis CI)
 [docs_badge]: https://readthedocs.org/projects/cookiecutter-napari-plugin/badge/?version=latest
 [documentation]: https://readthedocs.org/projects/cookiecutter-napari-plugin/?badge=latest (Documentation Status)

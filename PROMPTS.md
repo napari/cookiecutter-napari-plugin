@@ -143,7 +143,7 @@ plugin documentation, check out the [mkdocs documentation](https://www.mkdocs.or
 
 If you choose `sphinx`, the relevant config files will be placed in a `sphinx` folder
 at the root of your plugin directory. For more information on using `sphinx` for
-your plugin documentation, check out the [sphinx documentation](https://www.sphinx-doc.org/en/master/).
+your plugin documentation, check out the [sphinx documentation](https://www.sphinx-doc.org/en/main/).
 
 ## license
 

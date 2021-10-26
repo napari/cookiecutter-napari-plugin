@@ -107,7 +107,7 @@ git commit -m 'initial commit'
     # but replace with your own username and repo name
 
     git remote add origin https://github.com/neuronz52/napari-growth-cone-finder.git
-    git push -u origin master
+    git push -u origin main
     ```
 
 ### Monitor testing and coverage
@@ -145,7 +145,7 @@ You are now setup for automatic deployment!
 ### Automatic deployment and version management
 
 Each time you want to deploy a new version, you just need to create a tagged
-commit, and push it to your master branch on github.  Your package is set up to
+commit, and push it to your main branch on github.  Your package is set up to
 use [setuptools_scm](https://github.com/pypa/setuptools_scm) for version
 management, meaning you don't need to hard-code your version anywhere in your
 package.  It will be inferred from the tag each time you release.
@@ -234,7 +234,7 @@ is free and open source software.
 [napari organization]: https://github.com/napari/
 [gitter_badge]: https://badges.gitter.im/Join%20Chat.svg
 [gitter]: https://gitter.im/napari/cookiecutter-napari-plugin?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge (Join Chat on Gitter.im)
-[travis_badge]: https://travis-ci.org/napari/cookiecutter-napari-plugin.svg?branch=master
+[travis_badge]: https://travis-ci.org/napari/cookiecutter-napari-plugin.svg?branch=main
 [travis]: https://travis-ci.org/napari/cookiecutter-napari-plugin (See Build Status on Travis CI)
 [docs_badge]: https://readthedocs.org/projects/cookiecutter-napari-plugin/badge/?version=latest
 [documentation]: https://cookiecutter-napari-plugin.readthedocs.io/en/latest/ (Documentation)
