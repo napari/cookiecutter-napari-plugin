@@ -18,7 +18,7 @@ def run_tox(plugin):
             ["tox", plugin, "-c", os.path.join(plugin, "tox.ini"), "-e", "py"]
         )
     except subprocess.CalledProcessError as e:
-        pytest.fail(e)
+        pytest.fail("Subprocess fail", pytrace=True)
 
 
 def test_run_cookiecutter_and_plugin_tests(cookies, capsys):
@@ -29,8 +29,9 @@ def test_run_cookiecutter_and_plugin_tests(cookies, capsys):
     assert result.exception is None
     assert result.project.basename == "foo-bar"
     assert result.project.isdir()
-    assert result.project.join("foo_bar", "__init__.py").isfile()
-    assert result.project.join("foo_bar", "_tests", "test_reader.py").isfile()
+    assert result.project.join("src").isdir()
+    assert result.project.join("src", "foo_bar", "__init__.py").isfile()
+    assert result.project.join("src", "foo_bar", "_tests", "test_reader.py").isfile()
 
     run_tox(str(result.project))
 
@@ -43,8 +44,9 @@ def test_run_cookiecutter_and_plugin_tests_with_napari_prefix(cookies, capsys):
     assert result.exception is None
     assert result.project.basename == "napari-foo"
     assert result.project.isdir()
-    assert result.project.join("napari_foo", "__init__.py").isfile()
-    assert result.project.join("napari_foo", "_tests", "test_reader.py").isfile()
+    assert result.project.join("src").isdir()
+    assert result.project.join("src", "napari_foo", "__init__.py").isfile()
+    assert result.project.join("src", "napari_foo", "_tests", "test_reader.py").isfile()
 
 
 def test_run_cookiecutter_select_plugins(cookies, capsys):
@@ -61,10 +63,11 @@ def test_run_cookiecutter_select_plugins(cookies, capsys):
     assert result.exception is None
     assert result.project.basename == "anything"
     assert result.project.isdir()
-    assert result.project.join("anything", "__init__.py").isfile()
-    assert result.project.join("anything", "_tests", "test_reader.py").isfile()
+    assert result.project.join("src").isdir()
+    assert result.project.join("src", "anything", "__init__.py").isfile()
+    assert result.project.join("src", "anything", "_tests", "test_reader.py").isfile()
 
-    assert not result.project.join("anything", "_dock_widget.py").isfile()
-    assert not result.project.join("anything", "_tests", "test_dock_widget.py").isfile()
-    assert not result.project.join("anything", "_writer.py").isfile()
-    assert not result.project.join("anything", "_tests", "test_writer.py").isfile()
+    assert not result.project.join("src", "anything", "_dock_widget.py").isfile()
+    assert not result.project.join("src", "anything", "_tests", "test_dock_widget.py").isfile()
+    assert not result.project.join("src", "anything", "_writer.py").isfile()
+    assert not result.project.join("src", "anything", "_tests", "test_writer.py").isfile()
