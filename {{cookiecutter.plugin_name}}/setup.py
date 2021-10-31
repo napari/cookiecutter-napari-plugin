@@ -8,7 +8,7 @@ from setuptools import setup
 use_scm = False
 {% else %}
 # https://github.com/pypa/setuptools_scm
-use_scm = {"write_to": "{{cookiecutter.module_name}}/_version.py"}
+use_scm = {"write_to": "src/{{cookiecutter.module_name}}/_version.py"}
 {%- endif %}
 setup(use_scm_version=use_scm)
 {%- else -%}

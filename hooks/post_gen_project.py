@@ -56,8 +56,8 @@ def remove_unrequested_plugin_examples():
     {% for key, value in cookiecutter.items() %}
     {% if key.startswith('include_') and key.endswith("_plugin") and value != 'y' %}
     name = "{{ key }}".replace("include_", "").replace("_plugin", "")
-    remove_file(f"{module}/_{name}.py")
-    remove_file(f"{module}/_tests/test_{name}.py")
+    remove_file(f"src/{module}/_{name}.py")
+    remove_file(f"src/{module}/_tests/test_{name}.py")
     logger.debug(f"removing {module}/_{name}.py")
     {% endif %}
     {% endfor %}
