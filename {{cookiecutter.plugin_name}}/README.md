@@ -27,6 +27,13 @@ You can install `{{cookiecutter.plugin_name}}` via [pip]:
 
     pip install {{cookiecutter.plugin_name}}
 
+
+{% if cookiecutter.github_repository_url != 'provide later' %}
+To install latest development version :
+
+    pip install git+https://github.com/{{cookiecutter.github_username_or_organization}}/{{cookiecutter.plugin_name}}.git
+{% endif %}
+
 ## Contributing
 
 Contributions are very welcome. Tests can be run with [tox], please ensure
