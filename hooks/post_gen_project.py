@@ -70,7 +70,8 @@ if __name__ == "__main__":
 
     # try to run git init
     try:
-        subprocess.run(["git", "init", "-q", "-b", "main"])
+        subprocess.run(["git", "init", "-q"])
+        subprocess.run(["git", "checkout", "-b", "main"])
         subprocess.run(["git", "add", "."])
         subprocess.run(["git", "commit", "-q", "-m", "initial commit"])
     except Exception:
@@ -85,7 +86,7 @@ Your plugin template is ready!  Next steps:
      git add .
      git commit -m 'initial commit'
 
-     # you probably want to install your new package into your env
+     # you probably want to install your new package into your environment
      pip install -e .""")
     else:
         print("""
