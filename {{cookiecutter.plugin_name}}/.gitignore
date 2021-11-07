@@ -69,7 +69,7 @@ target/
 # Pycharm and VSCode
 .idea/
 venv/
-.vscode
+.vscode/
 
 # IPython Notebook
 .ipynb_checkpoints
