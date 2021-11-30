@@ -1,0 +1,31 @@
+name: {{cookiecutter.plugin_name}}
+author: {{cookiecutter.full_name}}
+display_name: {{cookiecutter.display_name}}
+entry_point: {{cookiecutter.module_name}}
+
+contributions:
+  commands:
+  {% if cookiecutter.include_reader_plugin == 'y' %}
+    - id: {{cookiecutter.plugin_name}}.get_reader
+      python_name: {{cookiecutter.module_name}}._reader.napari_get_reader
+      title: Open data with {{cookiecutter.display_name}}
+  {% endif %}
+  {% if cookiecutter.include_writer_plugin == 'y' %}
+    - id: {{cookiecutter.plugin_name}}.writer
+      python_name: {{cookiecutter.module_name}}._reader.napari_get_reader
+      title: Save data with {{cookiecutter.display_name}}
+  {% endif %}
+
+  {% if cookiecutter.include_reader_plugin == 'y' %}
+  readers:
+    - command: {{cookiecutter.plugin_name}}.get_reader
+      accepts_directories: {{cookiecutter.reader_accepts_directories}}
+      filename_extensions: [{{cookiecutter.reader_file_extensions}}]
+  {% endif %}
+
+  {% if cookiecutter.include_writer_plugin == 'y' %}
+  writers:
+    - command: {{cookiecutter.plugin_name}}.write_multiple
+      layer_types: {{cookiecutter.writer_layer_types}}
+      filename_extensions: [{{cookiecutter.writer_file_extensions}}]
+  {% endif %}
