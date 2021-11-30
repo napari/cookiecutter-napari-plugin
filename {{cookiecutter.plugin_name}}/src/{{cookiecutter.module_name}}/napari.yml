@@ -16,6 +16,12 @@ contributions:
       title: Save data with {{cookiecutter.display_name}}
   {% endif %}
 
+  {% if cookiecutter.include_sample_data_plugin == 'y' %}
+    - id: {{cookiecutter.plugin_name}}.make_sample_data
+      python_name: {{cookiecutter.module_name}}._sample_data.make_sample_data
+      title: Load sample data from {{cookiecutter.display_name}}
+  {% endif %}
+
   {% if cookiecutter.include_reader_plugin == 'y' %}
   readers:
     - command: {{cookiecutter.plugin_name}}.get_reader
@@ -28,4 +34,11 @@ contributions:
     - command: {{cookiecutter.plugin_name}}.write_multiple
       layer_types: {{cookiecutter.writer_layer_types}}
       filename_extensions: [{{cookiecutter.writer_file_extensions}}]
+  {% endif %}
+
+  {% if cookiecutter.include_sample_data_plugin == 'y' %}
+  sample_data:
+    - command: {{cookiecutter.plugin_name}}.make_sample_data
+      display_name: {{cookiecutter.display_name}}
+      key: unique_id.1
   {% endif %}

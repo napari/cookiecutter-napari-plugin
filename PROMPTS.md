@@ -106,9 +106,30 @@ ignored if you chose `"n"` for the `include_reader_plugin` prompt.
 
 ## include_writer_plugin
 
-Choosing `"y"` for this prompt will create an example writer hook implementation
-inside your plugin's module in the file `_writer.py`. You can then edit the code in this file
-to achieve the writing functionality you want. For more information on writers see the [specification reference][writer-spec].
+Choosing `"y"` for this prompt will create an example writer hook
+implementation inside your plugin's module in the file `_writer.py`. You can
+then edit the code in this file to achieve the writing functionality you want.
+For more information on writers see the [specification
+reference][writer-spec].
+
+## writer_layer_types
+
+List of layer type constraints for the writer. These constraints declare the
+kinds of data this writer is capable of saving.For more information on writers see the
+[specification reference][writer-spec].
+
+## writer_filename_extensions
+
+List of filename extensions compatible with this writer. The first entry is
+used as the default if necessary. This is used in the "Save As" dialog for
+presenting file-extension options. For more information on writers see the
+[specification reference][writer-spec].
+
+## include_sample_data_plugin
+
+Choosing `"y"` for this prompt will create an example sample-data provider
+implmentation inside your plugin's module in the file `_sample_data.py`.
+For more information see the [specification reference][sample-data-spec].
 
 ## include_dock_widget_plugin
 

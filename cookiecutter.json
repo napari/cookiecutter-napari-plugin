@@ -13,6 +13,7 @@
     "include_writer_plugin": "y",
     "writer_layer_types": "{% if cookiecutter.include_writer_plugin == 'y' %}image{% else %}NA{% endif %}",
     "writer_filename_extensions": "{% if cookiecutter.include_writer_plugin == 'y' %}n{% else %}NA{% endif %}",
+    "include_sample_data_plugin": "y",
     "include_dock_widget_plugin": "y",
     "include_function_plugin": "y",
     "use_git_tags_for_versioning": "n",
