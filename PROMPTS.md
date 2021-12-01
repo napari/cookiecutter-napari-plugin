@@ -91,7 +91,7 @@ inside your plugin's module in the file `_reader.py`. You can then edit the code
 file to achieve the reading functionality you want. For more information on
 readers see the [specification reference][reader-spec].
 
-## reader_file_extensions
+## reader_filename_patterns
 
 If you chose `"n"` for the `include_reader_plugin` prompt, you can choose to
 ignore this field. If you chose `"y"`, this is a list of file extensions that

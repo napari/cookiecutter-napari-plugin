@@ -6,28 +6,28 @@ entry_point: {{cookiecutter.module_name}}
 contributions:
   commands:{% if cookiecutter.include_reader_plugin == 'y' %}
     - id: {{cookiecutter.plugin_name}}.get_reader
-      python_name: {{cookiecutter.module_name}}._reader.napari_get_reader
+      python_name: {{cookiecutter.module_name}}._reader:napari_get_reader
       title: Open data with {{cookiecutter.display_name}}{% endif %}
   {% if cookiecutter.include_writer_plugin == 'y' %}
     - id: {{cookiecutter.plugin_name}}.writer
-      python_name: {{cookiecutter.module_name}}._reader.napari_get_reader
+      python_name: {{cookiecutter.module_name}}._reader:napari_get_reader
       title: Save data with {{cookiecutter.display_name}}{% endif %}
   {% if cookiecutter.include_sample_data_plugin == 'y' %}
     - id: {{cookiecutter.plugin_name}}.make_sample_data
-      python_name: {{cookiecutter.module_name}}._sample_data.make_sample_data
+      python_name: {{cookiecutter.module_name}}._sample_data:make_sample_data
       title: Load sample data from {{cookiecutter.display_name}}{% endif %}
   {% if cookiecutter.include_dock_widget_plugin == 'y' %}
     - id: {{cookiecutter.plugin_name}}.make_qwidget
-      python_name: {{cookiecutter.module_name}}._dock_widget.ExampleQWidget
+      python_name: {{cookiecutter.module_name}}._dock_widget:ExampleQWidget
       title: Make example QWidget
     - id: {{cookiecutter.plugin_name}}.make_magic_widget
-      python_name: {{cookiecutter.module_name}}._dock_widget.example_magic_widget
+      python_name: {{cookiecutter.module_name}}._dock_widget:example_magic_widget
       title: Make example magic widget{% endif %}
   {% if cookiecutter.include_reader_plugin == 'y' %}
   readers:
     - command: {{cookiecutter.plugin_name}}.get_reader
-      accepts_directories: {{cookiecutter.reader_accepts_directories}}
-      filename_extensions: [{{cookiecutter.reader_file_extensions}}] {% endif %}
+      accepts_directories: {% if cookiecutter.reader_accepts_directories == 'y' %}true{% else %}false{% endif %}
+      filename_patterns: [{{cookiecutter.reader_filename_patterns}}] {% endif %}
   {% if cookiecutter.include_writer_plugin == 'y' %}
   writers:
     - command: {{cookiecutter.plugin_name}}.write_multiple

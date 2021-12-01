@@ -8,7 +8,7 @@
     "display_name": "napari FooBar",
     "short_description": "A simple plugin to use with napari",
     "include_reader_plugin": "y",
-    "reader_file_extensions": "{% if cookiecutter.include_reader_plugin == 'y' %}*.tif, *.tiff{% else %}NA{% endif %}",
+    "reader_filename_patterns": "{% if cookiecutter.include_reader_plugin == 'y' %}*.tif, *.tiff{% else %}NA{% endif %}",
     "reader_accepts_directories": "{% if cookiecutter.include_reader_plugin == 'y' %}n{% else %}NA{% endif %}",
     "include_writer_plugin": "y",
     "writer_layer_types": "{% if cookiecutter.include_writer_plugin == 'y' %}image{% else %}NA{% endif %}",
