@@ -14,6 +14,6 @@ if not re.match(r"^[a-z][_a-z0-9]+$", "{{cookiecutter.module_name}}"):
     logger.error("  More info: {}".format(link))
     sys.exit(1)
     
-if re.match(r"_", "{{cookiecutter.module_name}}"):
+if re.match(r"_", "{{cookiecutter.plugin_name}}"):
     logger.error("PyPI.org and pip discourage package names with underscores.")
     sys.exit(1)
