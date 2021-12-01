@@ -4,41 +4,43 @@ display_name: {{cookiecutter.display_name}}
 entry_point: {{cookiecutter.module_name}}
 
 contributions:
-  commands:
-  {% if cookiecutter.include_reader_plugin == 'y' %}
+  commands:{% if cookiecutter.include_reader_plugin == 'y' %}
     - id: {{cookiecutter.plugin_name}}.get_reader
       python_name: {{cookiecutter.module_name}}._reader.napari_get_reader
-      title: Open data with {{cookiecutter.display_name}}
-  {% endif %}
+      title: Open data with {{cookiecutter.display_name}}{% endif %}
   {% if cookiecutter.include_writer_plugin == 'y' %}
     - id: {{cookiecutter.plugin_name}}.writer
       python_name: {{cookiecutter.module_name}}._reader.napari_get_reader
-      title: Save data with {{cookiecutter.display_name}}
-  {% endif %}
-
+      title: Save data with {{cookiecutter.display_name}}{% endif %}
   {% if cookiecutter.include_sample_data_plugin == 'y' %}
     - id: {{cookiecutter.plugin_name}}.make_sample_data
       python_name: {{cookiecutter.module_name}}._sample_data.make_sample_data
-      title: Load sample data from {{cookiecutter.display_name}}
-  {% endif %}
-
+      title: Load sample data from {{cookiecutter.display_name}}{% endif %}
+  {% if cookiecutter.include_dock_widget_plugin == 'y' %}
+    - id: {{cookiecutter.plugin_name}}.make_qwidget
+      python_name: {{cookiecutter.module_name}}._dock_widget.ExampleQWidget
+      title: Make example QWidget
+    - id: {{cookiecutter.plugin_name}}.make_magic_widget
+      python_name: {{cookiecutter.module_name}}._dock_widget.example_magic_widget
+      title: Make example magic widget{% endif %}
   {% if cookiecutter.include_reader_plugin == 'y' %}
   readers:
     - command: {{cookiecutter.plugin_name}}.get_reader
       accepts_directories: {{cookiecutter.reader_accepts_directories}}
-      filename_extensions: [{{cookiecutter.reader_file_extensions}}]
-  {% endif %}
-
+      filename_extensions: [{{cookiecutter.reader_file_extensions}}] {% endif %}
   {% if cookiecutter.include_writer_plugin == 'y' %}
   writers:
     - command: {{cookiecutter.plugin_name}}.write_multiple
       layer_types: {{cookiecutter.writer_layer_types}}
-      filename_extensions: [{{cookiecutter.writer_file_extensions}}]
-  {% endif %}
-
+      filename_extensions: [{{cookiecutter.writer_file_extensions}}] {% endif %}
   {% if cookiecutter.include_sample_data_plugin == 'y' %}
   sample_data:
     - command: {{cookiecutter.plugin_name}}.make_sample_data
       display_name: {{cookiecutter.display_name}}
-      key: unique_id.1
-  {% endif %}
+      key: unique_id.1 {% endif %}
+  {% if cookiecutter.include_dock_widget_plugin == 'y' %}
+  widgets:
+    - command: {{cookiecutter.plugin_name}}.make_qwidget
+      name: Example QWidget
+    - command: {{cookiecutter.plugin_name}}.make_magic_widget
+      name: Example Magic Widget {% endif %}
