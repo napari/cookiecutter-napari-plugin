@@ -18,7 +18,7 @@ Don't miss the full getting started guide to set up your new package:
 https://github.com/napari/cookiecutter-napari-plugin#getting-started
 
 and review the napari docs for plugin developers:
-https://napari.org/docs/plugins/index.html
+https://napari.org/plugins/stable/index.html
 -->
 
 ## Installation
