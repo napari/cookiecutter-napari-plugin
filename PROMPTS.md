@@ -91,19 +91,6 @@ inside your plugin's module in the file `_reader.py`. You can then edit the code
 file to achieve the reading functionality you want. For more information on
 readers see the [specification reference][reader-spec].
 
-## reader_filename_patterns
-
-If you chose `"n"` for the `include_reader_plugin` prompt, you can choose to
-ignore this field. If you chose `"y"`, this is a list of file extensions that
-the reader will accept. These should be formatted as a comma-separated list of
-[glob pattern's][]. The reader will only be invoked for filenames that match
-one of the patterns.
-
-## reader_accepts_directories
-
-Choosing `"y"` indicates the reader should be invoked for directories. This is
-ignored if you chose `"n"` for the `include_reader_plugin` prompt.
-
 ## include_writer_plugin
 
 Choosing `"y"` for this prompt will create an example writer hook
@@ -112,23 +99,10 @@ then edit the code in this file to achieve the writing functionality you want.
 For more information on writers see the [specification
 reference][writer-spec].
 
-## writer_layer_types
-
-List of layer type constraints for the writer. These constraints declare the
-kinds of data this writer is capable of saving.For more information on writers see the
-[specification reference][writer-spec].
-
-## writer_filename_extensions
-
-List of filename extensions compatible with this writer. The first entry is
-used as the default if necessary. This is used in the "Save As" dialog for
-presenting file-extension options. For more information on writers see the
-[specification reference][writer-spec].
-
 ## include_sample_data_plugin
 
 Choosing `"y"` for this prompt will create an example sample-data provider
-implmentation inside your plugin's module in the file `_sample_data.py`.
+implementation inside your plugin's module in the file `_sample_data.py`.
 For more information see the [specification reference][sample-data-spec].
 
 ## include_dock_widget_plugin
