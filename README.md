@@ -202,6 +202,23 @@ pytest  # run test in current environment
 If you chose to create docs with your plugin read the corresponding docs
 for [Sphinx] or [MkDocs]
 
+### Pre-commit
+
+This template includes a default yaml configuration for [pre-commit](https://pre-commit.com/).
+Among other things, it includes checks for best practices in napari plugins.
+You may edit the config at `.pre-commit-config.yaml`
+
+To use it run:
+
+```bash
+pip install pre-commit
+pre-commit install
+```
+
+You can also have these checks run automatically for you when you push to github
+by installing [pre-commit ci](https://pre-commit.ci/) on your repository.
+
+
 ## Features
 
 - Installable [PyPI] package featuring a `setup.py`
