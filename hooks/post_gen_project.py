@@ -4,6 +4,8 @@
 import logging
 import os
 import shutil
+from warnings import warn
+from pathlib import Path
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("post_gen_project")
@@ -61,13 +63,39 @@ def remove_unrequested_plugin_examples():
     {% endif %}
     {% endfor %}
 
+def validate_manifest():
+    try:
+        from npe2 import PluginManifest
+    except ImportError as e:
+        warn(e)
+        warn("Could not validate plugin manifest. Please install npe2.")
+        return
+
+    path=Path(PROJECT_DIRECTORY) / "src" / "{{cookiecutter.module_name}}" / "napari.yml"
+
+    valid = False
+    try:
+        pm = PluginManifest.from_file(path)
+        msg = f"✔ Manifest for {(pm.display_name or pm.name)!r} valid!"
+        valid = True
+    except PluginManifest.ValidationError as err:
+        msg = f"🅇 Invalid! {err}"
+    except Exception as err:
+        msg = f"🅇 Failed to read {path!r}. {type(err).__name__}: {err}"
+    
+    if not valid:
+        print(msg)
+    return valid
+
 
 if __name__ == "__main__":
     move_docs_files("{{cookiecutter.docs_tool}}", DOCS_FILES_BY_TOOL, DOCS_SOURCES)
     remove_temp_folders(ALL_TEMP_FOLDERS)
     remove_unrequested_plugin_examples()
+    valid=validate_manifest()
 
-    print("""
+    if valid:
+        print("""
 Your plugin template is ready!  Next steps:
 
 1. `cd` into your new directory and initialize a git repo
@@ -80,9 +108,9 @@ Your plugin template is ready!  Next steps:
 
      # you probably want to install your new package into your env
      pip install -e ."""
-     )
+        )
 {% if cookiecutter.github_repository_url != 'provide later' %}
-    print("""
+        print("""
 2. Create a github repository with the name '{{ cookiecutter.plugin_name }}':
    https://github.com/new
 
@@ -100,9 +128,9 @@ Your plugin template is ready!  Next steps:
 
     These URLs will be displayed on your plugin's napari hub page. 
     You may wish to change these before publishing your plugin!"""
-    )
+        )
 {% else %}
-    print("""
+        print("""
 2. Create a github repository for your plugin:
    https://github.com/new
 
@@ -125,9 +153,9 @@ Your plugin template is ready!  Next steps:
         Documentation = https://github.com/your-repo-username/your-repo-name#README.md
         Source Code = https://github.com/your-repo-username/your-repo-name
         User Support = https://github.com/your-repo-username/your-repo-name/issues"""
-    )
+        )
 {% endif %}
-    print("""
+        print("""
 5. Read the README for more info: https://github.com/napari/cookiecutter-napari-plugin
 
 6. We've provided a template description for your plugin page at `.napari/DESCRIPTION.md`. 
@@ -136,4 +164,4 @@ Your plugin template is ready!  Next steps:
 7. Consider customizing the rest of your plugin metadata for display on the napari hub: 
    https://github.com/chanzuckerberg/napari-hub/blob/main/docs/customizing-plugin-listing.md
 """
-    )
+        )
