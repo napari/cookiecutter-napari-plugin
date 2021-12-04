@@ -11,6 +11,7 @@
     "include_dock_widget_plugin": "y",
     "include_function_plugin": "y",
     "use_git_tags_for_versioning": "n",
+    "install_precommit": "n",
     "docs_tool": [
         "mkdocs",
         "sphinx",
