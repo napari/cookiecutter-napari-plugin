@@ -53,7 +53,7 @@ Select license:
 5 - GNU LGPL v3.0
 6 - GNU GPL v3.0
 Choose from 1, 2, 3, 4, 5, 6 (1, 2, 3, 4, 5, 6) [1]:
-INFO:post_gen_project:Moving files for mkdocs.
+
 ```
 
 You just created a minimal napari plugin, complete with tests
