@@ -160,6 +160,7 @@ This prompt allows you to choose from a variety of open source licensing options
 for your plugin. Choosing any of the options will lead to a boilerplate `LICENSE`
 file being added to the root of your plugin directory, as well as the [SPDX identifier](https://spdx.org/licenses/)
 for that license being listed in your `setup.cfg` under the `license` field.
+
 License options include: [BSD-3], [MIT], [MPL v2.0], [Apache v2.0], [GNU GPL v3.0], or [GNU LGPL v3.0]
 
 
