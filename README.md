@@ -12,7 +12,7 @@ Install [Cookiecutter] and generate a new napari plugin project:
 
 ```bash
 pip install cookiecutter
-cookiecutter https://github.com/napari/cookiecutter-napari-plugin
+cookiecutter https://github.com/napari/cookiecutter-napari-plugin --checkout npe2
 ```
 
 Cookiecutter prompts you for information regarding your plugin
