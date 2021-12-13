@@ -164,9 +164,6 @@ for that license being listed in your `setup.cfg` under the `license` field.
 License options include: [BSD-3], [MIT], [MPL v2.0], [Apache v2.0], [GNU GPL v3.0], or [GNU LGPL v3.0]
 
 
-License options include: [BSD-3], [MIT], [MPL v2.0], [Apache v2.0], [GNU GPL v3.0], or [GNU LGPL v3.0]
-
-
 [spec]: https://napari.org/plugins/stable/npe2_manifest_specification.html
 [reader-spec]: https://napari.org/plugins/stable/npe2_manifest_specification.html#readers
 [writer-spec]: https://napari.org/plugins/stable/npe2_manifest_specification.html#writers
