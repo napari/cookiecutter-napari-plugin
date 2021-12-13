@@ -74,12 +74,12 @@ napari-growth-cone-finder/
 ├── mkdocs.yml
 ├── napari_growth_cone_finder
 │   ├── __init__.py
-│   ├── _dock_widget.py
+│   ├── _widget.py
 │   ├── _reader.py
 │   ├── napari.yml
 │   └── _tests
 │       ├── __init__.py
-│       ├── test_dock_widget.py
+│       ├── test_widget.py
 │       └── test_reader.py
 ├── README.md
 ├── requirements.txt
@@ -205,6 +205,22 @@ pytest  # run test in current environment
 
 If you chose to create docs with your plugin read the corresponding docs
 for [Sphinx] or [MkDocs]
+
+### Pre-commit
+
+This template includes a default yaml configuration for [pre-commit](https://pre-commit.com/).
+Among other things, it includes checks for best practices in napari plugins.
+You may edit the config at `.pre-commit-config.yaml`
+
+To use it run:
+
+```bash
+pip install pre-commit
+pre-commit install
+```
+
+You can also have these checks run automatically for you when you push to github
+by installing [pre-commit ci](https://pre-commit.ci/) on your repository.
 
 ## Features
 

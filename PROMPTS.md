@@ -96,8 +96,8 @@ readers see the [specification reference][reader-spec].
 Choosing `"y"` for this prompt will create an example writer hook
 implementation inside your plugin's module in the file `_writer.py`. You can
 then edit the code in this file to achieve the writing functionality you want.
-For more information on writers see the [specification
-reference][writer-spec].
+For more information on writers see the
+[specification reference][writer-spec].
 
 ## include_sample_data_plugin
 
@@ -105,13 +105,13 @@ Choosing `"y"` for this prompt will create an example sample-data provider
 implementation inside your plugin's module in the file `_sample_data.py`.
 For more information see the [specification reference][sample-data-spec].
 
-## include_dock_widget_plugin
+## include_widget_plugin
 
 Choosing `"y"` for this prompt will create an example widget contribution
-inside your plugin's module in the file `_dock_widget.py`. You can then edit
+inside your plugin's module in the file `_widget.py`. You can then edit
 the code in this file to achieve the dock widget functionality you want. For
-more information on dock widgets see the [specification
-reference][widget-spec].
+more information on dock widgets see the
+[specification reference][widget-spec].
 
 ## use_git_tags_for_versioning
 
@@ -162,7 +162,6 @@ file being added to the root of your plugin directory, as well as the [SPDX iden
 for that license being listed in your `setup.cfg` under the `license` field.
 
 License options include: [BSD-3], [MIT], [MPL v2.0], [Apache v2.0], [GNU GPL v3.0], or [GNU LGPL v3.0]
-
 
 [spec]: https://napari.org/plugins/stable/npe2_manifest_specification.html
 [reader-spec]: https://napari.org/plugins/stable/npe2_manifest_specification.html#readers

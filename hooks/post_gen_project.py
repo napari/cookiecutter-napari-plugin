@@ -6,6 +6,7 @@ import os
 import shutil
 from warnings import warn
 from pathlib import Path
+import subprocess
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("post_gen_project")
@@ -67,9 +68,8 @@ def validate_manifest():
     try:
         from npe2 import PluginManifest
     except ImportError as e:
-        warn(e)
-        warn("Could not validate plugin manifest. Please install npe2.")
-        return
+        print("npe2 is not installed. Skipping manifest validation.")
+        return True
 
     path=Path(PROJECT_DIRECTORY) / "src" / "{{cookiecutter.module_name}}" / "napari.yml"
 
@@ -83,8 +83,7 @@ def validate_manifest():
     except Exception as err:
         msg = f"🅇 Failed to read {path!r}. {type(err).__name__}: {err}"
     
-    if not valid:
-        print(msg)
+    print(msg)
     return valid
 
 
@@ -94,8 +93,15 @@ if __name__ == "__main__":
     remove_unrequested_plugin_examples()
     valid=validate_manifest()
 
-    if valid:
-        print("""
+    msg = ''
+    # try to run git init
+    try:
+        subprocess.run(["git", "init", "-q"])
+        subprocess.run(["git", "checkout", "-b", "main"])
+        subprocess.run(["git", "add", "."])
+        subprocess.run(["git", "commit", "-q", "-m", "initial commit"])
+    except Exception:
+        msg += """
 Your plugin template is ready!  Next steps:
 
 1. `cd` into your new directory and initialize a git repo
@@ -106,11 +112,20 @@ Your plugin template is ready!  Next steps:
      git add .
      git commit -m 'initial commit'
 
+     # you probably want to install your new package into your environment
+     pip install -e ."""
+    else:
+        msg +="""
+Your plugin template is ready!  Next steps:
+
+1. `cd` into your new directory
+
+     cd {{ cookiecutter.plugin_name }}
      # you probably want to install your new package into your env
      pip install -e ."""
-        )
+
 {% if cookiecutter.github_repository_url != 'provide later' %}
-        print("""
+    msg += """
 2. Create a github repository with the name '{{ cookiecutter.plugin_name }}':
    https://github.com/{{ cookiecutter.github_username_or_organization }}/{{ cookiecutter.plugin_name }}.git
 
@@ -128,9 +143,9 @@ Your plugin template is ready!  Next steps:
 
     These URLs will be displayed on your plugin's napari hub page. 
     You may wish to change these before publishing your plugin!"""
-        )
+    
 {% else %}
-        print("""
+    msg += """
 2. Create a github repository for your plugin:
    https://github.com/new
 
@@ -153,9 +168,8 @@ Your plugin template is ready!  Next steps:
         Documentation = https://github.com/your-repo-username/your-repo-name#README.md
         Source Code = https://github.com/your-repo-username/your-repo-name
         User Support = https://github.com/your-repo-username/your-repo-name/issues"""
-        )
 {% endif %}
-        print("""
+    msg += """
 5. Read the README for more info: https://github.com/napari/cookiecutter-napari-plugin
 
 6. We've provided a template description for your plugin page at `.napari/DESCRIPTION.md`. 
@@ -164,4 +178,17 @@ Your plugin template is ready!  Next steps:
 7. Consider customizing the rest of your plugin metadata for display on the napari hub: 
    https://github.com/chanzuckerberg/napari-hub/blob/main/docs/customizing-plugin-listing.md
 """
-        )
+
+{% if cookiecutter.github_repository_url == 'y' %}
+    # try to install and update pre-commit
+    try:
+        print("install pre-commit ...")
+        subprocess.run(["pip", "install", "pre-commit"], stdout=subprocess.DEVNULL)
+        print("updating pre-commit...")
+        subprocess.run(["pre-commit", "autoupdate"], stdout=subprocess.DEVNULL)
+        subprocess.run(["pre-commit", "install"])
+    except Exception:
+        pass
+{% endif %}
+
+    print(msg)

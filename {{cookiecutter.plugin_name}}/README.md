@@ -11,14 +11,14 @@
 
 ----------------------------------
 
-This [napari] plugin was generated with [Cookiecutter] using with [@napari]'s [cookiecutter-napari-plugin] template.
+This [napari] plugin was generated with [Cookiecutter] using [@napari]'s [cookiecutter-napari-plugin] template.
 
 <!--
 Don't miss the full getting started guide to set up your new package:
 https://github.com/napari/cookiecutter-napari-plugin#getting-started
 
 and review the napari docs for plugin developers:
-https://napari.org/docs/plugins/index.html
+https://napari.org/plugins/stable/index.html
 -->
 
 ## Installation
@@ -26,6 +26,13 @@ https://napari.org/docs/plugins/index.html
 You can install `{{cookiecutter.plugin_name}}` via [pip]:
 
     pip install {{cookiecutter.plugin_name}}
+
+
+{% if cookiecutter.github_repository_url != 'provide later' %}
+To install latest development version :
+
+    pip install git+https://github.com/{{cookiecutter.github_username_or_organization}}/{{cookiecutter.plugin_name}}.git
+{% endif %}
 
 ## Contributing
 
