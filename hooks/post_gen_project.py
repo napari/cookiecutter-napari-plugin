@@ -68,9 +68,8 @@ def validate_manifest():
     try:
         from npe2 import PluginManifest
     except ImportError as e:
-        warn(e)
-        warn("Could not validate plugin manifest. Please install npe2.")
-        return
+        print("npe2 is not installed. Skipping manifest validation.")
+        return True
 
     path=Path(PROJECT_DIRECTORY) / "src" / "{{cookiecutter.module_name}}" / "napari.yml"
 
@@ -84,8 +83,7 @@ def validate_manifest():
     except Exception as err:
         msg = f"🅇 Failed to read {path!r}. {type(err).__name__}: {err}"
     
-    if not valid:
-        print(msg)
+    print(msg)
     return valid
 
 
