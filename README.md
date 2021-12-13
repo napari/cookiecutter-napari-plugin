@@ -27,19 +27,24 @@ github_username_or_organization [githubuser]: neuronz52
 # If your package provides functionality outside of napari, you may
 # choose to leave napari out of the name.
 plugin_name [napari-foobar]: napari-growth-cone-finder
+Select github_repository_url:
+1 - https://github.com/neuronz52/napari-growth-cone-finder
+2 - provide later
+Choose from 1, 2 [1]:
 module_name [growth_cone_finder]: napari_growth_cone_finder
+display_name [napari FooBar]: Growth Cone Finder
 short_description [A simple plugin to use with napari]:
 # you can select from various plugin template examples
 include_reader_plugin [y]:
 include_writer_plugin [y]:
-include_widget_plugin [y]:
 include_sample_data_plugin [y]:
-
+include_dock_widget_plugin [y]:
+use_git_tags_for_versioning [n]:
 Select docs_tool:
 1 - mkdocs
 2 - sphinx
 3 - none
-Choose from 1, 2, 3 [1]: 3
+Choose from 1, 2, 3 [1]:
 Select license:
 1 - BSD-3
 2 - MIT
@@ -48,7 +53,7 @@ Select license:
 5 - GNU LGPL v3.0
 6 - GNU GPL v3.0
 Choose from 1, 2, 3, 4, 5, 6 (1, 2, 3, 4, 5, 6) [1]:
-INFO:post_gen_project:Moving files for mkdocs.
+
 ```
 
 You just created a minimal napari plugin, complete with tests

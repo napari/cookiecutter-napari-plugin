@@ -112,7 +112,7 @@ Your plugin template is ready!  Next steps:
 {% if cookiecutter.github_repository_url != 'provide later' %}
         print("""
 2. Create a github repository with the name '{{ cookiecutter.plugin_name }}':
-   https://github.com/new
+   https://github.com/{{ cookiecutter.github_username_or_organization }}/{{ cookiecutter.plugin_name }}.git
 
 3. Add your newly created github repo as a remote and push:
 
