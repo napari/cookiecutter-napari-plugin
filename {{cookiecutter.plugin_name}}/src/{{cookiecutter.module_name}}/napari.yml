@@ -5,9 +5,12 @@ contributions:
     - id: {{cookiecutter.plugin_name}}.get_reader
       python_name: {{cookiecutter.module_name}}._reader:napari_get_reader
       title: Open data with {{cookiecutter.display_name}}{% endif %}{% if cookiecutter.include_writer_plugin == 'y' %}
-    - id: {{cookiecutter.plugin_name}}.writer
-      python_name: {{cookiecutter.module_name}}._reader:napari_get_reader
-      title: Save data with {{cookiecutter.display_name}}{% endif %}{% if cookiecutter.include_sample_data_plugin == 'y' %}
+    - id: {{cookiecutter.plugin_name}}.write_multiple
+      python_name: {{cookiecutter.module_name}}._writer:write_multiple
+      title: Save multi-layer data with {{cookiecutter.display_name}}
+    - id: {{cookiecutter.plugin_name}}.write_single_image
+      python_name: {{cookiecutter.module_name}}._writer:write_single_image
+      title: Save image data with {{cookiecutter.display_name}}{% endif %}{% if cookiecutter.include_sample_data_plugin == 'y' %}
     - id: {{cookiecutter.plugin_name}}.make_sample_data
       python_name: {{cookiecutter.module_name}}._sample_data:make_sample_data
       title: Load sample data from {{cookiecutter.display_name}}{% endif %} {% if cookiecutter.include_widget_plugin == 'y' %}

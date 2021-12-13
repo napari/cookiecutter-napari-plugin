@@ -8,9 +8,8 @@ Replace code below according to your needs.
 """
 from __future__ import annotations
 import numpy
-from numpy.typing import ArrayLike
 
 
-def make_sample_data() -> ArrayLike:
+def make_sample_data():
     """Generates an image"""
     return numpy.random.rand(512, 512)

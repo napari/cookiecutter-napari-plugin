@@ -7,15 +7,18 @@ see: https://napari.org/plugins/stable/npe2_manifest_specification.html
 Replace code below according to your needs.
 """
 from __future__ import annotations
-from typing import List
-from numpy.typing import ArrayLike
+from typing import TYPE_CHECKING, List, Any, Sequence, Tuple, Union
+
+if TYPE_CHECKING:
+    DataType = Union[Any, Sequence[Any]]
+    FullLayerData = Tuple[DataType, dict, str]
 
 
-def write_single_image(path: str, data: ArrayLike):
+def write_single_image(path: str, data: Any, meta: dict):
     """Writes a single image layer"""
     pass
 
 
-def write_multiple(path: str, data: List[ArrayLike], layer_types: List[str]):
+def write_multiple(path: str, data: List[FullLayerData]):
     """Writes multiple layers of different types."""
     pass
