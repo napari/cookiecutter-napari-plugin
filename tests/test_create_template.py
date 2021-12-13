@@ -54,7 +54,7 @@ def test_run_cookiecutter_select_plugins(cookies, capsys):
     result = cookies.bake(
         extra_context={
             "plugin_name": "anything",
-            "include_dock_widget_plugin": "n",
+            "include_widget_plugin": "n",
             "include_writer_plugin": "n",
         }
     )

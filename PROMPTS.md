@@ -105,7 +105,7 @@ Choosing `"y"` for this prompt will create an example sample-data provider
 implementation inside your plugin's module in the file `_sample_data.py`.
 For more information see the [specification reference][sample-data-spec].
 
-## include_dock_widget_plugin
+## include_widget_plugin
 
 Choosing `"y"` for this prompt will create an example widget contribution
 inside your plugin's module in the file `_widget.py`. You can then edit
