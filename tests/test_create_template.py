@@ -67,7 +67,11 @@ def test_run_cookiecutter_select_plugins(cookies, capsys):
     assert result.project.join("src", "anything", "__init__.py").isfile()
     assert result.project.join("src", "anything", "_tests", "test_reader.py").isfile()
 
-    assert not result.project.join("src", "anything", "_dock_widget.py").isfile()
-    assert not result.project.join("src", "anything", "_tests", "test_dock_widget.py").isfile()
+    assert not result.project.join("src", "anything", "_widget.py").isfile()
+    assert not result.project.join(
+        "src", "anything", "_tests", "test_widget.py"
+    ).isfile()
     assert not result.project.join("src", "anything", "_writer.py").isfile()
-    assert not result.project.join("src", "anything", "_tests", "test_writer.py").isfile()
+    assert not result.project.join(
+        "src", "anything", "_tests", "test_writer.py"
+    ).isfile()

@@ -108,7 +108,7 @@ For more information see the [specification reference][sample-data-spec].
 ## include_dock_widget_plugin
 
 Choosing `"y"` for this prompt will create an example widget contribution
-inside your plugin's module in the file `_dock_widget.py`. You can then edit
+inside your plugin's module in the file `_widget.py`. You can then edit
 the code in this file to achieve the dock widget functionality you want. For
 more information on dock widgets see the
 [specification reference][widget-spec].
