@@ -155,6 +155,7 @@ Your plugin template is ready!  Next steps:
 """
 
 {% if cookiecutter.github_repository_url != 'provide later' %}
+{% if cookiecutter.install_precommit == 'y' %}
     # try to install and update pre-commit
     try:
         print("install pre-commit ...")
@@ -164,6 +165,7 @@ Your plugin template is ready!  Next steps:
         subprocess.run(["pre-commit", "install"])
     except Exception:
         pass
+{% endif %}
 {% endif %}
 
     print(msg)
