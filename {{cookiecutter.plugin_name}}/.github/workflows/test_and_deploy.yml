@@ -33,8 +33,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      # these libraries, along with pytest-xvfb (added in the `deps` in tox.ini),
-      # enable testing on Qt on linux
+      # these libraries enable testing on Qt on linux
       - name: Install Linux libraries
         if: runner.os == 'Linux'
         run: |
@@ -60,7 +59,9 @@ jobs:
 
       # this runs the platform-specific tests declared in tox.ini
       - name: Test with tox
-        run: tox
+        uses: GabrielBB/xvfb-action@v1
+        with:
+          run: tox
         env:
           PLATFORM: ${{ matrix.platform }}
 
