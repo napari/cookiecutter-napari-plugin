@@ -1,18 +1,25 @@
-import {{cookiecutter.module_name}}
+from {{cookiecutter.module_name}} import ExampleQWidget, example_magic_widget
+import numpy as np
 import pytest
 
-# this is your plugin name declared in your napari.plugins entry point
-MY_PLUGIN_NAME = "{{cookiecutter.plugin_name}}"
-# the name of your widget(s)
-MY_WIDGET_NAMES = ["Example Q Widget", "example_magic_widget"]
+@pytest.fixture
+def random_im():
+    return np.random.random((100, 100))
 
-
-@pytest.mark.parametrize("widget_name", MY_WIDGET_NAMES)
-def test_something_with_viewer(widget_name, make_napari_viewer, napari_plugin_manager):
-    napari_plugin_manager.register({{cookiecutter.module_name}}, name=MY_PLUGIN_NAME)
+def test_example_q_widget(make_napari_viewer, capsys, random_im):
     viewer = make_napari_viewer()
-    num_dw = len(viewer.window._dock_widgets)
-    viewer.window.add_plugin_dock_widget(
-        plugin_name=MY_PLUGIN_NAME, widget_name=widget_name
-    )
-    assert len(viewer.window._dock_widgets) == num_dw + 1
+    viewer.add_image(random_im)
+    my_widget = ExampleQWidget(viewer)
+    my_widget._on_click()
+
+    captured = capsys.readouterr()
+    assert captured.out == "napari has 1 layers\n"
+    
+def test_example_magic_widget(make_napari_viewer, capsys, random_im):
+    viewer = make_napari_viewer()
+    layer = viewer.add_image(random_im)
+    my_widget = example_magic_widget()
+
+    my_widget(viewer.layers[0])
+    captured = capsys.readouterr()
+    assert captured.out == f"you have selected {layer}\n"
