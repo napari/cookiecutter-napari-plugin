@@ -65,10 +65,10 @@ For more detailed information on each prompt see the [prompts reference](./PROMP
 napari-growth-cone-finder/
 │
 ├── .github
-│   └── workflows
-│      └── test_and_deploy.yml
+│   └── workflows
+│      └── test_and_deploy.yml
 ├── docs
-│   └── index.md
+│   └── index.md
 ├── LICENSE
 ├── MANIFEST.in
 ├── mkdocs.yml
@@ -76,11 +76,11 @@ napari-growth-cone-finder/
 │   ├── __init__.py
 │   ├── _widget.py
 │   ├── _reader.py
-│   ├── napari.yml
-│   └── _tests
-│       ├── __init__.py
-│       ├── test_widget.py
-│       └── test_reader.py
+│   ├── napari.yaml
+│   └── _tests
+│       ├── __init__.py
+│       ├── test_widget.py
+│       └── test_reader.py
 ├── README.md
 ├── requirements.txt
 ├── setup.py

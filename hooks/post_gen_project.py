@@ -71,7 +71,7 @@ def validate_manifest():
         print("npe2 is not installed. Skipping manifest validation.")
         return True
 
-    path=Path(PROJECT_DIRECTORY) / "src" / "{{cookiecutter.module_name}}" / "napari.yml"
+    path=Path(PROJECT_DIRECTORY) / "src" / "{{cookiecutter.module_name}}" / "napari.yaml"
 
     valid = False
     try:
