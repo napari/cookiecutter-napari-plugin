@@ -1,0 +1,12 @@
+[build-system]
+{% if cookiecutter.use_git_tags_for_versioning == 'y' and cookiecutter.plugin_name != "foo-bar" -%}
+requires = ["setuptools", "wheel", "setuptools_scm"]
+{%- else -%}
+requires = ["setuptools", "wheel"]
+{%- endif %}
+build-backend = "setuptools.build_meta"
+
+{% if cookiecutter.use_git_tags_for_versioning == 'y' and cookiecutter.plugin_name != "foo-bar" %}
+[tool.setuptools_scm]
+write_to = "src/{{cookiecutter.module_name}}/_version.py"
+{%- endif %}
