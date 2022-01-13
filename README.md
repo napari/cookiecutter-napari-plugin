@@ -77,7 +77,6 @@ napari-growth-cone-finder/
 │       ├── test_dock_widget.py
 │       └── test_reader.py
 ├── README.md
-├── requirements.txt
 ├── setup.py
 └── tox.ini
 ```
