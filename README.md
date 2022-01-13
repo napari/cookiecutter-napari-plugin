@@ -76,9 +76,10 @@ napari-growth-cone-finder/
 │       ├── __init__.py
 │       ├── test_dock_widget.py
 │       └── test_reader.py
+├── pyproject.toml
 ├── README.md
 ├── requirements.txt
-├── setup.py
+├── setup.cfg
 └── tox.ini
 ```
 
@@ -221,7 +222,7 @@ by installing [pre-commit ci](https://pre-commit.ci/) on your repository.
 
 ## Features
 
-- Installable [PyPI] package featuring a `setup.py`
+- Installable [PyPI] package
 - [tox] test suite, testing various python versions and platforms.
 - `README.md` file that contains useful information about your plugin
 - Continuous integration configuration for [github actions] that handles testing
