@@ -78,7 +78,6 @@ napari-growth-cone-finder/
 │       └── test_reader.py
 ├── pyproject.toml
 ├── README.md
-├── requirements.txt
 ├── setup.cfg
 └── tox.ini
 ```
