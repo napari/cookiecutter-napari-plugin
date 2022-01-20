@@ -83,7 +83,7 @@ def validate_manifest():
     except Exception as err:
         msg = f"🅇 Failed to read {path!r}. {type(err).__name__}: {err}"
     
-    print(msg)
+    print(msg.encode("utf-8"))
     return valid
 
 
