@@ -2,7 +2,7 @@
 This module is an example of a barebones sample data provider for napari.
 
 It implements the "sample data" specification.
-see: https://napari.org/plugins/stable/npe2_manifest_specification.html
+see: https://napari.org/plugins/stable/guides.html#sample-data
 
 Replace code below according to your needs.
 """

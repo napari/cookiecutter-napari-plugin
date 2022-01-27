@@ -4,7 +4,6 @@
 import logging
 import os
 import shutil
-from warnings import warn
 from pathlib import Path
 import subprocess
 
@@ -63,6 +62,7 @@ def remove_unrequested_plugin_examples():
     logger.debug(f"removing {module}/_{name}.py")
     {% endif %}
     {% endfor %}
+
 
 def validate_manifest():
     try:
