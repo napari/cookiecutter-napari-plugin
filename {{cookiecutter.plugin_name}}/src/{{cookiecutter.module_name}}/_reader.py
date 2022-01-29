@@ -3,10 +3,7 @@ This module is an example of a barebones numpy reader plugin for napari.
 
 It implements the Reader specification, but your plugin may choose to
 implement multiple readers or even other plugin contributions. see:
-https://napari.org/plugins/stable/npe2_manifest_specification.html
-
-Replace code below accordingly.  For complete documentation see:
-https://napari.org/docs/dev/plugins/index.html
+https://napari.org/plugins/stable/guides.html#readers
 """
 import numpy as np
 
