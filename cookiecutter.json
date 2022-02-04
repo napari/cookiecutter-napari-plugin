@@ -1,22 +1,11 @@
 {
-    "full_name": "Napari Developer",
+    "full_name": "Python developer",
     "email": "yourname@example.com",
     "github_username_or_organization": "githubuser",
-    "plugin_name": "napari-foobar",
-    "github_repository_url": ["https://github.com/{{cookiecutter.github_username_or_organization}}/{{cookiecutter.plugin_name}}", "provide later"],
-    "module_name": "{{ cookiecutter.plugin_name|lower|replace('-', '_') }}",
-    "short_description": "A simple plugin to use with napari",
-    "include_reader_plugin": "y",
-    "include_writer_plugin": "y",
-    "include_dock_widget_plugin": "y",
-    "include_function_plugin": "y",
-    "use_git_tags_for_versioning": "n",
-    "install_precommit": "n",
-    "docs_tool": [
-        "mkdocs",
-        "sphinx",
-        "none"
-    ],
+    "package_name": "python-package",
+    "github_repository_url": ["https://github.com/{{cookiecutter.github_username_or_organization}}/{{cookiecutter.package_name}}", "provide later"],
+    "module_name": "{{ cookiecutter.package_name|lower|replace('-', '_') }}",
+    "short_description": "A simple Python package",
     "license": [
         "BSD-3",
         "MIT",

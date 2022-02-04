@@ -1,0 +1,11 @@
+repos:
+-   repo: https://github.com/python/black
+    rev: 22.1.0
+    hooks:
+    - id: black
+      pass_filenames: true
+-   repo: https://gitlab.com/pycqa/flake8
+    rev: 4.0.1
+    hooks:
+    - id: flake8
+      pass_filenames: true
