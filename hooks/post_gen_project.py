@@ -6,12 +6,21 @@ import subprocess
 if __name__ == "__main__":
     shutil.rmtree("licenses", ignore_errors=True)
 
-    msg = ''
+    msg = ""
     # try to run git init
     try:
         subprocess.run(["git", "init", "-q"])
         subprocess.run(["git", "checkout", "-b", "main"])
         subprocess.run(["git", "add", "."])
         subprocess.run(["git", "commit", "-q", "-m", "initial commit"])
+        subprocess.run(
+            [
+                "git",
+                "remote",
+                "add",
+                "origin",
+                "https://github.com/{{cookiecutter.github_username_or_organization}}/{{cookiecutter.package_name}}.git",
+            ]
+        )
     except Exception:
-        msg += ''
+        msg += ""
