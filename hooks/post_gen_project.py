@@ -9,6 +9,7 @@ if __name__ == "__main__":
     msg = ""
     # try to run git init
     try:
+        print("Initialising git repository")
         subprocess.run(["git", "init", "-q"])
         subprocess.run(["git", "checkout", "-b", "main"])
         subprocess.run(["git", "add", "."])
@@ -24,3 +25,15 @@ if __name__ == "__main__":
         )
     except Exception:
         msg += ""
+
+    { % if cookiecutter.install_precommit == 'y' %}
+    # try to install and update pre-commit
+    try:
+        print("Installing pre-commit ...")
+        subprocess.run(["pip", "install", "pre-commit"], stdout=subprocess.DEVNULL)
+        print("Updating pre-commit...")
+        subprocess.run(["pre-commit", "autoupdate"], stdout=subprocess.DEVNULL)
+        subprocess.run(["pre-commit", "install"])
+    except Exception:
+        pass
+    { % endif %}
