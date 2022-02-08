@@ -7,13 +7,14 @@ if __name__ == "__main__":
     shutil.rmtree("licenses", ignore_errors=True)
 
     msg = ""
-    # try to run git init
+    { % if cookiecutter.initialise_repository == 'y' %}
     try:
         print("Initialising git repository")
         subprocess.run(["git", "init", "-q"])
         subprocess.run(["git", "checkout", "-b", "main"])
         subprocess.run(["git", "add", "."])
         subprocess.run(["git", "commit", "-q", "-m", "initial commit"])
+        { % if cookiecutter.github_repository_url != 'provide later' %}
         subprocess.run(
             [
                 "git",
@@ -23,8 +24,11 @@ if __name__ == "__main__":
                 "https://github.com/{{cookiecutter.github_username_or_organization}}/{{cookiecutter.package_name}}.git",
             ]
         )
+        { % endif %}
     except Exception:
         msg += ""
+    { % endif %}
+
 
     { % if cookiecutter.install_precommit == 'y' %}
     # try to install and update pre-commit
