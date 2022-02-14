@@ -1,4 +1,4 @@
-# from {{cookiecutter.module_name}} import napari_get_writer, napari_write_image
+# from {{cookiecutter.module_name}} import write_single_image, write_multiple
 
 # add your tests here...
 

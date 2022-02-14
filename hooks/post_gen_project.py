@@ -4,6 +4,7 @@
 import logging
 import os
 import shutil
+from pathlib import Path
 import subprocess
 
 logging.basicConfig(level=logging.INFO)
@@ -63,10 +64,34 @@ def remove_unrequested_plugin_examples():
     {% endfor %}
 
 
+def validate_manifest():
+    try:
+        from npe2 import PluginManifest
+    except ImportError as e:
+        print("npe2 is not installed. Skipping manifest validation.")
+        return True
+
+    path=Path(PROJECT_DIRECTORY) / "src" / "{{cookiecutter.module_name}}" / "napari.yaml"
+
+    valid = False
+    try:
+        pm = PluginManifest.from_file(path)
+        msg = f"✔ Manifest for {(pm.display_name or pm.name)!r} valid!"
+        valid = True
+    except PluginManifest.ValidationError as err:
+        msg = f"🅇 Invalid! {err}"
+    except Exception as err:
+        msg = f"🅇 Failed to read {path!r}. {type(err).__name__}: {err}"
+    
+    print(msg.encode("utf-8"))
+    return valid
+
+
 if __name__ == "__main__":
     move_docs_files("{{cookiecutter.docs_tool}}", DOCS_FILES_BY_TOOL, DOCS_SOURCES)
     remove_temp_folders(ALL_TEMP_FOLDERS)
     remove_unrequested_plugin_examples()
+    valid=validate_manifest()
 
     msg = ''
     # try to run git init
@@ -102,7 +127,7 @@ Your plugin template is ready!  Next steps:
 {% if cookiecutter.github_repository_url != 'provide later' %}
     msg += """
 2. Create a github repository with the name '{{ cookiecutter.plugin_name }}':
-   https://github.com/new
+   https://github.com/{{ cookiecutter.github_username_or_organization }}/{{ cookiecutter.plugin_name }}.git
 
 3. Add your newly created github repo as a remote and push:
 
