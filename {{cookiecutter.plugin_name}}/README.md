@@ -44,6 +44,13 @@ the coverage at least stays the same before you submit a pull request.
 Distributed under the terms of the [{{cookiecutter.license}}] license,
 "{{cookiecutter.plugin_name}}" is free and open source software
 
+## Related & similar napari-plugins
+
+<!-- 
+If you know of other napari plugins that are compatible with yours or which have similar functionality. 
+Please list them in this section.
+-->
+
 ## Issues
 
 If you encounter any problems, please [file an issue] along with a detailed description.
