@@ -1,0 +1,48 @@
+name: {{cookiecutter.plugin_name}}
+display_name: {{cookiecutter.display_name}}
+contributions:
+  commands:{% if cookiecutter.include_reader_plugin == 'y' %}
+    - id: {{cookiecutter.plugin_name}}.get_reader
+      python_name: {{cookiecutter.module_name}}._reader:napari_get_reader
+      title: Open data with {{cookiecutter.display_name}}{% endif %}{% if cookiecutter.include_writer_plugin == 'y' %}
+    - id: {{cookiecutter.plugin_name}}.write_multiple
+      python_name: {{cookiecutter.module_name}}._writer:write_multiple
+      title: Save multi-layer data with {{cookiecutter.display_name}}
+    - id: {{cookiecutter.plugin_name}}.write_single_image
+      python_name: {{cookiecutter.module_name}}._writer:write_single_image
+      title: Save image data with {{cookiecutter.display_name}}{% endif %}{% if cookiecutter.include_sample_data_plugin == 'y' %}
+    - id: {{cookiecutter.plugin_name}}.make_sample_data
+      python_name: {{cookiecutter.module_name}}._sample_data:make_sample_data
+      title: Load sample data from {{cookiecutter.display_name}}{% endif %} {% if cookiecutter.include_widget_plugin == 'y' %}
+    - id: {{cookiecutter.plugin_name}}.make_qwidget
+      python_name: {{cookiecutter.module_name}}._widget:ExampleQWidget
+      title: Make example QWidget
+    - id: {{cookiecutter.plugin_name}}.make_magic_widget
+      python_name: {{cookiecutter.module_name}}._widget:example_magic_widget
+      title: Make example magic widget
+    - id: {{cookiecutter.plugin_name}}.make_func_widget
+      python_name: {{cookiecutter.module_name}}._widget:example_function_widget
+      title: Make example function widget{% endif %} {% if cookiecutter.include_reader_plugin == 'y' %}
+  readers:
+    - command: {{cookiecutter.plugin_name}}.get_reader
+      accepts_directories: false
+      filename_patterns: ['*.npy']{% endif %} {% if cookiecutter.include_writer_plugin == 'y' %}
+  writers:
+    - command: {{cookiecutter.plugin_name}}.write_multiple
+      layer_types: ['image*','labels*']
+      filename_extensions: []
+    - command: {{cookiecutter.plugin_name}}.write_single_image
+      layer_types: ['image']
+      filename_extensions: ['.npy']{% endif %} {% if cookiecutter.include_sample_data_plugin == 'y' %}
+  sample_data:
+    - command: {{cookiecutter.plugin_name}}.make_sample_data
+      display_name: {{cookiecutter.display_name}}
+      key: unique_id.1 {% endif %}{% if cookiecutter.include_widget_plugin == 'y' %}
+  widgets:
+    - command: {{cookiecutter.plugin_name}}.make_qwidget
+      display_name: Example QWidget
+    - command: {{cookiecutter.plugin_name}}.make_magic_widget
+      display_name: Example Magic Widget
+    - command: {{cookiecutter.plugin_name}}.make_func_widget
+      autogenerate: true
+      display_name: Example Function Widget {% endif %}

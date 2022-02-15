@@ -1,20 +1,24 @@
 """
-This module is an example of a barebones writer plugin for napari
+This module is an example of a barebones writer plugin for napari.
 
-It implements the ``napari_get_writer`` and ``napari_write_image`` hook specifications.
-see: https://napari.org/docs/dev/plugins/hook_specifications.html
+It implements the Writer specification.
+see: https://napari.org/plugins/stable/guides.html#writers
 
-Replace code below according to your needs
+Replace code below according to your needs.
 """
+from __future__ import annotations
+from typing import TYPE_CHECKING, List, Any, Sequence, Tuple, Union
 
-from napari_plugin_engine import napari_hook_implementation
+if TYPE_CHECKING:
+    DataType = Union[Any, Sequence[Any]]
+    FullLayerData = Tuple[DataType, dict, str]
 
 
-@napari_hook_implementation
-def napari_get_writer():
+def write_single_image(path: str, data: Any, meta: dict):
+    """Writes a single image layer"""
     pass
 
 
-@napari_hook_implementation
-def napari_write_image():
+def write_multiple(path: str, data: List[FullLayerData]):
+    """Writes multiple layers of different types."""
     pass
