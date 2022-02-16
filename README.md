@@ -1,6 +1,6 @@
 # cookiecutter-napari-plugin
 
-[Cookiecutter] template for authoring [npe2]-based [napari] plugins.
+[Cookiecutter] template for authoring ([npe2]-based) [napari] plugins.
 
 **NOTE: This repo is not meant to be cloned/forked directly! Please read "Getting Started" below**
 
@@ -12,7 +12,7 @@ Install [Cookiecutter] and generate a new napari plugin project:
 
 ```bash
 pip install cookiecutter
-cookiecutter https://github.com/napari/cookiecutter-napari-plugin --checkout npe2
+cookiecutter https://github.com/napari/cookiecutter-napari-plugin
 ```
 
 Cookiecutter prompts you for information regarding your plugin
