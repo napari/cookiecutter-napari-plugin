@@ -54,7 +54,7 @@ make sure to mention this.
 If you know of researchers, groups or labs using your plugin, or if it has been cited
 anywhere, feel free to also include this information here.
 
-#$ Quickstart
+## Quickstart
 
 This section should go through step-by-step examples of how your plugin should be used.
 Where your plugin provides multiple dock widgets or functions, you should split these
