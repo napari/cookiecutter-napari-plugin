@@ -187,7 +187,7 @@ nice with conda.
 
 ```bash
 pip install tox tox-conda
-tox -e py36,py37,py38 # run tests on multiple python versions
+tox -e py38,py39,py310 # run tests on multiple python versions
 ```
 
 If you don't wish to test locally on all supported python versions, you can test
