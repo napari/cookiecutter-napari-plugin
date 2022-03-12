@@ -13,3 +13,7 @@ write_to = "src/{{cookiecutter.module_name}}/_version.py"
 
 [tool.black]
 line-length = 79
+
+[tool.isort]
+profile = "black"
+line_length = 79
