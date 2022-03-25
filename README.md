@@ -79,7 +79,7 @@ napari-growth-cone-finder/
 │   ├── napari.yaml
 │   └── _tests
 │       ├── __init__.py
-│       ├── test_dock_widget.py
+│       ├── test_widget.py
 │       └── test_reader.py
 ├── pyproject.toml
 ├── README.md
