@@ -79,7 +79,7 @@ napari-growth-cone-finder/
 │   ├── napari.yaml
 │   └── _tests
 │       ├── __init__.py
-│       ├── test_dock_widget.py
+│       ├── test_widget.py
 │       └── test_reader.py
 ├── pyproject.toml
 ├── README.md
@@ -178,27 +178,17 @@ and available for pip install with:
 pip install napari-growth-cone-finder
 ```
 
-### Testing locally
+### Running tests locally
 
-You can run your tests locally in multiple different python environments using
-[tox], just by entering `tox` on the command line. If you are using `conda` for
-environment management, you may wish to install `tox-conda` to make tox play
-nice with conda.
+Tests are automatically setup to run on github when you push to your repository.
 
-```bash
-pip install tox tox-conda
-tox -e py38,py39,py310 # run tests on multiple python versions
-```
-
-If you don't wish to test locally on all supported python versions, you can test
-quicker by just using pytest directly, (but you'll need to make sure that
-`pytest` and your package is installed in your environment):
+You can run your tests locally with [pytest](https://docs.pytest.org/en/7.1.x/).
+You'll need to make sure that your package is installed in your environment,
+along with testing requirements (specified in the setup.cfg `extras_require` section):
 
 ```bash
-pip install -e .
-pip install pytest
-
-pytest  # run test in current environment
+pip install -e ".[testing]"
+pytest
 ```
 
 ### Create your documentation
