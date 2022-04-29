@@ -163,12 +163,12 @@ for that license being listed in your `setup.cfg` under the `license` field.
 
 License options include: [BSD-3], [MIT], [MPL v2.0], [Apache v2.0], [GNU GPL v3.0], or [GNU LGPL v3.0]
 
-[spec]: https://napari.org/plugins/stable/npe2_manifest_specification.html
-[reader-spec]: https://napari.org/plugins/stable/npe2_manifest_specification.html#readers
-[writer-spec]: https://napari.org/plugins/stable/npe2_manifest_specification.html#writers
-[theme-spec]: https://napari.org/plugins/stable/npe2_manifest_specification.html#themes
-[widget-spec]: https://napari.org/plugins/stable/npe2_manifest_specification.html#widgets-experimental
-[sample-data-spec]: https://napari.org/plugins/stable/npe2_manifest_specification.html
+[spec]: https://napari.org/plugins/manifest.html
+[reader-spec]: https://napari.org/plugins/contributions.html#contributions-readers
+[writer-spec]: https://napari.org/plugins/contributions.html#contributions-writers
+[theme-spec]: https://napari.org/plugins/contributions.html#contributions-themes
+[widget-spec]: https://napari.org/plugins/contributions.html#contributions-widgets
+[sample-data-spec]: https://napari.org/plugins/contributions.html#contributions-sample-data
 [glob pattern]: https://en.wikipedia.org/wiki/Glob_(programming)
 [mit]: http://opensource.org/licenses/MIT
 [mpl v2.0]: https://www.mozilla.org/media/MPL/2.0/index.txt
