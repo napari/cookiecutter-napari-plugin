@@ -2,7 +2,7 @@
 This module is an example of a barebones writer plugin for napari.
 
 It implements the Writer specification.
-see: https://napari.org/plugins/stable/guides.html#writers
+see: https://napari.org/plugins/guides.html?#writers
 
 Replace code below according to your needs.
 """
