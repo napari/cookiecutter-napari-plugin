@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 """
 test_create_template
 --------------------
@@ -7,8 +5,9 @@ test_create_template
 
 
 import os
-import pytest
 import subprocess
+
+import pytest
 
 
 def run_tox(plugin):
