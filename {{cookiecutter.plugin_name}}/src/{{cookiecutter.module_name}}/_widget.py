@@ -2,7 +2,7 @@
 This module is an example of a barebones QWidget plugin for napari
 
 It implements the Widget specification.
-see: https://napari.org/plugins/stable/guides.html#widgets
+see: https://napari.org/plugins/guides.html?#widgets
 
 Replace code below according to your needs.
 """

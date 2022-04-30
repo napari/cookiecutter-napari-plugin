@@ -227,7 +227,7 @@ by installing [pre-commit ci](https://pre-commit.ci/) on your repository.
 ## Resources
 
 Please consult the [napari plugin
-docs](https://napari.org/plugins/stable/index.html) for more information on
+docs](https://napari.org/plugins/index.html) for more information on
 how to create a plugin.
 
 ## Issues
