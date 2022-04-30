@@ -40,11 +40,6 @@ include_writer_plugin [y]:
 include_sample_data_plugin [y]:
 include_dock_widget_plugin [y]:
 use_git_tags_for_versioning [n]:
-Select docs_tool:
-1 - mkdocs
-2 - sphinx
-3 - none
-Choose from 1, 2, 3 [1]:
 Select license:
 1 - BSD-3
 2 - MIT
@@ -67,11 +62,8 @@ napari-growth-cone-finder/
 ├── .github
 │   └── workflows
 │      └── test_and_deploy.yml
-├── docs
-│   └── index.md
 ├── LICENSE
 ├── MANIFEST.in
-├── mkdocs.yml
 ├── napari_growth_cone_finder
 │   ├── __init__.py
 │   ├── _widget.py
@@ -193,8 +185,13 @@ pytest
 
 ### Create your documentation
 
-If you chose to create docs with your plugin read the corresponding docs
-for [Sphinx] or [MkDocs]
+Documentation generation is not included in this template.
+We recommend following the getting started guides for one of the following 
+documentation generation tools:
+
+1. [Sphinx]
+2. [MkDocs]
+3. [JupyterBook]
 
 ### Pre-commit
 
@@ -253,8 +250,9 @@ is free and open source software.
 [pypi]: https://pypi.org/
 [tox]: https://tox.readthedocs.io/en/latest/
 [file an issue]: https://github.com/napari/cookiecutter-napari-plugin/issues
-[sphinx]: http://sphinx-doc.org/
-[mkdocs]: http://www.mkdocs.org/
+[sphinx]: https://www.sphinx-doc.org/en/master/usage/quickstart.html
+[mkdocs]: https://www.mkdocs.org/getting-started/
+[jupyterbook]: https://jupyterbook.org/en/stable/start/your-first-book.html
 [mit]: http://opensource.org/licenses/MIT
 [mpl v2.0]: https://www.mozilla.org/media/MPL/2.0/index.txt
 [bsd-3]: http://opensource.org/licenses/BSD-3-Clause
