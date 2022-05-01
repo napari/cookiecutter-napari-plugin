@@ -1,11 +1,10 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 import logging
 import os
 import shutil
-from pathlib import Path
 import subprocess
+from pathlib import Path
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("post_gen_project")
@@ -55,7 +54,7 @@ def validate_manifest():
         msg = f"🅇 Invalid! {err}"
     except Exception as err:
         msg = f"🅇 Failed to read {path!r}. {type(err).__name__}: {err}"
-    
+
     print(msg.encode("utf-8"))
     return valid
 
@@ -113,9 +112,9 @@ Your plugin template is ready!  Next steps:
     Source Code = https://github.com/{{cookiecutter.github_username_or_organization}}/{{cookiecutter.plugin_name}}
     User Support = https://github.com/{{cookiecutter.github_username_or_organization}}/{{cookiecutter.plugin_name}}/issues
 
-    These URLs will be displayed on your plugin's napari hub page. 
+    These URLs will be displayed on your plugin's napari hub page.
     You may wish to change these before publishing your plugin!"""
-    
+
 {% else %}
     msg += """
 2. Create a github repository for your plugin:
@@ -131,9 +130,9 @@ Your plugin template is ready!  Next steps:
      [metadata]
      url = https://github.com/your-repo-username/your-repo-name.git
 
-4. Consider adding additional links for documentation and user support to setup.cfg 
+4. Consider adding additional links for documentation and user support to setup.cfg
    using the project_urls key e.g.
-    
+
     [metadata]
     project_urls =
         Bug Tracker = https://github.com/your-repo-username/your-repo-name/issues
@@ -144,10 +143,10 @@ Your plugin template is ready!  Next steps:
     msg += """
 5. Read the README for more info: https://github.com/napari/cookiecutter-napari-plugin
 
-6. We've provided a template description for your plugin page at `.napari/DESCRIPTION.md`. 
+6. We've provided a template description for your plugin page at `.napari/DESCRIPTION.md`.
    You'll likely want to edit this before you publish your plugin.
 
-7. Consider customizing the rest of your plugin metadata for display on the napari hub: 
+7. Consider customizing the rest of your plugin metadata for display on the napari hub:
    https://github.com/chanzuckerberg/napari-hub/blob/main/docs/customizing-plugin-listing.md
 """
 
