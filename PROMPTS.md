@@ -141,19 +141,6 @@ In order to use this option, you must run `git init` once in
 your package's root directory.
 ```
 
-## docs_tool
-
-This prompt allows you to specify which documentation building tool
-you would like to use, or `"none"` if you want to manually manage your documentation.
-
-If you choose `mkdocs`, a `mkdocs` folder and a `mkdocs.yml` file will be added to
-the root of your plugin directory. For more information on using `mkdocs` for your
-plugin documentation, check out the [mkdocs documentation](https://www.mkdocs.org/).
-
-If you choose `sphinx`, the relevant config files will be placed in a `sphinx` folder
-at the root of your plugin directory. For more information on using `sphinx` for
-your plugin documentation, check out the [sphinx documentation](https://www.sphinx-doc.org/).
-
 ## license
 
 This prompt allows you to choose from a variety of open source licensing options
