@@ -227,7 +227,7 @@ Please consult the [napari plugin
 docs](https://napari.org/plugins/index.html) for more information on
 how to create a plugin.
 
-Information on why plugins created by this cookiecutter template are using  the `src` layout could be found in this [article](https://blog.ionelmc.ro/2014/05/25/python-packaging/#the-structure)
+Details on why this plugin template is using the `src` layout can be found [here](https://blog.ionelmc.ro/2014/05/25/python-packaging/#the-structure) and [here](https://hynek.me/articles/testing-packaging/)
 
 ## Issues
 
