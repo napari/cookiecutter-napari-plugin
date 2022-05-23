@@ -78,10 +78,8 @@ if __name__ == "__main__":
         subprocess.run(["pip", "install", "pre-commit"], stdout=subprocess.DEVNULL)
         print("updating pre-commit...")
         subprocess.run(["pre-commit", "autoupdate"], stdout=subprocess.DEVNULL)
-        print("run pre-commit black hook...")
         subprocess.run(["git", "add", "."])
         subprocess.run(["pre-commit", "run", "black", "-a"], capture_output=True)
-        print("finished")
     except Exception:
         pass
 {% endif %}
@@ -114,6 +112,7 @@ Your plugin template is ready!  Next steps:
 
 {% if cookiecutter.install_precommit == 'y' %}
     # try to install and update pre-commit
+    # installing after commit to avoid problem with comments in setup.cfg.
     try:
         print("install pre-commit hook...")
         subprocess.run(["pre-commit", "install"])
