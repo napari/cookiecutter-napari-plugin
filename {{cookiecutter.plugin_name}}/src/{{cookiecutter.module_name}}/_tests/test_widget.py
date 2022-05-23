@@ -20,6 +20,7 @@ def test_example_q_widget(make_napari_viewer, capsys):
     captured = capsys.readouterr()
     assert captured.out == "napari has 1 layers\n"
 
+
 def test_example_magic_widget(make_napari_viewer, capsys):
     viewer = make_napari_viewer()
     layer = viewer.add_image(np.random.random((100, 100)))

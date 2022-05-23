@@ -14,6 +14,7 @@ from qtpy.QtWidgets import QHBoxLayout, QPushButton, QWidget
 if TYPE_CHECKING:
     import napari
 
+
 class ExampleQWidget(QWidget):
     # your QWidget.__init__ can optionally request the napari viewer instance
     # in one of two ways:
