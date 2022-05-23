@@ -69,6 +69,23 @@ if __name__ == "__main__":
     try:
         subprocess.run(["git", "init", "-q"])
         subprocess.run(["git", "checkout", "-b", "main"])
+    except Exception:
+        pass
+{% if cookiecutter.install_precommit == 'y' %}
+    # try to install and update pre-commit
+    try:
+        print("install pre-commit ...")
+        subprocess.run(["pip", "install", "pre-commit"], stdout=subprocess.DEVNULL)
+        print("updating pre-commit...")
+        subprocess.run(["pre-commit", "autoupdate"], stdout=subprocess.DEVNULL)
+        print("run pre-commit black hook...")
+        subprocess.run(["git", "add", "."])
+        subprocess.run(["pre-commit", "run", "black", "-a"], capture_output=True)
+        print("finished")
+    except Exception:
+        pass
+{% endif %}
+    try:
         subprocess.run(["git", "add", "."])
         subprocess.run(["git", "commit", "-q", "-m", "initial commit"])
     except Exception:
@@ -94,6 +111,15 @@ Your plugin template is ready!  Next steps:
      cd {{ cookiecutter.plugin_name }}
      # you probably want to install your new package into your env
      pip install -e ."""
+
+{% if cookiecutter.install_precommit == 'y' %}
+    # try to install and update pre-commit
+    try:
+        print("install pre-commit hook...")
+        subprocess.run(["pre-commit", "install"])
+    except Exception:
+        pass
+{% endif %}
 
 {% if cookiecutter.github_repository_url != 'provide later' %}
     msg += """
@@ -149,19 +175,5 @@ Your plugin template is ready!  Next steps:
 7. Consider customizing the rest of your plugin metadata for display on the napari hub:
    https://github.com/chanzuckerberg/napari-hub/blob/main/docs/customizing-plugin-listing.md
 """
-
-{% if cookiecutter.github_repository_url != 'provide later' %}
-{% if cookiecutter.install_precommit == 'y' %}
-    # try to install and update pre-commit
-    try:
-        print("install pre-commit ...")
-        subprocess.run(["pip", "install", "pre-commit"], stdout=subprocess.DEVNULL)
-        print("updating pre-commit...")
-        subprocess.run(["pre-commit", "autoupdate"], stdout=subprocess.DEVNULL)
-        subprocess.run(["pre-commit", "install"])
-    except Exception:
-        pass
-{% endif %}
-{% endif %}
 
     print(msg)

@@ -13,7 +13,7 @@ contributions:
       title: Save image data with {{cookiecutter.display_name}}{% endif %}{% if cookiecutter.include_sample_data_plugin == 'y' %}
     - id: {{cookiecutter.plugin_name}}.make_sample_data
       python_name: {{cookiecutter.module_name}}._sample_data:make_sample_data
-      title: Load sample data from {{cookiecutter.display_name}}{% endif %} {% if cookiecutter.include_widget_plugin == 'y' %}
+      title: Load sample data from {{cookiecutter.display_name}}{% endif %}{% if cookiecutter.include_widget_plugin == 'y' %}
     - id: {{cookiecutter.plugin_name}}.make_qwidget
       python_name: {{cookiecutter.module_name}}._widget:ExampleQWidget
       title: Make example QWidget
@@ -22,22 +22,22 @@ contributions:
       title: Make example magic widget
     - id: {{cookiecutter.plugin_name}}.make_func_widget
       python_name: {{cookiecutter.module_name}}._widget:example_function_widget
-      title: Make example function widget{% endif %} {% if cookiecutter.include_reader_plugin == 'y' %}
+      title: Make example function widget{% endif %}{% if cookiecutter.include_reader_plugin == 'y' %}
   readers:
     - command: {{cookiecutter.plugin_name}}.get_reader
       accepts_directories: false
-      filename_patterns: ['*.npy']{% endif %} {% if cookiecutter.include_writer_plugin == 'y' %}
+      filename_patterns: ['*.npy']{% endif %}{% if cookiecutter.include_writer_plugin == 'y' %}
   writers:
     - command: {{cookiecutter.plugin_name}}.write_multiple
       layer_types: ['image*','labels*']
       filename_extensions: []
     - command: {{cookiecutter.plugin_name}}.write_single_image
       layer_types: ['image']
-      filename_extensions: ['.npy']{% endif %} {% if cookiecutter.include_sample_data_plugin == 'y' %}
+      filename_extensions: ['.npy']{% endif %}{% if cookiecutter.include_sample_data_plugin == 'y' %}
   sample_data:
     - command: {{cookiecutter.plugin_name}}.make_sample_data
       display_name: {{cookiecutter.display_name}}
-      key: unique_id.1 {% endif %}{% if cookiecutter.include_widget_plugin == 'y' %}
+      key: unique_id.1{% endif %}{% if cookiecutter.include_widget_plugin == 'y' %}
   widgets:
     - command: {{cookiecutter.plugin_name}}.make_qwidget
       display_name: Example QWidget
@@ -45,4 +45,4 @@ contributions:
       display_name: Example Magic Widget
     - command: {{cookiecutter.plugin_name}}.make_func_widget
       autogenerate: true
-      display_name: Example Function Widget {% endif %}
+      display_name: Example Function Widget{% endif %}
