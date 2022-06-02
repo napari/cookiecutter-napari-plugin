@@ -1,4 +1,5 @@
 import numpy as np
+
 from {{cookiecutter.module_name}} import napari_get_reader
 
 

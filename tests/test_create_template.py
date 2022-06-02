@@ -74,3 +74,24 @@ def test_run_cookiecutter_select_plugins(cookies, capsys):
     assert not result.project.join(
         "src", "anything", "_tests", "test_writer.py"
     ).isfile()
+
+
+@pytest.mark.parametrize("include_reader_plugin", ["y", "n"])
+@pytest.mark.parametrize("include_writer_plugin", ["y", "n"])
+@pytest.mark.parametrize("include_sample_data_plugin", ["y", "n"])
+@pytest.mark.parametrize("include_widget_plugin", ["y", "n"])
+def test_pre_commit_validity(cookies, include_reader_plugin, include_writer_plugin, include_sample_data_plugin, include_widget_plugin):
+    result = cookies.bake(
+        extra_context={
+            "plugin_name": "anything",
+            "include_reader_plugin": include_reader_plugin,
+            "include_writer_plugin": include_writer_plugin,
+            "include_sample_data_plugin": include_sample_data_plugin,
+            "include_widget_plugin": include_widget_plugin,
+            "install_precommit": "y",
+        }
+    )
+    result.project_path.joinpath("setup.cfg").is_file()
+    subprocess.run(["pre-commit", "run", "setup-cfg-fmt", "--all"], cwd=str(result.project_path), check=False, capture_output=True)
+    # workaround because setup-cfg-fmt does not keep comments https://github.com/asottile/setup-cfg-fmt/pull/21
+    subprocess.run(["pre-commit", "run", "--all"], cwd=str(result.project_path), check=True, capture_output=True)
