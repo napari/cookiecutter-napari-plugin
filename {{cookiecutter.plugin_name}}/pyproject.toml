@@ -1,8 +1,8 @@
 [build-system]
 {% if cookiecutter.use_git_tags_for_versioning == 'y' and cookiecutter.plugin_name != "foo-bar" -%}
-requires = ["setuptools", "wheel", "setuptools_scm"]
+requires = ["setuptools>=42.0.0", "wheel", "setuptools_scm"]
 {%- else -%}
-requires = ["setuptools", "wheel"]
+requires = ["setuptools>=42.0.0", "wheel"]
 {%- endif %}
 build-backend = "setuptools.build_meta"
 
