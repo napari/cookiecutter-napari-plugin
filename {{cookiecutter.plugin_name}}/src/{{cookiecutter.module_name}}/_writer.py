@@ -15,9 +15,15 @@ if TYPE_CHECKING:
     FullLayerData = Tuple[DataType, dict, str]
 
 
-def write_single_image(path: str, data: Any, meta: dict):
+def write_single_image(path: str, data: Any, meta: dict) -> List[str]:
     """Writes a single image layer"""
 
+    # return path to any file(s) that were successfully written
+    return [path] 
 
-def write_multiple(path: str, data: List[FullLayerData]):
+
+def write_multiple(path: str, data: List[FullLayerData]) -> List[str]:
     """Writes multiple layers of different types."""
+
+    # return path to any file(s) that were successfully written
+    return [path]
