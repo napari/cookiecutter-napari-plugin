@@ -18,12 +18,16 @@ if TYPE_CHECKING:
 def write_single_image(path: str, data: Any, meta: dict) -> List[str]:
     """Writes a single image layer"""
 
+    # implement your writer logic here ...
+
     # return path to any file(s) that were successfully written
     return [path] 
 
 
 def write_multiple(path: str, data: List[FullLayerData]) -> List[str]:
     """Writes multiple layers of different types."""
+
+    # implement your writer logic here ...
 
     # return path to any file(s) that were successfully written
     return [path]
