@@ -92,6 +92,4 @@ def test_pre_commit_validity(cookies, include_reader_plugin, include_writer_plug
         }
     )
     result.project_path.joinpath("setup.cfg").is_file()
-    subprocess.run(["pre-commit", "run", "setup-cfg-fmt", "--all"], cwd=str(result.project_path), check=False, capture_output=True)
-    # workaround because setup-cfg-fmt does not keep comments https://github.com/asottile/setup-cfg-fmt/pull/21
     subprocess.run(["pre-commit", "run", "--all"], cwd=str(result.project_path), check=True, capture_output=True)
