@@ -5,7 +5,7 @@ repos:
       - id: check-docstring-first
       - id: end-of-file-fixer
       - id: trailing-whitespace
-        exclude: ^.napari-hub/*
+        exclude: ^\.napari-hub/.*
   - repo: https://github.com/PyCQA/isort
     rev: 5.10.1
     hooks:
