@@ -34,7 +34,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install pytest tox
-          pip install git+https://github.com/andriihomiak/pytest-cookies.git@fix/quotes_in_user_config
+          pip install git+https://github.com/hackebrot/pytest-cookies.git@refs/pull/61/head
 
       - name: Test
         uses: GabrielBB/xvfb-action@v1
