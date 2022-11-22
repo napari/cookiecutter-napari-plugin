@@ -74,9 +74,10 @@ This is how napari discovers plugins on launch.
 
 ## display_name
 
-User-facing text to display as the name of this plugin. It should be 3-40
-characters long. It will be listed in `napari.yaml` under the `display_name`
-field.
+User-facing text to display as the name of this plugin. For example, this will be
+used in the napari plugin menu and in the napari File > Open Sample menu, as well
+as by the napari-hub. It should be 3-40 characters long. It will be listed in
+`napari.yaml` under the `display_name` field.
 
 ## short_description
 
