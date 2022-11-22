@@ -52,7 +52,8 @@ pip install plugin_name
 ```
 
 The convention for these packages is that they should have short, all-lowercase
-names, with hyphens preferred over underscores for separating words.
+names, with hyphens preferred over underscores for separating words. Note that
+for user-facing text, napari and the napari-hub will use the `display_name` (below).
 
 ## github_repository_url
 
