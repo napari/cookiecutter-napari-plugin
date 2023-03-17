@@ -47,9 +47,10 @@ def write_multiple(path: str, data: List[FullLayerData]) -> List[str]:
     path : str
            A string path indicating where to save the image file.
     data : A layer tuple.
-           Tuple contains three elements: (data, kwargs, layer_type)
+           Tuple contains three elements: (data, meta, layer_type)
            `data` is the layer data
-           `kwargs` is a dictionary of keyword arguments
+           `meta` is a dictionary containing all other metadata attributes
+                  from the napari layer (excluding the `.data` layer attribute).
            `layer_type` is a string, eg: "image", "labels", "surface", etc.
 
     Returns
