@@ -21,7 +21,8 @@ def write_single_image(path: str, data: Any, meta: dict) -> List[str]:
     Parameters
     ----------
     path : str
-    data : The layer data
+    data : The layer data attribute
+    meta : dict
 
     Returns
     -------
@@ -45,6 +46,7 @@ def write_multiple(path: str, data: List[FullLayerData]) -> List[str]:
            `data` is the layer data
            `kwargs` is a dictionary of keyword arguments
            `layer_type` is a string, eg: "image", "labels", "surface", etc.
+    meta : dict
 
     Returns
     -------
