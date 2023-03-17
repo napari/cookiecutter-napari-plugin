@@ -92,4 +92,7 @@ def test_pre_commit_validity(cookies, include_reader_plugin, include_writer_plug
         }
     )
     result.project_path.joinpath("setup.cfg").is_file()
-    subprocess.run(["pre-commit", "run", "--all"], cwd=str(result.project_path), check=True, capture_output=True)
+    try:
+        subprocess.run(["pre-commit", "run", "--all", "--show-diff-on-failure"], cwd=str(result.project_path), check=True, capture_output=True)
+    except subprocess.CalledProcessError as e:
+        pytest.fail(f"pre-commit failed with output:\n{e.stdout.decode()}\nerrror:\n{e.stderr.decode()}")
