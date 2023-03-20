@@ -21,12 +21,12 @@ def write_single_image(path: str, data: Any, meta: dict) -> List[str]:
     Parameters
     ----------
     path : str
-           A string path indicating where to save the image file.
+        A string path indicating where to save the image file.
     data : The layer data
-           The `.data` attribute from the napari layer.
+        The `.data` attribute from the napari layer.
     meta : dict
-           A dictionary containing all other attributes from the napari layer
-           (excluding the `.data` layer attribute).
+        A dictionary containing all other attributes from the napari layer
+        (excluding the `.data` layer attribute).
 
     Returns
     -------
@@ -45,13 +45,13 @@ def write_multiple(path: str, data: List[FullLayerData]) -> List[str]:
     Parameters
     ----------
     path : str
-           A string path indicating where to save the image file.
-    data : A layer tuple.
-           Tuple contains three elements: (data, meta, layer_type)
-           `data` is the layer data
-           `meta` is a dictionary containing all other metadata attributes
-                  from the napari layer (excluding the `.data` layer attribute).
-           `layer_type` is a string, eg: "image", "labels", "surface", etc.
+        A string path indicating where to save the image file.
+    data : A list of layer tuples.
+        Tuples contain three elements: (data, meta, layer_type)
+         data` is the layer data
+        `meta` is a dictionary containing all other metadata attributes
+        from the napari layer (excluding the `.data` layer attribute).
+        `layer_type` is a string, eg: "image", "labels", "surface", etc.
 
     Returns
     -------
