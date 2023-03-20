@@ -118,6 +118,10 @@ When the tests are done, test coverage will be viewable at
 [codecov.io](https://codecov.io/) (assuming your repository is public):
 `https://codecov.io/gh/<your-github-username>/<your-package-name>`
 
+You will need to enable the [codecov](https://github.com/apps/codecov) github app
+for this to work. See [here](https://github.com/apps/codecov/installations/new)
+to install the codecov github app and give it access to your napari plugin repository.
+
 ### Set up automatic deployments
 
 Your new package is also nearly ready to automatically deploy to [PyPI]
