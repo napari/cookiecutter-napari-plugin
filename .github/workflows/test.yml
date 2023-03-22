@@ -33,8 +33,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pytest tox
-          pip install git+https://github.com/hackebrot/pytest-cookies.git@refs/pull/61/head
+          python -m pip install pytest pytest-cookies tox
 
       - name: Test
         uses: GabrielBB/xvfb-action@v1
