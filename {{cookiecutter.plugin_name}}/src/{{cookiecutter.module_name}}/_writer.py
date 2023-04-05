@@ -45,7 +45,7 @@ def write_multiple(path: str, data: List[FullLayerData]) -> List[str]:
     Parameters
     ----------
     path : str
-        A string path indicating where to save the image file.
+        A string path indicating where to save the data file(s).
     data : A list of layer tuples.
         Tuples contain three elements: (data, meta, layer_type)
          data` is the layer data
