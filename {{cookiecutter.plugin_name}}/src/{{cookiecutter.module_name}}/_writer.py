@@ -55,7 +55,7 @@ def write_multiple(path: str, data: List[FullLayerData]) -> List[str]:
 
     Returns
     -------
-    [path] : A list containing multiple string paths to the saved files.
+    [path] : A list containing (potentially multiple) string paths to the saved file(s).
     """
 
     # implement your writer logic here ...
