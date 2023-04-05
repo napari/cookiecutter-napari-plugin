@@ -37,6 +37,6 @@ jobs:
           pip install git+https://github.com/hackebrot/pytest-cookies.git@refs/pull/61/head
 
       - name: Test
-        uses: GabrielBB/xvfb-action@v1
+        uses: aganders3/headless-gui@v1
         with:
           run: python -m pytest -s -v --color=yes
