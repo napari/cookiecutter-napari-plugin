@@ -36,6 +36,6 @@ jobs:
           python -m pip install pytest pytest-cookies tox
 
       - name: Test
-        uses: GabrielBB/xvfb-action@v1
+        uses: aganders3/headless-gui@v1
         with:
           run: python -m pytest -s -v --color=yes
