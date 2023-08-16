@@ -1,6 +1,6 @@
 import numpy as np
 
-from {{cookiecutter.module_name}} import ExampleQWidget, example_magic_widget
+from {{module_name}} import ExampleQWidget, example_magic_widget
 
 
 # make_napari_viewer is a pytest fixture that returns a napari viewer object

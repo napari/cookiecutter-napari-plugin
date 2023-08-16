@@ -25,8 +25,8 @@ def remove_temp_folders(temp_folders):
 
 
 def remove_unrequested_plugin_examples():
-    module = "{{ cookiecutter.module_name }}"
-    {% for key, value in cookiecutter.items() %}
+    module = "{{ module_name }}"
+    {% for key, value in items() %}
     {% if key.startswith('include_') and key.endswith("_plugin") and value != 'y' %}
     name = "{{ key }}".replace("include_", "").replace("_plugin", "")
     remove_file(f"src/{module}/_{name}.py")
@@ -43,7 +43,7 @@ def validate_manifest():
         print("npe2 is not installed. Skipping manifest validation.")
         return True
 
-    path=Path(PROJECT_DIRECTORY) / "src" / "{{cookiecutter.module_name}}" / "napari.yaml"
+    path=Path(PROJECT_DIRECTORY) / "src" / "{{module_name}}" / "napari.yaml"
 
     valid = False
     try:
@@ -71,7 +71,7 @@ if __name__ == "__main__":
         subprocess.run(["git", "checkout", "-b", "main"])
     except Exception:
         pass
-{% if cookiecutter.install_precommit == 'y' %}
+{% if install_precommit == 'y' %}
     # try to install and update pre-commit
     try:
         print("install pre-commit ...")
@@ -93,7 +93,7 @@ Your plugin template is ready!  Next steps:
 1. `cd` into your new directory and initialize a git repo
    (this is also important for version control!)
 
-     cd {{ cookiecutter.plugin_name }}
+     cd {{ plugin_name }}
      git init -b main
      git add .
      git commit -m 'initial commit'
@@ -106,11 +106,11 @@ Your plugin template is ready!  Next steps:
 
 1. `cd` into your new directory
 
-     cd {{ cookiecutter.plugin_name }}
+     cd {{ plugin_name }}
      # you probably want to install your new package into your env
      pip install -e ."""
 
-{% if cookiecutter.install_precommit == 'y' %}
+{% if install_precommit == 'y' %}
     # try to install and update pre-commit
     # installing after commit to avoid problem with comments in setup.cfg.
     try:
@@ -120,22 +120,22 @@ Your plugin template is ready!  Next steps:
         pass
 {% endif %}
 
-{% if cookiecutter.github_repository_url != 'provide later' %}
+{% if github_repository_url != 'provide later' %}
     msg += """
-2. Create a github repository with the name '{{ cookiecutter.plugin_name }}':
-   https://github.com/{{ cookiecutter.github_username_or_organization }}/{{ cookiecutter.plugin_name }}.git
+2. Create a github repository with the name '{{ plugin_name }}':
+   https://github.com/{{ github_username_or_organization }}/{{ plugin_name }}.git
 
 3. Add your newly created github repo as a remote and push:
 
-     git remote add origin https://github.com/{{ cookiecutter.github_username_or_organization }}/{{ cookiecutter.plugin_name }}.git
+     git remote add origin https://github.com/{{ github_username_or_organization }}/{{ plugin_name }}.git
      git push -u origin main
 
 4. The following default URLs have been added to `setup.cfg`:
 
-    Bug Tracker = https://github.com/{{cookiecutter.github_username_or_organization}}/{{cookiecutter.plugin_name}}/issues
-    Documentation = https://github.com/{{cookiecutter.github_username_or_organization}}/{{cookiecutter.plugin_name}}#README.md
-    Source Code = https://github.com/{{cookiecutter.github_username_or_organization}}/{{cookiecutter.plugin_name}}
-    User Support = https://github.com/{{cookiecutter.github_username_or_organization}}/{{cookiecutter.plugin_name}}/issues
+    Bug Tracker = https://github.com/{{github_username_or_organization}}/{{plugin_name}}/issues
+    Documentation = https://github.com/{{github_username_or_organization}}/{{plugin_name}}#README.md
+    Source Code = https://github.com/{{github_username_or_organization}}/{{plugin_name}}
+    User Support = https://github.com/{{github_username_or_organization}}/{{plugin_name}}/issues
 
     These URLs will be displayed on your plugin's napari hub page.
     You may wish to change these before publishing your plugin!"""

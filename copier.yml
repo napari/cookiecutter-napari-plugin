@@ -1,0 +1,88 @@
+plugin_name:
+    default: napari-foobar
+    help: The name of your plugin
+    type: str
+display_name:
+    default: FooBar Segmentation
+    help: Display name for your plugin
+    type: str
+short_description:
+    default: A simple plugin to use FooBar segmentation within napari"
+    help: Short description of what your plugin does
+    type: str
+full_name:
+    default: Napari Developer
+    help: Developer name
+    type: str
+email:
+    default: yourname@example.com
+    help: Email address
+    type: str
+github_username_or_organization:
+    default: githubuser
+    help: Github user or organisation name
+    type: str
+github_repository_url:
+    default: https://github.com/{{github_username_or_organization}}/{{plugin_name}}
+    help: Github repository URL
+    type: str
+    choices:
+        - https://github.com/{{github_username_or_organization}}/{{plugin_name}}
+        - provide later
+module_name:
+    default: "{{ plugin_name|lower|replace('-', '_') }}"
+    help: Plugin module name
+    type: str
+include_reader_plugin:
+    default: y
+    help: Include reader plugin?
+    type: str
+    choices:
+        Yes: y
+        No: n
+include_writer_plugin:
+    default: y
+    help: Include writer plugin?
+    type: str
+    choices:
+        Yes: y
+        No: n
+include_sample_data_plugin:
+    default: y
+    help: Include sample data plugin?
+    type: str
+    choices:
+        Yes: y
+        No: n
+include_widget_plugin:
+    default: y
+    help: Include widget plugin?
+    type: str
+    choices:
+        Yes: y
+        No: n
+use_git_tags_for_versioning:
+    default: n
+    help: Use git tags for versioning?
+    type: str
+    choices:
+        Yes: y
+        No: n
+install_precommit:
+    default: n
+    help: Install pre-commit?
+    type: str
+    choices:
+        Yes: y
+        No: n
+license:
+    default: BSD-3
+    help: Which licence do you your plugin code to have?
+    type: str
+    choices:
+        - BSD-3
+        - MIT
+        - Mozilla Public License 2.0
+        - Apache Software License 2.0
+        - GNU LGPL v3.0
+        - GNU GPL v3.0

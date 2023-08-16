@@ -1,6 +1,6 @@
 import numpy as np
 
-from {{cookiecutter.module_name}} import napari_get_reader
+from {{module_name}} import napari_get_reader
 
 
 # tmp_path is a pytest fixture
