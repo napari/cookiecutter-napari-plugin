@@ -1,6 +1,3 @@
-_subdirectory: template
-_jinja_extensions:
-    - jinja2_time.TimeExtension
 plugin_name:
     default: napari-foobar
     help: The name of your plugin
@@ -89,3 +86,17 @@ license:
         - Apache Software License 2.0
         - GNU LGPL v3.0
         - GNU GPL v3.0
+# copier configuration options
+_subdirectory: template
+_jinja_extensions:
+    - jinja2_time.TimeExtension
+_exclude:
+    - "copier.yaml"
+    - "copier.yml"
+    - "~*"
+    - "*.py[co]"
+    - "__pycache__"
+    - ".git"
+    - ".DS_Store"
+    - ".svn"
+    - "*licenses*"
