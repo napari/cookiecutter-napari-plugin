@@ -34,47 +34,29 @@ module_name:
     help: Plugin module name
     type: str
 include_reader_plugin:
-    default: y
+    default: true
     help: Include reader plugin?
-    type: str
-    choices:
-        Yes: y
-        No: n
+    type: bool
 include_writer_plugin:
-    default: y
+    default: true
     help: Include writer plugin?
-    type: str
-    choices:
-        Yes: y
-        No: n
+    type: bool
 include_sample_data_plugin:
-    default: y
+    default: true
     help: Include sample data plugin?
-    type: str
-    choices:
-        Yes: y
-        No: n
+    type: bool
 include_widget_plugin:
-    default: y
+    default: true
     help: Include widget plugin?
-    type: str
-    choices:
-        Yes: y
-        No: n
+    type: bool
 use_git_tags_for_versioning:
-    default: n
+    default: false
     help: Use git tags for versioning?
-    type: str
-    choices:
-        Yes: y
-        No: n
+    type: bool
 install_precommit:
-    default: n
+    default: false
     help: Install pre-commit?
-    type: str
-    choices:
-        Yes: y
-        No: n
+    type: bool
 license:
     default: BSD-3
     help: Which licence do you your plugin code to have?

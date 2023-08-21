@@ -1,12 +1,12 @@
 [build-system]
-{% if use_git_tags_for_versioning == 'y' and plugin_name != "foo-bar" -%}
+{% if use_git_tags_for_versioning and plugin_name != "foo-bar" -%}
 requires = ["setuptools>=42.0.0", "wheel", "setuptools_scm"]
 {%- else -%}
 requires = ["setuptools>=42.0.0", "wheel"]
 {%- endif %}
 build-backend = "setuptools.build_meta"
 
-{% if use_git_tags_for_versioning == 'y' and plugin_name != "foo-bar" %}
+{% if use_git_tags_for_versioning and plugin_name != "foo-bar" %}
 [tool.setuptools_scm]
 write_to = "src/{{module_name}}/_version.py"
 {%- endif %}

@@ -2,7 +2,6 @@
 
 import logging
 import os
-import shutil
 import subprocess
 from pathlib import Path
 
@@ -10,30 +9,6 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("post_gen_project")
 
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
-ALL_TEMP_FOLDERS = ["licenses"]
-
-
-
-def remove_file(filepath):
-    os.remove(os.path.join(PROJECT_DIRECTORY, filepath))
-
-
-def remove_temp_folders(temp_folders):
-    for folder in temp_folders:
-        logger.debug("Remove temporary folder: %s", folder)
-        shutil.rmtree(folder, ignore_errors=True)
-
-
-def remove_unrequested_plugin_examples():
-    module = "{{ module_name }}"
-    {% for key, value in items() %}
-    {% if key.startswith('include_') and key.endswith("_plugin") and value != 'y' %}
-    name = "{{ key }}".replace("include_", "").replace("_plugin", "")
-    remove_file(f"src/{module}/_{name}.py")
-    remove_file(f"src/{module}/_tests/test_{name}.py")
-    logger.debug(f"removing {module}/_{name}.py")
-    {% endif %}
-    {% endfor %}
 
 
 def validate_manifest():
@@ -60,8 +35,6 @@ def validate_manifest():
 
 
 if __name__ == "__main__":
-    remove_temp_folders(ALL_TEMP_FOLDERS)
-    remove_unrequested_plugin_examples()
     valid=validate_manifest()
 
     msg = ''
@@ -71,7 +44,7 @@ if __name__ == "__main__":
         subprocess.run(["git", "checkout", "-b", "main"])
     except Exception:
         pass
-{% if install_precommit == 'y' %}
+{% if install_precommit %}
     # try to install and update pre-commit
     try:
         print("install pre-commit ...")
@@ -110,7 +83,7 @@ Your plugin template is ready!  Next steps:
      # you probably want to install your new package into your env
      pip install -e ."""
 
-{% if install_precommit == 'y' %}
+{% if install_precommit %}
     # try to install and update pre-commit
     # installing after commit to avoid problem with comments in setup.cfg.
     try:

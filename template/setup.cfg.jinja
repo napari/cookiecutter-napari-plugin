@@ -62,14 +62,14 @@ project_urls =
 packages = find:
 install_requires =
     numpy
-{% if include_widget_plugin == 'y' %}    magicgui
+{% if include_widget_plugin %}    magicgui
     qtpy
 {% endif %}
 python_requires = >=3.8
 include_package_data = True
 package_dir =
     =src
-{% if use_git_tags_for_versioning == 'y' -%}
+{% if use_git_tags_for_versioning -%}
 setup_requires = setuptools_scm
 {%- endif %}
 # add your package requirements here
@@ -86,7 +86,7 @@ testing =
     tox
     pytest  # https://docs.pytest.org/en/latest/contents.html
     pytest-cov  # https://pytest-cov.readthedocs.io/en/latest/
-{% if include_widget_plugin == 'y' %}    pytest-qt  # https://pytest-qt.readthedocs.io/en/latest/
+{% if include_widget_plugin %}    pytest-qt  # https://pytest-qt.readthedocs.io/en/latest/
     napari
     pyqt5
 {% endif %}
