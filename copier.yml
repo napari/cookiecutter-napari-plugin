@@ -1,3 +1,6 @@
+_subdirectory: template
+_jinja_extensions:
+    - jinja2_time.TimeExtension
 plugin_name:
     default: napari-foobar
     help: The name of your plugin
@@ -7,7 +10,7 @@ display_name:
     help: Display name for your plugin
     type: str
 short_description:
-    default: A simple plugin to use FooBar segmentation within napari"
+    default: A simple plugin to use FooBar segmentation within napari
     help: Short description of what your plugin does
     type: str
 full_name:
