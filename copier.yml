@@ -82,3 +82,16 @@ _exclude:
     - ".DS_Store"
     - ".svn"
     - "*licenses*"
+    - "_tasks.py"
+_tasks:
+    - [
+    "{{ _copier_python }}", # which python
+    "{{ _copier_conf.src_path }}{{ _copier_conf.sep }}_tasks.py", # task script
+    # keyword arguments for python script
+    "--plugin_name={{ plugin_name }}",
+    "--module_name={{ module_name }}",
+    "--project_directory={{ _copier_conf.dst_path }}",
+    "--install_precommit={{ install_precommit }}",
+    "--github_repository_url={{ github_repository_url }}",
+    "--github_username_or_organization={{ github_username_or_organization }}",
+    ]
