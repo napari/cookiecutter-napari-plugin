@@ -16,7 +16,7 @@ Then you can generate a new napari plugin project:
 ```bash
 python -m pip install copier jinja2-time
 python -m pip install npe2
-copier copy https://github.com/napari/cookiecutter-napari-plugin new-plugin-name
+copier copy --trust https://github.com/napari/cookiecutter-napari-plugin new-plugin-name
 ```
 
 Copier prompts you for information regarding your plugin
