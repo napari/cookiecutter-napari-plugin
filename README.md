@@ -1,6 +1,6 @@
 # cookiecutter-napari-plugin
 
-[Cookiecutter] template for authoring ([npe2]-based) [napari] plugins.
+[Copier](https://copier.readthedocs.io/en/stable/) template for authoring ([npe2]()-based) [napari](https://napari.org/) plugins.
 
 **NOTE: This repo is not meant to be cloned/forked directly! Please read "Getting Started" below**
 
@@ -8,14 +8,14 @@
 
 ### Create your plugin package
 
-Install [Cookiecutter] and generate a new napari plugin project:
+Install [Copier](https://copier.readthedocs.io/en/stable/) and the [jinja2-time](https://pypi.org/project/jinja2-time/) extension, then generate a new napari plugin project:
 
 ```bash
-pip install cookiecutter
-cookiecutter https://github.com/napari/cookiecutter-napari-plugin
+python -m pip install copier jinja2-time
+copier copy https://github.com/napari/cookiecutter-napari-plugin new-plugin-name
 ```
 
-Cookiecutter prompts you for information regarding your plugin
+Copier prompts you for information regarding your plugin
 (A new folder will be created in your current working directory):
 
 ```bash
@@ -190,8 +190,7 @@ pytest
 ### Create your documentation
 
 Documentation generation is not included in this template.
-We recommend following the getting started guides for one of the following 
-documentation generation tools:
+We recommend following the getting started guides for one of the following documentation generation tools:
 
 1. [Sphinx]
 2. [MkDocs]
@@ -235,8 +234,9 @@ Details on why this plugin template is using the `src` layout can be found [here
 
 ## Issues
 
-If you encounter any problems with this cookiecutter template, please [file an
-issue] along with a detailed description.
+If you encounter any problems with this template, please
+[file an issue](https://github.com/napari/cookiecutter-napari-plugin/issues/new)
+along with a detailed description.
 
 ## License
 
