@@ -75,7 +75,7 @@ def initialize_new_repository(
         # try to install and update pre-commit
         try:
             print("install pre-commit ...")
-            subprocess.run(["pip", "install", "pre-commit"], stdout=subprocess.DEVNULL)
+            subprocess.run(["python", "-m", "pip", "install", "pre-commit"], stdout=subprocess.DEVNULL)
             print("updating pre-commit...")
             subprocess.run(["pre-commit", "autoupdate"], stdout=subprocess.DEVNULL)
             subprocess.run(["git", "add", "."])
