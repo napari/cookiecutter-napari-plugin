@@ -224,7 +224,6 @@ by installing [pre-commit ci](https://pre-commit.ci/) on your repository.
 - Continuous integration configuration for [github actions] that handles testing
   and deployment of tagged releases
 - git-tag-based version management with [setuptools_scm]
-- Optional documentation with either [Sphinx] or [MkDocs]
 - Choose from several licenses, including [BSD-3], [MIT], [MPL v2.0], [Apache
   v2.0], [GNU GPL v3.0], or [GNU LGPL v3.0]
 

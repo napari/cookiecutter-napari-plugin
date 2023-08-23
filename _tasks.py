@@ -169,7 +169,7 @@ Your plugin template is ready!  Next steps:
     msg += """
     5. Read the README for more info: https://github.com/napari/cookiecutter-napari-plugin
 
-    6. We've provided a template description for your plugin page at `.napari/DESCRIPTION.md`.
+    6. We've provided a template description for your plugin page on the napari hub at `.napari-hub/DESCRIPTION.md`.
     You'll likely want to edit this before you publish your plugin.
 
     7. Consider customizing the rest of your plugin metadata for display on the napari hub:
