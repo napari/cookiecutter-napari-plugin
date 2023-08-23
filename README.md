@@ -1,6 +1,6 @@
 # cookiecutter-napari-plugin
 
-[Copier](https://copier.readthedocs.io/en/stable/) template for authoring ([npe2]()-based) [napari](https://napari.org/) plugins.
+[Copier](https://copier.readthedocs.io/en/stable/) template for authoring ([npe2](https://github.com/napari/npe2)-based) [napari](https://napari.org/) plugins.
 
 **NOTE: This repo is not meant to be cloned/forked directly! Please read "Getting Started" below**
 
@@ -8,10 +8,14 @@
 
 ### Create your plugin package
 
-Install [Copier](https://copier.readthedocs.io/en/stable/) and the [jinja2-time](https://pypi.org/project/jinja2-time/) extension, then generate a new napari plugin project:
+Install [Copier](https://copier.readthedocs.io/en/stable/) and the [jinja2-time](https://pypi.org/project/jinja2-time/) extension.
+Optionally install the napari plugin engine [npe2](https://github.com/napari/npe2), to help validate your new plugin is configured correctly.
+
+Then you can generate a new napari plugin project:
 
 ```bash
 python -m pip install copier jinja2-time
+python -m pip install npe2
 copier copy https://github.com/napari/cookiecutter-napari-plugin new-plugin-name
 ```
 
