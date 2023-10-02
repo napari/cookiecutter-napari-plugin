@@ -1,5 +1,9 @@
 name: {{cookiecutter.plugin_name}}
 display_name: {{cookiecutter.display_name}}
+# use 'hidden' to remove plugin from napari hub search results
+visibility: public
+# see https://napari.org/stable/plugins/manifest.html for valid categories
+categories: ["Annotation", "Segmentation", "Acquisition"]
 contributions:
   commands:{% if cookiecutter.include_reader_plugin == 'y' %}
     - id: {{cookiecutter.plugin_name}}.get_reader
