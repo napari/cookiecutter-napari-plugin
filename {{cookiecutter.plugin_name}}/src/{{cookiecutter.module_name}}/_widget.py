@@ -38,9 +38,9 @@ if TYPE_CHECKING:
 # to indicate it should be wrapped as a magicgui to autogenerate
 # a widget.
 def example_function_widget(
-    img_layer: "napari.layers.Image",
+    img: "napari.types.ImageData",
 ) -> "napari.types.LabelsData":
-    return img_layer.data > 0.5
+    return img > 0.5
 
 
 # the magic_factory decorator lets us customize aspects of our widget
@@ -56,6 +56,8 @@ def example_magic_widget(
     return img_layer.data > threshold
 
 
+# if we want even more control over our widget, we can use
+# magicgui `Container`
 class ImageThreshold(Container):
     def __init__(self, viewer: "napari.viewer.Viewer"):
         super().__init__()
