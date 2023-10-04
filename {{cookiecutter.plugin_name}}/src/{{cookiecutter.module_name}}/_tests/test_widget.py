@@ -1,8 +1,6 @@
 import numpy as np
 
-from {{cookiecutter.module_name}} import example_function_widget, example_magic_widget, ExampleQWidget
-
-
+from {{cookiecutter.module_name}}._widget import example_function_widget, example_magic_widget, ExampleQWidget
 
 
 def test_example_function_widget():
