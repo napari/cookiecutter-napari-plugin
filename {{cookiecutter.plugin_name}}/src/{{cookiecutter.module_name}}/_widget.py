@@ -1,5 +1,5 @@
 """
-This module contains four napari widgets declared in 
+This module contains four napari widgets declared in
 different ways:
 
 - a pure Python function flagged with `autogenerate: true`
@@ -13,7 +13,7 @@ different ways:
 - a `magicgui.widgets.Container` subclass. This provides lots
     of flexibility and customization options while still supporting
     `magicgui` widgets and convenience methods for creating widgets
-    from type annotations. 
+    from type annotations.
 - a `QWidget` subclass. This provides maximal flexibility but requires
     full specification of widget layouts, callbacks, events, etc.
 
@@ -25,9 +25,9 @@ Replace code below according to your needs.
 """
 from typing import TYPE_CHECKING
 
-from magicgui import magic_factory
-from magicgui.widgets import Container, CheckBox, create_widget
 import numpy as np
+from magicgui import magic_factory
+from magicgui.widgets import CheckBox, Container, create_widget
 from qtpy.QtWidgets import QHBoxLayout, QPushButton, QWidget
 
 if TYPE_CHECKING:

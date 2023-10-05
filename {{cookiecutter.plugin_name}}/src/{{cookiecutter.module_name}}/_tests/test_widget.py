@@ -1,6 +1,10 @@
 import numpy as np
 
-from {{cookiecutter.module_name}}._widget import example_function_widget, example_magic_widget, ExampleQWidget
+from {{cookiecutter.module_name}}._widget import (
+    ExampleQWidget,
+    example_function_widget,
+    example_magic_widget,
+)
 
 
 def test_example_function_widget():
@@ -11,8 +15,9 @@ def test_example_function_widget():
     assert thresholded.shape == im_data.shape
     # etc.
 
+
 # make_napari_viewer is a pytest fixture that returns a napari viewer object
-# you don't need to import it, as long as napari is installed 
+# you don't need to import it, as long as napari is installed
 # in your testing environment
 def test_example_magic_widget(make_napari_viewer):
     viewer = make_napari_viewer()
@@ -25,6 +30,7 @@ def test_example_magic_widget(make_napari_viewer):
     thresholded = my_widget(viewer.layers[0], 0.5)
     assert thresholded.shape == layer.data.shape
     # etc.
+
 
 # capsys is a pytest fixture that captures stdout and stderr output streams
 def test_example_q_widget(make_napari_viewer, capsys):
