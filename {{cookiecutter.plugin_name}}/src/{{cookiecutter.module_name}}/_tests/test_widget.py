@@ -1,9 +1,10 @@
 import numpy as np
 
 from {{cookiecutter.module_name}}._widget import (
-    ExampleQWidget,
     example_function_widget,
     example_magic_widget,
+    ImageThreshold,
+    ExampleQWidget,
 )
 
 
@@ -30,6 +31,15 @@ def test_example_magic_widget(make_napari_viewer):
     thresholded = my_widget(viewer.layers[0], 0.5)
     assert thresholded.shape == layer.data.shape
     # etc.
+
+
+def test_image_threshold_widget(make_napari_viewer):
+    viewer = make_napari_viewer()
+    layer = viewer.add_image(np.random.random((100, 100)))
+    my_widget = ImageThreshold(viewer)
+    my_widget._image_layer_combo.value = layer
+    my_widget._threshold_im(0.5)
+    assert len(viewer.layers) == 2
 
 
 # capsys is a pytest fixture that captures stdout and stderr output streams
