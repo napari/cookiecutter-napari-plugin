@@ -1,10 +1,10 @@
 import numpy as np
 
 from {{cookiecutter.module_name}}._widget import (
+    ExampleQWidget,
+    ImageThreshold,
     example_function_widget,
     example_magic_widget,
-    ImageThreshold,
-    ExampleQWidget,
 )
 
 
