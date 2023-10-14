@@ -77,6 +77,7 @@ class ImageThreshold(Container):
         # connect your own callbacks
         self._image_layer_combo.changed.connect(self._set_threshold_range)
         self._threshold_slider.changed.connect(self._threshold_im)
+        self._invert_checkbox.changed.connect(self._threshold_im)
         self._set_threshold_range(self._image_layer_combo.value)
 
         # append into/extend the container with your widgets
@@ -95,13 +96,14 @@ class ImageThreshold(Container):
             self._threshold_slider.min = im_min
             self._threshold_slider.max = im_max
 
-    def _threshold_im(self, threshold: float):
+    def _threshold_im(self):
         image_layer = self._image_layer_combo.value
         if image_layer is None:
             return
 
         image = image_layer.data
         name = image_layer.name + "_thresholded"
+        threshold = self._threshold_slider.value
         if self._invert_checkbox.value:
             thresholded = image < threshold
         else:
