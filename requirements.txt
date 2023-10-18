@@ -1,3 +1,5 @@
 copier
 jinja2-time
 npe2
+pytest
+pytest-copier
