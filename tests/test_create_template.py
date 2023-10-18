@@ -76,10 +76,10 @@ def test_run_cookiecutter_select_plugins(cookies, capsys):
     ).is_file()
 
 
-@pytest.mark.parametrize("include_reader_plugin", ["y", "n"])
-@pytest.mark.parametrize("include_writer_plugin", ["y", "n"])
-@pytest.mark.parametrize("include_sample_data_plugin", ["y", "n"])
-@pytest.mark.parametrize("include_widget_plugin", ["y", "n"])
+@pytest.mark.parametrize("include_reader_plugin", [True, False])
+@pytest.mark.parametrize("include_writer_plugin", [True, False])
+@pytest.mark.parametrize("include_sample_data_plugin", [True, False])
+@pytest.mark.parametrize("include_widget_plugin", [True, False])
 def test_pre_commit_validity(cookies, include_reader_plugin, include_writer_plugin, include_sample_data_plugin, include_widget_plugin):
     result = cookies.bake(
         extra_context={
@@ -88,7 +88,7 @@ def test_pre_commit_validity(cookies, include_reader_plugin, include_writer_plug
             "include_writer_plugin": include_writer_plugin,
             "include_sample_data_plugin": include_sample_data_plugin,
             "include_widget_plugin": include_widget_plugin,
-            "install_precommit": "y",
+            "install_precommit": True,
         }
     )
     result.project_path.joinpath("setup.cfg").is_file()
