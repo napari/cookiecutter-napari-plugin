@@ -25,7 +25,7 @@ __all__ = (
     {% endif %}{% if cookiecutter.include_sample_data_plugin == 'y' -%}
     "make_sample_data",
     {% endif %}{% if cookiecutter.include_widget_plugin == 'y' -%}
-    "ExampleQWidget,"
+    "ExampleQWidget",
     "ImageThreshold",
     "threshold_autogenerate_widget",
     "threshold_magic_widget",
