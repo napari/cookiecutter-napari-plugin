@@ -12,7 +12,7 @@ def test_threshold_autogenerate_widget():
     # because our "widget" is a pure function, we can call it and
     # test it independently of napari
     im_data = np.random.random((100, 100))
-    thresholded = threshold_autogenerate_widget(im_data)
+    thresholded = threshold_autogenerate_widget(im_data, 0.5)
     assert thresholded.shape == im_data.shape
     # etc.
 
