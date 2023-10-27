@@ -30,7 +30,6 @@ Replace code below according to your needs.
 """
 from typing import TYPE_CHECKING
 
-import numpy as np
 from magicgui import magic_factory
 from magicgui.widgets import CheckBox, Container, create_widget
 from qtpy.QtWidgets import QHBoxLayout, QPushButton, QWidget
