@@ -12,7 +12,7 @@ from ._reader import napari_get_reader
 {% endif %}{% if cookiecutter.include_sample_data_plugin == 'y' -%}
 from ._sample_data import make_sample_data
 {% endif %}{% if cookiecutter.include_widget_plugin == 'y' -%}
-from ._widget import ExampleQWidget, example_magic_widget
+from ._widget import ExampleQWidget, ImageThreshold, threshold_autogenerate_widget, threshold_magic_widget
 {% endif %}{% if cookiecutter.include_writer_plugin == 'y' -%}
 from ._writer import write_multiple, write_single_image
 {% endif %}
@@ -25,7 +25,9 @@ __all__ = (
     {% endif %}{% if cookiecutter.include_sample_data_plugin == 'y' -%}
     "make_sample_data",
     {% endif %}{% if cookiecutter.include_widget_plugin == 'y' -%}
-    "ExampleQWidget",
-    "example_magic_widget",
+    "ExampleQWidget,"
+    "ImageThreshold",
+    "threshold_autogenerate_widget",
+    "threshold_magic_widget",
 {% endif -%}
 )

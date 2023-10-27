@@ -29,6 +29,7 @@ import numpy as np
 from magicgui import magic_factory
 from magicgui.widgets import CheckBox, Container, create_widget
 from qtpy.QtWidgets import QHBoxLayout, QPushButton, QWidget
+from skimage.util import img_as_float
 
 if TYPE_CHECKING:
     import napari
@@ -37,10 +38,11 @@ if TYPE_CHECKING:
 # Uses the `autogenerate: true` flag in the plugin manifest
 # to indicate it should be wrapped as a magicgui to autogenerate
 # a widget.
-def example_function_widget(
+def threshold_autogenerate_widget(
     img: "napari.types.ImageData",
+    threshold: "float", 
 ) -> "napari.types.LabelsData":
-    return img > 0.5
+    return img_as_float(img) > threshold
 
 
 # the magic_factory decorator lets us customize aspects of our widget
@@ -48,12 +50,12 @@ def example_function_widget(
 # and use auto_call=True so the function is called whenever
 # the value of a parameter changes
 @magic_factory(
-    threshold={"widget_type": "FloatSlider", "max": 20}, auto_call=True
+    threshold={"widget_type": "FloatSlider", "max": 1}, auto_call=True
 )
-def example_magic_widget(
+def threshold_magic_widget(
     img_layer: "napari.layers.Image", threshold: "float"
 ) -> "napari.types.LabelsData":
-    return img_layer.data > threshold
+    return img_as_float(img_layer.data) > threshold
 
 
 # if we want even more control over our widget, we can use
@@ -75,10 +77,8 @@ class ImageThreshold(Container):
         self._invert_checkbox = CheckBox(text="Keep pixels below threshold")
 
         # connect your own callbacks
-        self._image_layer_combo.changed.connect(self._set_threshold_range)
         self._threshold_slider.changed.connect(self._threshold_im)
         self._invert_checkbox.changed.connect(self._threshold_im)
-        self._set_threshold_range(self._image_layer_combo.value)
 
         # append into/extend the container with your widgets
         self.extend(
@@ -89,19 +89,12 @@ class ImageThreshold(Container):
             ]
         )
 
-    def _set_threshold_range(self, im_layer: "napari.layers.Image"):
-        if im_layer is not None:
-            im_min = np.min(im_layer.data)
-            im_max = np.max(im_layer.data)
-            self._threshold_slider.min = im_min
-            self._threshold_slider.max = im_max
-
     def _threshold_im(self):
         image_layer = self._image_layer_combo.value
         if image_layer is None:
             return
 
-        image = image_layer.data
+        image = img_as_float(image_layer.data)
         name = image_layer.name + "_thresholded"
         threshold = self._threshold_slider.value
         if self._invert_checkbox.value:

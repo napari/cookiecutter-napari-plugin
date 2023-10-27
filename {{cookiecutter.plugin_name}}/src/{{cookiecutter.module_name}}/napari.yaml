@@ -19,16 +19,16 @@ contributions:
       python_name: {{cookiecutter.module_name}}._sample_data:make_sample_data
       title: Load sample data from {{cookiecutter.display_name}}{% endif %}{% if cookiecutter.include_widget_plugin == 'y' %}
     - id: {{cookiecutter.plugin_name}}.make_container_widget
-      python_name: {{cookiecutter.module_name}}._widget:ImageThreshold
-      title: Make image threshold widget
+      python_name: {{cookiecutter.module_name}}:ImageThreshold
+      title: Make threshold Container widget
     - id: {{cookiecutter.plugin_name}}.make_magic_widget
-      python_name: {{cookiecutter.module_name}}._widget:example_magic_widget
-      title: Make example magic widget
-    - id: {{cookiecutter.plugin_name}}.make_func_widget
-      python_name: {{cookiecutter.module_name}}._widget:example_function_widget
-      title: Make example function widget{% endif %}{% if cookiecutter.include_reader_plugin == 'y' %}
+      python_name: {{cookiecutter.module_name}}:threshold_magic_widget
+      title: Make threshold magic widget
+    - id: {{cookiecutter.plugin_name}}.make_function_widget
+      python_name: {{cookiecutter.module_name}}:threshold_autogenerate_widget
+      title: Make threshold function widget{% endif %}{% if cookiecutter.include_reader_plugin == 'y' %}
     - id: {{cookiecutter.plugin_name}}.make_qwidget
-      python_name: {{cookiecutter.module_name}}._widget:ExampleQWidget
+      python_name: {{cookiecutter.module_name}}:ExampleQWidget
       title: Make example QWidget
   readers:
     - command: {{cookiecutter.plugin_name}}.get_reader
@@ -47,11 +47,11 @@ contributions:
       key: unique_id.1{% endif %}{% if cookiecutter.include_widget_plugin == 'y' %}
   widgets:
     - command: {{cookiecutter.plugin_name}}.make_container_widget
-      display_name: Image Threshold
+      display_name: Container Threshold
     - command: {{cookiecutter.plugin_name}}.make_magic_widget
-      display_name: Example Magic Widget
-    - command: {{cookiecutter.plugin_name}}.make_func_widget
+      display_name: Magic Threshold
+    - command: {{cookiecutter.plugin_name}}.make_function_widget
       autogenerate: true
-      display_name: Example Function Widget{% endif %}
+      display_name: Autogenerate Threshold
     - command: {{cookiecutter.plugin_name}}.make_qwidget
-      display_name: Example QWidget
+      display_name: Example QWidget{% endif %}

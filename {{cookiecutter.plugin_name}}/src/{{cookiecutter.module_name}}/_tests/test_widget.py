@@ -3,16 +3,16 @@ import numpy as np
 from {{cookiecutter.module_name}}._widget import (
     ExampleQWidget,
     ImageThreshold,
-    example_function_widget,
-    example_magic_widget,
+    threshold_autogenerate_widget,
+    threshold_magic_widget,
 )
 
 
-def test_example_function_widget():
+def test_threshold_autogenerate_widget():
     # because our "widget" is a pure function, we can call it and
     # test it independently of napari
     im_data = np.random.random((100, 100))
-    thresholded = example_function_widget(im_data)
+    thresholded = threshold_autogenerate_widget(im_data)
     assert thresholded.shape == im_data.shape
     # etc.
 
@@ -20,12 +20,12 @@ def test_example_function_widget():
 # make_napari_viewer is a pytest fixture that returns a napari viewer object
 # you don't need to import it, as long as napari is installed
 # in your testing environment
-def test_example_magic_widget(make_napari_viewer):
+def test_threshold_magic_widget(make_napari_viewer):
     viewer = make_napari_viewer()
     layer = viewer.add_image(np.random.random((100, 100)))
 
     # our widget will be a MagicFactory or FunctionGui instance
-    my_widget = example_magic_widget()
+    my_widget = threshold_magic_widget()
 
     # if we "call" this object, it'll execute our function
     thresholded = my_widget(viewer.layers[0], 0.5)
