@@ -1,8 +1,8 @@
 [project]
-name = {{cookiecutter.plugin_name}}
+name = "{{cookiecutter.plugin_name}}"
 dynamic = ["version"]
 description = "{{cookiecutter.short_description}}"
-readme = {file = "README.md"}
+readme = "README.md"
 license = {file = "LICENSE"}
 authors = [
   {name = "{{cookiecutter.full_name}}"},
@@ -37,24 +37,20 @@ classifiers = [
 requires-python = ">=3.8"
 dependencies = [
     "numpy",
-{% if cookiecutter.include_widget_plugin == 'y' %}
-    "magicgui",
+{% if cookiecutter.include_widget_plugin == 'y' %}    "magicgui",
     "qtpy",
     "scikit-image",
-{% endif %}
-]
+{% endif %}]
 
 [project.optional-dependencies]
 testing = [
     "tox",
     "pytest",  # https://docs.pytest.org/en/latest/contents.html
     "pytest-cov",  # https://pytest-cov.readthedocs.io/en/latest/
-{% if cookiecutter.include_widget_plugin == 'y' %}
-    "pytest-qt",  # https://pytest-qt.readthedocs.io/en/latest/
+{% if cookiecutter.include_widget_plugin == 'y' %}    "pytest-qt",  # https://pytest-qt.readthedocs.io/en/latest/
     "napari",
     "pyqt5",
-{% endif %}
-]
+{% endif %}]
 
 [project.entry-points."napari.manifest"]
 {{cookiecutter.plugin_name}} = "{{cookiecutter.module_name}}:napari.yaml"
@@ -79,7 +75,7 @@ build-backend = "setuptools.build_meta"
 include-package-data = true
 
 [tool.setuptools.dynamic]
-version = {attr = "{{cookiecutter.module_name}}.__version__"}
+version = {attr = "{{cookiecutter.module_name}}._version.__version__"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
