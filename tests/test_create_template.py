@@ -19,10 +19,20 @@ def run_tox(plugin):
     except subprocess.CalledProcessError as e:
         pytest.fail("Subprocess fail", pytrace=True)
 
-
-def test_run_cookiecutter_and_plugin_tests(cookies, capsys):
+@pytest.mark.parametrize("include_reader_plugin", ["y", "n"])
+@pytest.mark.parametrize("include_writer_plugin", ["y", "n"])
+@pytest.mark.parametrize("include_sample_data_plugin", ["y", "n"])
+@pytest.mark.parametrize("include_widget_plugin", ["y", "n"])
+def test_run_cookiecutter_and_plugin_tests(cookies, capsys, include_reader_plugin, include_writer_plugin, include_sample_data_plugin, include_widget_plugin):
     """Create a new plugin via cookiecutter and run its tests."""
-    result = cookies.bake(extra_context={"plugin_name": "foo-bar"})
+    result = cookies.bake(extra_context={
+            "plugin_name": "foo-bar",
+            "include_reader_plugin": include_reader_plugin,
+            "include_writer_plugin": include_writer_plugin,
+            "include_sample_data_plugin": include_sample_data_plugin,
+            "include_widget_plugin": include_widget_plugin,
+        }
+    )
 
     assert result.exit_code == 0
     assert result.exception is None
@@ -30,9 +40,19 @@ def test_run_cookiecutter_and_plugin_tests(cookies, capsys):
     assert result.project_path.is_dir()
     assert result.project_path.joinpath("src").is_dir()
     assert result.project_path.joinpath("src", "foo_bar", "__init__.py").is_file()
-    assert result.project_path.joinpath("src", "foo_bar", "_tests", "test_reader.py").is_file()
 
-    run_tox(str(result.project_path))
+    if include_reader_plugin == "y":
+        assert result.project_path.joinpath("src", "foo_bar", "_tests", "test_reader.py").is_file()
+    if include_writer_plugin == "y":
+        assert result.project_path.joinpath("src", "foo_bar", "_tests", "test_writer.py").is_file()
+    if include_sample_data_plugin == "y":
+        assert result.project_path.joinpath("src", "foo_bar", "_tests", "test_sample_data.py").is_file()
+    if include_widget_plugin == "y":
+        assert result.project_path.joinpath("src", "foo_bar", "_tests", "test_widget.py").is_file()
+
+    # if all are `n` there are no modules or tests    
+    if not (include_reader_plugin == "n" and include_writer_plugin == "n" and include_sample_data_plugin == "n" and include_widget_plugin == "n"):
+        run_tox(str(result.project_path))
 
 
 def test_run_cookiecutter_and_plugin_tests_with_napari_prefix(cookies, capsys):
