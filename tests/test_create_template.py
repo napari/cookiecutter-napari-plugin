@@ -47,7 +47,7 @@ def test_run_cookiecutter_and_plugin_tests(cookies, capsys, include_reader_plugi
     if include_writer_plugin == "y":
         assert (test_path / "test_writer.py").is_file()
     if include_sample_data_plugin == "y":
-        assert (test_path / test_sample_data.py").is_file()
+        assert (test_path / "test_sample_data.py").is_file()
     if include_widget_plugin == "y":
         assert (test_path / "test_widget.py").is_file()
 
