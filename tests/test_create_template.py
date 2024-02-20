@@ -41,17 +41,18 @@ def test_run_cookiecutter_and_plugin_tests(cookies, capsys, include_reader_plugi
     assert result.project_path.joinpath("src").is_dir()
     assert result.project_path.joinpath("src", "foo_bar", "__init__.py").is_file()
 
+    test_path = result.project_path.joinpath("src", "foo_bar", "_tests")
     if include_reader_plugin == "y":
-        assert result.project_path.joinpath("src", "foo_bar", "_tests", "test_reader.py").is_file()
+        assert (test_path / "test_reader.py").is_file()
     if include_writer_plugin == "y":
-        assert result.project_path.joinpath("src", "foo_bar", "_tests", "test_writer.py").is_file()
+        assert (test_path / "test_writer.py").is_file()
     if include_sample_data_plugin == "y":
-        assert result.project_path.joinpath("src", "foo_bar", "_tests", "test_sample_data.py").is_file()
+        assert (test_path / test_sample_data.py").is_file()
     if include_widget_plugin == "y":
-        assert result.project_path.joinpath("src", "foo_bar", "_tests", "test_widget.py").is_file()
+        assert (test_path / "test_widget.py").is_file()
 
     # if all are `n` there are no modules or tests    
-    if not (include_reader_plugin == "n" and include_writer_plugin == "n" and include_sample_data_plugin == "n" and include_widget_plugin == "n"):
+    if "y" in {include_reader_plugin, include_writer_plugin, include_sample_data_plugin, include_widget_plugin}:
         run_tox(str(result.project_path))
 
 
