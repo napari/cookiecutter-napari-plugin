@@ -26,10 +26,10 @@ contributions:
       title: Make threshold magic widget
     - id: {{cookiecutter.plugin_name}}.make_function_widget
       python_name: {{cookiecutter.module_name}}:threshold_autogenerate_widget
-      title: Make threshold function widget{% endif %}{% if cookiecutter.include_reader_plugin == 'y' %}
+      title: Make threshold function widget
     - id: {{cookiecutter.plugin_name}}.make_qwidget
       python_name: {{cookiecutter.module_name}}:ExampleQWidget
-      title: Make example QWidget
+      title: Make example QWidget{% endif %}{% if cookiecutter.include_reader_plugin == 'y' %}
   readers:
     - command: {{cookiecutter.plugin_name}}.get_reader
       accepts_directories: false
