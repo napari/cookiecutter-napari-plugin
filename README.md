@@ -114,6 +114,8 @@ update (configuration is in `.github/workflows/test_and_deploy.yml`). You can
 monitor them in the "Actions" tab of your github repository. If you're
 following along, go have a look... they should be running right now!
 
+Currently, the timeout for these runs is set to 30 minutes to save resources. You can modify the settings if necessary. Here you can find information on [GitHub workflows](https://docs.github.com/en/actions/learn-github-actions) and the [timeout parameter](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idtimeout-minutes).
+
 When the tests are done, test coverage will be viewable at
 [codecov.io](https://codecov.io/) (assuming your repository is public):
 `https://codecov.io/gh/<your-github-username>/<your-package-name>`
