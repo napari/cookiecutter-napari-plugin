@@ -21,7 +21,6 @@ jobs:
     name: ${{ matrix.platform }} py${{ matrix.python-version }}
     runs-on: ${{ matrix.platform }}
     timeout: 30
-    
     strategy:
       matrix:
         platform: [ubuntu-latest, windows-latest, macos-latest]
