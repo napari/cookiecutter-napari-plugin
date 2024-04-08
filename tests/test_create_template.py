@@ -116,4 +116,4 @@ def test_pre_commit_validity(cookies, include_reader_plugin, include_writer_plug
     try:
         subprocess.run(["pre-commit", "run", "--all", "--show-diff-on-failure"], cwd=str(result.project_path), check=True, capture_output=True)
     except subprocess.CalledProcessError as e:
-        pytest.fail(f"pre-commit failed with output:\n{e.stdout.decode()}\nerrror:\n{e.stderr.decode()}")
+        pytest.fail(f"pre-commit failed with output:\n{e.stdout.decode()}\nerror:\n{e.stderr.decode()}")
