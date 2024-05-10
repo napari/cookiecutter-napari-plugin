@@ -75,7 +75,7 @@ build-backend = "setuptools.build_meta"
 include-package-data = true
 
 [tool.setuptools.dynamic]
-version = {attr = "{{cookiecutter.module_name}}._version.__version__"}
+version = {attr = "{{cookiecutter.module_name}}.__init__.__version__"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
