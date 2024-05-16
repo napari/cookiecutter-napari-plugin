@@ -51,7 +51,7 @@ def test_run_cookiecutter_and_plugin_tests(cookies, capsys, include_reader_plugi
     if include_widget_plugin == "y":
         assert (test_path / "test_widget.py").is_file()
 
-    # if all are `n` there are no modules or tests    
+    # if all are `n` there are no modules or tests
     if "y" in {include_reader_plugin, include_writer_plugin, include_sample_data_plugin, include_widget_plugin}:
         run_tox(str(result.project_path))
 
