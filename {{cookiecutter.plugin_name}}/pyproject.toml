@@ -75,9 +75,6 @@ build-backend = "setuptools.build_meta"
 [tool.setuptools]
 include-package-data = true
 
-[tool.setuptools.dynamic]
-version = {attr = "{{cookiecutter.module_name}}.__init__.__version__"}
-
 [tool.setuptools.packages.find]
 where = ["src"]
 
@@ -87,6 +84,9 @@ where = ["src"]
 {% if cookiecutter.use_git_tags_for_versioning == 'y' and cookiecutter.plugin_name != "foo-bar" %}
 [tool.setuptools_scm]
 write_to = "src/{{cookiecutter.module_name}}/_version.py"
+{% else %}
+[tool.setuptools.dynamic]
+version = {attr = "{{cookiecutter.module_name}}.__init__.__version__"}
 {%- endif %}
 
 [tool.black]
