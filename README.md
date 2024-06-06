@@ -107,12 +107,6 @@ git commit -m 'initial commit'
    git push -u origin main
    ```
 
-### Enable Dependabot security updates
-
-You can use [Dependabot](https://docs.github.com/en/code-security/dependabot) security updates to easily update vulnerable dependencies.
-
-[Here's how to enable Dependabot in your github settings](https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#managing-dependabot-security-updates-for-your-repositories). Your Dependabot configuration file is located at `.github/dependabot.yml`.
-
 ### Monitor testing and coverage
 
 The repository should already be setup to run your tests each time you push an
@@ -220,6 +214,12 @@ pre-commit install
 
 You can also have these checks run automatically for you when you push to github
 by installing [pre-commit ci](https://pre-commit.ci/) on your repository.
+
+## Dependabot
+
+This template also includes a default yaml configuration for [Dependabot](https://docs.github.com/en/code-security/dependabot). This can help you check for security updates to easily update vulnerable dependencies.
+
+You will still need to enable Dependabot in your github settings, [see the instructions at this link](https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#managing-dependabot-security-updates-for-your-repositories). Your Dependabot configuration file is located at `.github/dependabot.yml`.
 
 ## Features
 
