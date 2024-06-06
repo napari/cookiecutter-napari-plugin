@@ -143,6 +143,22 @@ In order to use this option, you must run `git init` once in
 your package's root directory.
 ```
 
+## install_precommit
+
+The default for this prompt is `"n"`.
+
+If you choose "y" for this prompt, then [pre-commit](ttps://pre-commit.com/) will be installed.
+Among other things, it includes checks for code linting and best practices in napari plugins.
+
+## install_dependabot
+
+The default for this prompt is `"n"`.
+
+If you choose "y" for this prompt, then a [Dependabot](https://docs.github.com/en/code-security/dependabot) configuration file will be created at `.github/dependabot.yml`.
+
+You will still need to enable Dependabot in your github settings, [see the instructions at this link](https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#managing-dependabot-security-updates-for-your-repositories).
+
+
 ## license
 
 This prompt allows you to choose from a variety of open source licensing options

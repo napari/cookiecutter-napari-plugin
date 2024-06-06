@@ -1,0 +1,13 @@
+# Dependabot configuration
+# https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-github-dependabot-version-updates
+# https://til.simonwillison.net/github/dependabot-python-setup
+version: 2
+updates:
+- package-ecosystem: pip
+  directory: "/"
+  schedule:
+    interval: monthly
+  groups:
+    python-packages:
+      patterns:
+        - "*"

@@ -32,6 +32,10 @@ def remove_unrequested_plugin_examples():
     remove_file(f"src/{module}/_{name}.py")
     remove_file(f"src/{module}/_tests/test_{name}.py")
     logger.debug(f"removing {module}/_{name}.py")
+    # remove dependabot config if unrequested
+    {% elif key.startswith("install_dependabot") and value != 'y' %}
+    remove_file(".github/dependabot.yml")
+    logger.debug("removing .github/dependabot.yml")
     {% endif %}
     {% endfor %}
 
