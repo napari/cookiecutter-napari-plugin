@@ -3,7 +3,7 @@ plugin_name:
     help: The name of your plugin
     type: str
 display_name:
-    deafult: FooBar Segmentation
+    default: FooBar Segmentation
     help: Display name for your plugin
     type: str
 module_name:
@@ -19,7 +19,7 @@ full_name:
     help: Developer name
     type: str
 email:
-    placeholder: yourname@example.com
+    default: yourname@example.com
     help: Email address
     type: str
 github_username_or_organization:
