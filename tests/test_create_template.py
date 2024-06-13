@@ -139,8 +139,8 @@ def test_pre_commit_validity(copie, include_reader_plugin, include_writer_plugin
             "install_precommit": True,
         }
     )
-    result.project_path.joinpath("setup.cfg").is_file()
+    result.project_dir.joinpath("setup.cfg").is_file()
     try:
-        subprocess.run(["pre-commit", "run", "--all", "--show-diff-on-failure"], cwd=str(result.project_path), check=True, capture_output=True)
+        subprocess.run(["pre-commit", "run", "--all", "--show-diff-on-failure"], cwd=str(result.project_dir), check=True, capture_output=True)
     except subprocess.CalledProcessError as e:
         pytest.fail(f"pre-commit failed with output:\n{e.stdout.decode()}\nerror:\n{e.stderr.decode()}")
