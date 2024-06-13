@@ -1,0 +1,101 @@
+plugin_name:
+    default: napari-foobar
+    help: The name of your plugin
+    type: str
+display_name:
+    deafult: FooBar Segmentation
+    help: Display name for your plugin
+    type: str
+module_name:
+    default: "{{ plugin_name|lower|replace('-', '_') }}"
+    help: Plugin module name
+    type: str
+short_description:
+    placeholder: A simple plugin to use FooBar segmentation within napari
+    help: Short description of what your plugin does
+    type: str
+full_name:
+    placeholder: Napari Developer
+    help: Developer name
+    type: str
+email:
+    placeholder: yourname@example.com
+    help: Email address
+    type: str
+github_username_or_organization:
+    placeholder: githubuser
+    help: Github user or organisation name
+    type: str
+github_repository_url:
+    default: provide later
+    help: Github repository URL
+    type: str
+    choices:
+        - provide later
+        - https://github.com/{{github_username_or_organization}}/{{plugin_name}}
+include_reader_plugin:
+    default: true
+    help: Include reader plugin?
+    type: bool
+include_writer_plugin:
+    default: true
+    help: Include writer plugin?
+    type: bool
+include_sample_data_plugin:
+    default: true
+    help: Include sample data plugin?
+    type: bool
+include_widget_plugin:
+    default: true
+    help: Include widget plugin?
+    type: bool
+use_git_tags_for_versioning:
+    default: false
+    help: Use git tags for versioning?
+    type: bool
+install_precommit:
+    default: false
+    help: Install pre-commit? (Code formatting checks)
+    type: bool
+install_dependabot:
+    default: false
+    help: Install dependabot? (Automatic security updates of dependency versions)
+    type: bool
+license:
+    default: BSD-3
+    help: Which licence do you want your plugin code to have?
+    type: str
+    choices:
+        - BSD-3
+        - MIT
+        - Mozilla Public License 2.0
+        - Apache Software License 2.0
+        - GNU LGPL v3.0
+        - GNU GPL v3.0
+# copier configuration options
+_subdirectory: template
+_jinja_extensions:
+    - jinja2_time.TimeExtension
+_exclude:
+    - "copier.yaml"
+    - "copier.yml"
+    - "~*"
+    - "*.py[co]"
+    - "__pycache__"
+    - ".git"
+    - ".DS_Store"
+    - ".svn"
+    - "*licenses*"
+    - "_tasks.py"
+_tasks:
+    - [
+    "{{ _copier_python }}", # which python
+    "{{ _copier_conf.src_path }}{{ _copier_conf.sep }}_tasks.py", # task script
+    # keyword arguments for python script
+    "--plugin_name={{ plugin_name }}",
+    "--module_name={{ module_name }}",
+    "--project_directory={{ _copier_conf.dst_path }}",
+    "--install_precommit={{ install_precommit }}",
+    "--github_repository_url={{ github_repository_url }}",
+    "--github_username_or_organization={{ github_username_or_organization }}",
+    ]
