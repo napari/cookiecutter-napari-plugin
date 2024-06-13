@@ -1,26 +1,46 @@
 plugin_name:
-    default: napari-foobar
+    placeholder: napari-foobar
     help: The name of your plugin
     type: str
+    validator: >-
+        {% if not (plugin_name | regex_search("^[a-z0-9\-]+$")) %}
+        plugin_name must be lowercase, no spaces, and may contain hyphens.
+        {% endif %}
 display_name:
-    default: FooBar Segmentation
+    placeholder: FooBar Segmentation
     help: Display name for your plugin
     type: str
+    validator: >-
+        {% if not (display_name | regex_search('(.|\s)*\S(.|\s)*')) %}
+        display_name must not be empty
+        {% endif %}
 module_name:
-    default: "{{ plugin_name|lower|replace('-', '_') }}"
+    placeholder: "{{ plugin_name|lower|replace('-', '_') }}"
     help: Plugin module name
     type: str
+    validator: >-
+        {% if not (module_name | regex_search("^[a-z0-9_]+$")) %}
+        module_name must be lowercase, and may contain underscores
+        {% endif %}
 short_description:
     placeholder: A simple plugin to use FooBar segmentation within napari
     help: Short description of what your plugin does
     type: str
+    validator: >-
+        {% if not (short_description | regex_search('(.|\s)*\S(.|\s)*')) %}
+        short_description must not be empty
+        {% endif %}
+email:
+    placeholder: yourname@example.com
+    help: Email address
+    type: str
+    validator: >-
+        {% if not (email | regex_search('^[^@]+@[^@]+\.[^@]+$')) %}
+        email must take a similar form to yourname@example.com
+        {% endif %}
 full_name:
     placeholder: Napari Developer
     help: Developer name
-    type: str
-email:
-    default: yourname@example.com
-    help: Email address
     type: str
 github_username_or_organization:
     placeholder: githubuser
