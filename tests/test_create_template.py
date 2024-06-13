@@ -29,6 +29,7 @@ def test_run_plugin_tests(copie, capsys, include_reader_plugin, include_writer_p
     result = copie.copy(extra_answers={
         "plugin_name": "foo-bar",
         "display_name": "Foo Bar",
+        "module_name": "foo_bar",
         "short_description": "Super fast foo for all the bars",
         "full_name": "napari bot",
         "email": "etal@example.com",
