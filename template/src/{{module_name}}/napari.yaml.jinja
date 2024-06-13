@@ -1,57 +1,57 @@
-name: {{cookiecutter.plugin_name}}
-display_name: {{cookiecutter.display_name}}
+name: {{plugin_name}}
+display_name: {{display_name}}
 # use 'hidden' to remove plugin from napari hub search results
 visibility: public
 # see https://napari.org/stable/plugins/manifest.html for valid categories
 categories: ["Annotation", "Segmentation", "Acquisition"]
 contributions:
-  commands:{% if cookiecutter.include_reader_plugin == 'y' %}
-    - id: {{cookiecutter.plugin_name}}.get_reader
-      python_name: {{cookiecutter.module_name}}._reader:napari_get_reader
-      title: Open data with {{cookiecutter.display_name}}{% endif %}{% if cookiecutter.include_writer_plugin == 'y' %}
-    - id: {{cookiecutter.plugin_name}}.write_multiple
-      python_name: {{cookiecutter.module_name}}._writer:write_multiple
-      title: Save multi-layer data with {{cookiecutter.display_name}}
-    - id: {{cookiecutter.plugin_name}}.write_single_image
-      python_name: {{cookiecutter.module_name}}._writer:write_single_image
-      title: Save image data with {{cookiecutter.display_name}}{% endif %}{% if cookiecutter.include_sample_data_plugin == 'y' %}
-    - id: {{cookiecutter.plugin_name}}.make_sample_data
-      python_name: {{cookiecutter.module_name}}._sample_data:make_sample_data
-      title: Load sample data from {{cookiecutter.display_name}}{% endif %}{% if cookiecutter.include_widget_plugin == 'y' %}
-    - id: {{cookiecutter.plugin_name}}.make_container_widget
-      python_name: {{cookiecutter.module_name}}:ImageThreshold
+  commands:{% if include_reader_plugin %}
+    - id: {{plugin_name}}.get_reader
+      python_name: {{module_name}}._reader:napari_get_reader
+      title: Open data with {{display_name}}{% endif %}{% if include_writer_plugin %}
+    - id: {{plugin_name}}.write_multiple
+      python_name: {{module_name}}._writer:write_multiple
+      title: Save multi-layer data with {{display_name}}
+    - id: {{plugin_name}}.write_single_image
+      python_name: {{module_name}}._writer:write_single_image
+      title: Save image data with {{display_name}}{% endif %}{% if include_sample_data_plugin %}
+    - id: {{plugin_name}}.make_sample_data
+      python_name: {{module_name}}._sample_data:make_sample_data
+      title: Load sample data from {{display_name}}{% endif %}{% if include_widget_plugin %}
+    - id: {{plugin_name}}.make_container_widget
+      python_name: {{module_name}}:ImageThreshold
       title: Make threshold Container widget
-    - id: {{cookiecutter.plugin_name}}.make_magic_widget
-      python_name: {{cookiecutter.module_name}}:threshold_magic_widget
+    - id: {{plugin_name}}.make_magic_widget
+      python_name: {{module_name}}:threshold_magic_widget
       title: Make threshold magic widget
-    - id: {{cookiecutter.plugin_name}}.make_function_widget
-      python_name: {{cookiecutter.module_name}}:threshold_autogenerate_widget
+    - id: {{plugin_name}}.make_function_widget
+      python_name: {{module_name}}:threshold_autogenerate_widget
       title: Make threshold function widget
-    - id: {{cookiecutter.plugin_name}}.make_qwidget
-      python_name: {{cookiecutter.module_name}}:ExampleQWidget
-      title: Make example QWidget{% endif %}{% if cookiecutter.include_reader_plugin == 'y' %}
+    - id: {{plugin_name}}.make_qwidget
+      python_name: {{module_name}}:ExampleQWidget
+      title: Make example QWidget{% endif %}{% if include_reader_plugin %}
   readers:
-    - command: {{cookiecutter.plugin_name}}.get_reader
+    - command: {{plugin_name}}.get_reader
       accepts_directories: false
-      filename_patterns: ['*.npy']{% endif %}{% if cookiecutter.include_writer_plugin == 'y' %}
+      filename_patterns: ['*.npy']{% endif %}{% if include_writer_plugin %}
   writers:
-    - command: {{cookiecutter.plugin_name}}.write_multiple
+    - command: {{plugin_name}}.write_multiple
       layer_types: ['image*','labels*']
       filename_extensions: []
-    - command: {{cookiecutter.plugin_name}}.write_single_image
+    - command: {{plugin_name}}.write_single_image
       layer_types: ['image']
-      filename_extensions: ['.npy']{% endif %}{% if cookiecutter.include_sample_data_plugin == 'y' %}
+      filename_extensions: ['.npy']{% endif %}{% if include_sample_data_plugin %}
   sample_data:
-    - command: {{cookiecutter.plugin_name}}.make_sample_data
-      display_name: {{cookiecutter.display_name}}
-      key: unique_id.1{% endif %}{% if cookiecutter.include_widget_plugin == 'y' %}
+    - command: {{plugin_name}}.make_sample_data
+      display_name: {{display_name}}
+      key: unique_id.1{% endif %}{% if include_widget_plugin %}
   widgets:
-    - command: {{cookiecutter.plugin_name}}.make_container_widget
+    - command: {{plugin_name}}.make_container_widget
       display_name: Container Threshold
-    - command: {{cookiecutter.plugin_name}}.make_magic_widget
+    - command: {{plugin_name}}.make_magic_widget
       display_name: Magic Threshold
-    - command: {{cookiecutter.plugin_name}}.make_function_widget
+    - command: {{plugin_name}}.make_function_widget
       autogenerate: true
       display_name: Autogenerate Threshold
-    - command: {{cookiecutter.plugin_name}}.make_qwidget
+    - command: {{plugin_name}}.make_qwidget
       display_name: Example QWidget{% endif %}
