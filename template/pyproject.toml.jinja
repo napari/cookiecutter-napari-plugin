@@ -1,28 +1,28 @@
 [project]
-name = "{{cookiecutter.plugin_name}}"
+name = "{{plugin_name}}"
 dynamic = ["version"]
-description = "{{cookiecutter.short_description}}"
+description = "{{short_description}}"
 readme = "README.md"
 license = {file = "LICENSE"}
 authors = [
-  {name = "{{cookiecutter.full_name}}"},
-  {email = "{{cookiecutter.email}}"},
+  {name = "{{full_name}}"},
+  {email = "{{email}}"},
 ]
 classifiers = [
     "Development Status :: 2 - Pre-Alpha",
     "Framework :: napari",
     "Intended Audience :: Developers",
-    {% if cookiecutter.license == "MIT" -%}
+    {% if license == "MIT" -%}
     "License :: OSI Approved :: MIT License",
-    {%- elif cookiecutter.license == "BSD-3" -%}
+    {%- elif license == "BSD-3" -%}
     "License :: OSI Approved :: BSD License",
-    {%- elif cookiecutter.license == "GNU GPL v3.0" -%}
+    {%- elif license == "GNU GPL v3.0" -%}
     "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
-    {%- elif cookiecutter.license == "GNU LGPL v3.0" -%}
+    {%- elif license == "GNU LGPL v3.0" -%}
     "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
-    {%- elif cookiecutter.license == "Apache Software License 2.0" -%}
+    {%- elif license == "Apache Software License 2.0" -%}
     "License :: OSI Approved :: Apache Software License",
-    {%- elif cookiecutter.license == "Mozilla Public License 2.0" -%}
+    {%- elif license == "Mozilla Public License 2.0" -%}
     "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
     {%- endif %}
     "Operating System :: OS Independent",
@@ -38,7 +38,7 @@ classifiers = [
 requires-python = ">=3.9"
 dependencies = [
     "numpy",
-{% if cookiecutter.include_widget_plugin == 'y' %}    "magicgui",
+{% if include_widget_plugin %}    "magicgui",
     "qtpy",
     "scikit-image",
 {% endif %}]
@@ -48,24 +48,24 @@ testing = [
     "tox",
     "pytest",  # https://docs.pytest.org/en/latest/contents.html
     "pytest-cov",  # https://pytest-cov.readthedocs.io/en/latest/
-{% if cookiecutter.include_widget_plugin == 'y' %}    "pytest-qt",  # https://pytest-qt.readthedocs.io/en/latest/
+{% if include_widget_plugin %}    "pytest-qt",  # https://pytest-qt.readthedocs.io/en/latest/
     "napari",
     "pyqt5",
 {% endif %}]
 
 [project.entry-points."napari.manifest"]
-{{cookiecutter.plugin_name}} = "{{cookiecutter.module_name}}:napari.yaml"
+{{plugin_name}} = "{{module_name}}:napari.yaml"
 
-{% if cookiecutter.github_repository_url != 'provide later' -%}
+{% if github_repository_url != 'provide later' -%}
 [project.urls]
-"Bug Tracker" = "https://github.com/{{cookiecutter.github_username_or_organization}}/{{cookiecutter.plugin_name}}/issues"
-"Documentation" = "https://github.com/{{cookiecutter.github_username_or_organization}}/{{cookiecutter.plugin_name}}#README.md"
-"Source Code" = "https://github.com/{{cookiecutter.github_username_or_organization}}/{{cookiecutter.plugin_name}}"
-"User Support" = "https://github.com/{{cookiecutter.github_username_or_organization}}/{{cookiecutter.plugin_name}}/issues"
+"Bug Tracker" = "https://github.com/{{github_username_or_organization}}/{{plugin_name}}/issues"
+"Documentation" = "https://github.com/{{github_username_or_organization}}/{{plugin_name}}#README.md"
+"Source Code" = "https://github.com/{{github_username_or_organization}}/{{plugin_name}}"
+"User Support" = "https://github.com/{{github_username_or_organization}}/{{plugin_name}}/issues"
 {%- endif %}
 
 [build-system]
-{% if cookiecutter.use_git_tags_for_versioning == 'y' -%}
+{% if use_git_tags_for_versioning -%}
 requires = ["setuptools>=42.0.0", "wheel", "setuptools_scm"]
 {%- else -%}
 requires = ["setuptools>=42.0.0", "wheel"]
@@ -81,12 +81,12 @@ where = ["src"]
 [tool.setuptools.package-data]
 "*" = ["*.yaml"]
 
-{% if cookiecutter.use_git_tags_for_versioning == 'y' %}
+{% if use_git_tags_for_versioning %}
 [tool.setuptools_scm]
-write_to = "src/{{cookiecutter.module_name}}/_version.py"
+write_to = "src/{{module_name}}/_version.py"
 {% else %}
 [tool.setuptools.dynamic]
-version = {attr = "{{cookiecutter.module_name}}.__init__.__version__"}
+version = {attr = "{{module_name}}.__init__.__version__"}
 {%- endif %}
 
 [tool.black]

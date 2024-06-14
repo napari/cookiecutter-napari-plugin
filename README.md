@@ -1,6 +1,6 @@
-# cookiecutter-napari-plugin
+# napari-plugin-template
 
-[Cookiecutter] template for authoring ([npe2]-based) [napari] plugins.
+[Copier](https://copier.readthedocs.io/en/stable/) template for authoring ([npe2](https://github.com/napari/npe2)-based) [napari](https://napari.org/) plugins.
 
 **NOTE: This repo is not meant to be cloned/forked directly! Please read "Getting Started" below**
 
@@ -8,14 +8,18 @@
 
 ### Create your plugin package
 
-Install [Cookiecutter] and generate a new napari plugin project:
+nstall [Copier](https://copier.readthedocs.io/en/stable/) and the [jinja2-time](https://pypi.org/project/jinja2-time/) extension.
+Optionally install the napari plugin engine [npe2](https://github.com/napari/npe2), to help validate your new plugin is configured correctly.
+
+Then you can generate a new napari plugin project:
 
 ```bash
-pip install cookiecutter
-cookiecutter https://github.com/napari/cookiecutter-napari-plugin
+python -m pip install copier jinja2-time
+python -m pip install npe2
+copier copy --trust https://github.com/napari/napari-plugin-template new-plugin-name
 ```
 
-Cookiecutter prompts you for information regarding your plugin
+Copier prompts you for information regarding your plugin
 (A new folder will be created in your current working directory):
 
 ```bash
@@ -192,8 +196,7 @@ pytest
 ### Create your documentation
 
 Documentation generation is not included in this template.
-We recommend following the getting started guides for one of the following 
-documentation generation tools:
+We recommend following the getting started guides for one of the following documentation generation tools:
 
 1. [Sphinx]
 2. [MkDocs]
@@ -242,27 +245,28 @@ Details on why this plugin template is using the `src` layout can be found [here
 
 ## Issues
 
-If you encounter any problems with this cookiecutter template, please [file an
-issue] along with a detailed description.
+If you encounter any problems with this template, please
+[file an issue](https://github.com/napari/napari-plugin-template/issues/new)
+along with a detailed description.
 
 ## License
 
-Distributed under the terms of the [BSD-3] license, `cookiecutter-napari-plugin`
+Distributed under the terms of the [BSD-3] license, `napari-plugin-template`
 is free and open source software.
 
 [napari organization]: https://github.com/napari/
 [gitter_badge]: https://badges.gitter.im/Join%20Chat.svg
-[gitter]: https://gitter.im/napari/cookiecutter-napari-plugin?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge "Join Chat on Gitter.im"
-[travis_badge]: https://travis-ci.org/napari/cookiecutter-napari-plugin.svg?branch=main
-[travis]: https://travis-ci.org/napari/cookiecutter-napari-plugin "See Build Status on Travis CI"
-[docs_badge]: https://readthedocs.org/projects/cookiecutter-napari-plugin/badge/?version=latest
-[documentation]: https://cookiecutter-napari-plugin.readthedocs.io/en/latest/ "Documentation"
-[cookiecutter]: https://github.com/audreyr/cookiecutter
+[gitter]: https://gitter.im/napari/napari-plugin-template?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge "Join Chat on Gitter.im"
+[travis_badge]: https://travis-ci.org/napari/napari-plugin-template.svg?branch=main
+[travis]: https://travis-ci.org/napari/napari-plugin-template "See Build Status on Travis CI"
+[docs_badge]: https://readthedocs.org/projects/napari-plugin-template/badge/?version=latest
+[documentation]: https://napari-plugin-template.readthedocs.io/en/latest/ "Documentation"
+[copier]: https://github.com/copier-org/copier
 [napari]: https://github.com/napari/napari
 [npe2]: https://github.com/napari/npe2
 [pypi]: https://pypi.org/
 [tox]: https://tox.readthedocs.io/en/latest/
-[file an issue]: https://github.com/napari/cookiecutter-napari-plugin/issues
+[file an issue]: https://github.com/napari/napari-plugin-template/issues
 [sphinx]: https://www.sphinx-doc.org/en/master/usage/quickstart.html
 [mkdocs]: https://www.mkdocs.org/getting-started/
 [jupyterbook]: https://jupyterbook.org/en/stable/start/your-first-book.html
@@ -275,7 +279,6 @@ is free and open source software.
 [travis ci]: https://travis-ci.com/
 [appveyor]: http://www.appveyor.com/
 [pypa code of conduct]: https://www.pypa.io/en/latest/code-of-conduct/
-[shortbread]: https://github.com/audreyr/cookiecutter/releases/tag/1.4.0
 [osi_certified]: https://opensource.org/trademarks/osi-certified/web/osi-certified-120x100.png
 [osi]: https://opensource.org/
 [github actions]: https://github.com/features/actions

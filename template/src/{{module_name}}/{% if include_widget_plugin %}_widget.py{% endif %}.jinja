@@ -44,7 +44,7 @@ if TYPE_CHECKING:
 # a widget.
 def threshold_autogenerate_widget(
     img: "napari.types.ImageData",
-    threshold: "float", 
+    threshold: "float",
 ) -> "napari.types.LabelsData":
     return img_as_float(img) > threshold
 
