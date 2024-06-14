@@ -69,6 +69,7 @@ def test_run_plugin_tests_with_napari_prefix(copie, capsys):
     result = copie.copy(extra_answers={
         "plugin_name": name,
         "display_name": "napari Foo",
+        "module_name": "napari_foo",
         "short_description": "Super fast foo for all the bars",
         "full_name": "napari bot",
         "email": "etal@example.com",
@@ -92,6 +93,7 @@ def test_run_select_plugins(copie, capsys):
         extra_answers={
             "plugin_name": name,
             "display_name": "Foo Bar",
+            "module_name": "anything",
             "short_description": "Super fast foo for all the bars",
             "full_name": "napari bot",
             "email": "etal@example.com",
@@ -129,6 +131,7 @@ def test_pre_commit_validity(copie, include_reader_plugin, include_writer_plugin
         extra_answers={
             "plugin_name": "anything",
             "display_name": "Foo Bar",
+            "module_name": "anything",
             "short_description": "Super fast foo for all the bars",
             "full_name": "napari bot",
             "email": "etal@example.com",
