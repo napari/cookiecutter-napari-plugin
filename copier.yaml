@@ -3,7 +3,7 @@ plugin_name:
     help: The name of your plugin
     type: str
     validator: >-
-        {% if not (plugin_name | regex_search("^[a-z0-9\-]+$")) %}
+        {% if not (plugin_name | regex_search('^[a-z][a-z0-9\-]+$')) %}
         plugin_name must be lowercase, no spaces, and may contain hyphens.
         {% endif %}
 display_name:
@@ -19,7 +19,7 @@ module_name:
     help: Plugin module name
     type: str
     validator: >-
-        {% if not (module_name | regex_search("^[a-z0-9_]+$")) %}
+        {% if not (module_name | regex_search("^[a-z][_a-z0-9]+$")) %}
         module_name must be lowercase, and may contain underscores
         {% endif %}
 short_description:
@@ -34,10 +34,6 @@ email:
     placeholder: yourname@example.com
     help: Email address
     type: str
-    validator: >-
-        {% if not (email | regex_search('^[^@]+@[^@]+\.[^@]+$')) %}
-        email must take a similar form to yourname@example.com
-        {% endif %}
 full_name:
     placeholder: Napari Developer
     help: Developer name
